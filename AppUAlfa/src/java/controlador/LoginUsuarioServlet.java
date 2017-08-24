@@ -26,15 +26,13 @@ public class LoginUsuarioServlet extends HttpServlet {
             String password = request.getParameter("password");
             user.setCorreo(correo);
             user.setPassword(password);
+            System.out.println("-------------------------"+correo+"---"+password);
             
             if (!dao.loggear(user)) {
                 json.put("confirmacion","NAK");
                 System.out.println("No se pudo loggear");
-                
-
             } else {
                 json.put("confirmacion","ACK");
-
                 System.out.println("OOOOKKKKKKKKKKKK");
             }
 

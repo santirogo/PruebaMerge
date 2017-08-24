@@ -1,15 +1,9 @@
 package vo;
 
 public class UsuarioVO extends PersonaVO{
-
-   
     
     private double puntuacion;
-
     
-
-    
-
     public double getPuntuacion() {
         return puntuacion;
     }
