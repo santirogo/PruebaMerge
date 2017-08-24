@@ -19,8 +19,8 @@
             <%
                 ArrayList<ProductoVO> productos = (ArrayList<ProductoVO>) request.getAttribute("productos");
                 for (int i = 0; i < productos.size(); i++) {%>
-                <b><%=productos.get(i).getNombre()%>         <%=productos.get(i).getPrecio()%></b>
-                <input type="button" id="boton" value="añadir" name="<%=productos.get(i).getNombre()%>">
+                <b id="nombre<%=+i%>"><%=productos.get(i).getNombre()%>         </b><b id="precio<%=+i%>"><%=productos.get(i).getPrecio()%></b>
+                <input type="button" id="boton<%=+i%>" value="añadir" name="<%=productos.get(i).getNombre()%>"> <!--revisar-->
                 <%}
             %>
         </form>
