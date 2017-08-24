@@ -30,7 +30,7 @@ public class UsuarioDAO {
             statement.setString(2, usuario.getNombre());
             statement.setString(3, usuario.getCorreo());
             statement.setString(4, usuario.getPassword());
-            statement.setDouble(5, 5);
+            statement.setDouble(5, usuario.getPuntuacion());
             //--------------------------------------
             //3. Hacer la ejecucion
             resultado = statement.execute();
@@ -65,6 +65,7 @@ public class UsuarioDAO {
 
         return result;
     }
+    
     public boolean borrar(UsuarioVO usuario) {
         boolean result = false;
         String query = "delete from Usuarios where Celular = ?";
@@ -79,10 +80,11 @@ public class UsuarioDAO {
 
         return result;
     }
+    
     public boolean loggear(UsuarioVO usuario) {
 
         boolean res = false;
-        String query = "select * from Usuarios where Correo = ? and Password = ?";
+        String query = "select * from Usuarios where Correo = ? and Contrasena = ?";
 
         try {
             PreparedStatement preparedStmt = this.conexion.prepareStatement(query);
