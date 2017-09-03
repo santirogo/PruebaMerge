@@ -44,16 +44,11 @@ public class CorreoServlet extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             //try {
                 
-                String usuario = request.getParameter("usuario");
-                String pass = request.getParameter("password");
                 String destinatario = request.getParameter("destinatario");
-                String asunto = request.getParameter("asunto");
-                String mensaje = request.getParameter("mensaje");
-                System.out.println(usuario);
-                System.out.println(pass);
-                System.out.println(destinatario);
-                System.out.println(asunto);
-                System.out.println(usuario);
+                String usuario = "appumartsw";
+                String pass = "dondetusicompras";
+                String asunto = "Verificación cuenta AppU-Mart";
+                String mensaje = "Campo para el mensaje :v";
 
                 // Propiedades de la conexión, configuracion del servicio smtp.
                 Properties props = new Properties();
