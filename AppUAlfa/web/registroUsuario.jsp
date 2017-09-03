@@ -13,8 +13,16 @@
     </head>
     <body>
         <form>
-            Correo: <input type="text" id="correo">
-            Password: <input type="text" id="pass">
-        </form>
+            Correo: <input type="text" id="correo"><br>
+            Nombre: <input type="text" id="nombre"><br>
+            Password: <input type="text" id="pass"><br>
+            Confirmar password: <input type="text" id="pass2"><br>
+            Celular: <input type="text" id="celular"><br>
+            <input type="button" value="enviar" id="boton">
+            <div id="confirmacion">
+
+            </div>
+        </form><br>
+        <div id="error"></div>
     </body>
 </html>

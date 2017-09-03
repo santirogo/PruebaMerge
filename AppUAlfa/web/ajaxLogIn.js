@@ -20,7 +20,7 @@ $(document).ready(function(){
                     document.getElementById("ack").innerHTML = "DATOS CORRECTOS";
                 } else {
                     console.log("DATOS INCORRECTOS");
-                    document.getElementById("ack").innerHTML = "QUE ASCO!!! SANTIAGO ES GAY";
+                    document.getElementById("ack").innerHTML = "Datos incorrectos";
                 }
             },
 

@@ -84,6 +84,10 @@
         <servlet-name>AgregarProductoServlet</servlet-name>
         <servlet-class>controlador.AgregarProductoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegistroUsuarioServlet</servlet-name>
+        <servlet-class>controlador.RegistroUsuarioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
         <url-pattern>/IndexServlet</url-pattern>
@@ -167,6 +171,10 @@
     <servlet-mapping>
         <servlet-name>AgregarProductoServlet</servlet-name>
         <url-pattern>/AgregarProductoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistroUsuarioServlet</servlet-name>
+        <url-pattern>/RegistroUsuarioServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
