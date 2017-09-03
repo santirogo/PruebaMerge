@@ -18,7 +18,7 @@ $(document).ready(function (){
                 data: {correo:correo},
                 dataType: 'json',
                 success: function(data){
-                    if(data.confirmacion){
+                    if(data.confirmacion === "ok"){
                         $("#confirmacion").append("<p>Por favor digita el número de confirmación que te enviamos al correo\n\
                                  </p><input type='text' id='numero'><br> <input type='button' value='Confirmar'> id='confirmar'");
                         numeroAleatorio = data.numero;
@@ -44,7 +44,11 @@ $(document).ready(function (){
                 data: {correo:correo, nombre:nombre, pass:pass, celular:celular},
                 dataType: 'json',
                 success: function(data){
-                    alert("Se agregó correctamente :)");
+                    if(data.confirmacion === "ok"){
+                        alert("Se agregó correctamente :)");
+                    }else{
+                        alert("No se pudo agregar");
+                    }
                 }
             });
         }else{
