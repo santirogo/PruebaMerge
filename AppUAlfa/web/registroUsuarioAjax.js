@@ -5,7 +5,6 @@
  */
 
 $(document).ready(function (){
-    numeroAleatorio = 0;
     $("#boton").click(function (){
         correo = $("#correo").val();
         pass = $("#pass").val();
@@ -13,15 +12,13 @@ $(document).ready(function (){
         if(pass === pass2){
             $("#error").html("");
             $.ajax({
-                url: 'CorreoServlet',
-                type: 'POST',
+                url: 'RegistroUsuarioServlet',
+                type: 'GET',
                 data: {correo:correo},
                 dataType: 'json',
                 success: function(data){
                     if(data.confirmacion === "ok"){
-                        $("#confirmacion").append("<p>Por favor digita el número de confirmación que te enviamos al correo\n\
-                                 </p><input type='text' id='numero'><br> <input type='button' value='Confirmar'> id='confirmar'");
-                        numeroAleatorio = data.numero;
+                        document.getElementById("confirmacion").style.display = 'block';
                     }
                 }
             });
@@ -31,8 +28,11 @@ $(document).ready(function (){
         }
         
     });
+    
     $("#confirmar").click(function (){
-        if(numeroAleatorio === $("#numero").val()){
+        
+//        if(numeroAleatorio === $("#numero").val()){
+            numero = $("#numero").val();
             correo = $("#correo").val();
             nombre = $("#nombre").val();
             pass = $("#pass").val();
@@ -41,18 +41,23 @@ $(document).ready(function (){
             $.ajax({
                 url: 'RegistroUsuarioServlet',
                 type: 'POST',
-                data: {correo:correo, nombre:nombre, pass:pass, celular:celular},
+                data: {correo:correo, nombre:nombre, pass:pass, celular:celular, numero:numero},
                 dataType: 'json',
                 success: function(data){
-                    if(data.confirmacion === "ok"){
-                        alert("Se agregó correctamente :)");
+                    
+                    if(data.coincidencia === "ok"){
+                        $("#error").html("");
+                        console.log("Entroooooo al 2 success");
+                        if(data.confirmacion === "ok"){
+                            alert("Se agregó correctamente :)");
+                        }else{
+                            alert("No se pudo agregar");
+                        }
                     }else{
-                        alert("No se pudo agregar");
+                        $("#error").html("");
+                        $("#error").append("<p>número erróneo</p>");
                     }
                 }
             });
-        }else{
-            alert("El número es erróneo :(")
-        }
     });
 });

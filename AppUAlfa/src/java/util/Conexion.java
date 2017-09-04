@@ -31,7 +31,7 @@ public class Conexion {
     try {
  //2. Obtener la conexion
  this.connection =
- DriverManager.getConnection("jdbc:mysql://localhost:3306/AppUAlfa1","root","mfc96050505666da");
+ DriverManager.getConnection("jdbc:mysql://localhost:3306/appumart","root","root");
  } catch (SQLException ex) {
      Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
  }

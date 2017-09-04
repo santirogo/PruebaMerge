@@ -5,9 +5,13 @@
  */
 package controlador;
 
+import dao.CrearCorreo;
 import dao.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +25,7 @@ import vo.UsuarioVO;
  */
 public class RegistroUsuarioServlet extends HttpServlet {
     private UsuarioDAO usuario;
+    private int numero;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -50,7 +55,22 @@ public class RegistroUsuarioServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            String correo = request.getParameter("correo");
+            this.numero = (int) (Math.random()*10000)+1;
+            CrearCorreo cc = new CrearCorreo(correo, numero);
+            boolean envio = cc.enviar();
+            JSONObject json = new JSONObject();
+            if(envio){
+                json.put("confirmacion", "ok");
+                json.put("numero", numero);
+            }else{
+                json.put("confirmacion", "error");
+            }
+            out.print(json);
+        } catch (MessagingException ex) {
+            Logger.getLogger(RegistroUsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -66,23 +86,35 @@ public class RegistroUsuarioServlet extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         try (PrintWriter out = response.getWriter()) {
-            String correo = request.getParameter("correo");
-            String nombre = request.getParameter("nombre");
-            String pass = request.getParameter("pass");
-            String celular = request.getParameter("celular");
-            UsuarioVO user = new UsuarioVO();
-            user.setCorreo(correo);
-            user.setNombre(nombre);
-            user.setPassword(pass);
-            user.setCelular(celular);
-
-            boolean inserto = this.usuario.insertar(user);
+            this.usuario = new UsuarioDAO();
+            int num = Integer.parseInt(request.getParameter("numero"));
             JSONObject json = new JSONObject();
-            if (!inserto) {
-                json.put("confirmacion", "ok");
+            System.out.println("n1: "+num);
+            System.out.println("n2: "+this.numero);
+            if(num == this.numero){
+                String correo = request.getParameter("correo");
+                String nombre = request.getParameter("nombre");
+                String pass = request.getParameter("pass");
+                String celular = request.getParameter("celular");
+                UsuarioVO user = new UsuarioVO();
+                user.setCorreo(correo);
+                user.setNombre(nombre);
+                user.setPassword(pass);
+                user.setCelular(celular);
+                user.setPuntuacion(5);
+
+                boolean inserto = this.usuario.insertar(user);
+                
+                if (!inserto) {
+                    json.put("confirmacion", "ok");
+                }else{
+                    json.put("confirmacion", "error");
+                }
+                json.put("coincidencia", "ok");
             }else{
-                json.put("confirmacion", "error");
+                json.put("coincidencia", "error");
             }
+            
             out.print(json);
         }
         

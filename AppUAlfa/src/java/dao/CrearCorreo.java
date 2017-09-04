@@ -50,7 +50,7 @@ public class CrearCorreo {
                 // Construimos el mensaje
                 MimeMessage message = new MimeMessage(session);
                 message.setFrom(new InternetAddress(usuario+"@gmail.com"));
-                message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario+"@gmail.com"));
+                message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));
                 message.setSubject(asunto);
                 message.setText(mensaje);
 

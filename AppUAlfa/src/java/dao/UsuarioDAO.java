@@ -20,6 +20,7 @@ public class UsuarioDAO {
     public boolean insertar(UsuarioVO usuario) {
         boolean resultado = false;
         try {
+            System.out.println("entro al insetar");
             //1.Establecer la consulta
             String consulta = "INSERT INTO Usuarios VALUES(?,?,?,?,?)";
             //2. Crear el PreparedStament
@@ -45,7 +46,7 @@ public class UsuarioDAO {
     
     public boolean editar(UsuarioVO usuario) {
         boolean result = false;
-        String query = "update Usuarios set Celular = ?, Nombre = ?, Correo = ?, Password= ? where Celular = ?";
+        String query = "update Usuarios set Celular = ?, Nombre = ?, Correo = ?, Contrasena= ? where Celular = ?";
         PreparedStatement preparedStmt = null;
         try {
             preparedStmt = this.conexion.prepareStatement(query);

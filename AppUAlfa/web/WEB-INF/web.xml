@@ -65,10 +65,6 @@
         <servlet-class>controlador.HSSFCreate</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CorreoServlet</servlet-name>
-        <servlet-class>controlador.CorreoServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>PDFServlet</servlet-name>
         <servlet-class>controlador.PDFServlet</servlet-class>
     </servlet>
@@ -87,6 +83,10 @@
     <servlet>
         <servlet-name>RegistroUsuarioServlet</servlet-name>
         <servlet-class>controlador.RegistroUsuarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CorreoServlet</servlet-name>
+        <servlet-class>controlador.CorreoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
@@ -151,10 +151,6 @@
     <servlet-mapping>
         <servlet-name>HSSFCreate</servlet-name>
         <url-pattern>/HSSFCreate</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CorreoServlet</servlet-name>
-        <url-pattern>/CorreoServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PDFServlet</servlet-name>
