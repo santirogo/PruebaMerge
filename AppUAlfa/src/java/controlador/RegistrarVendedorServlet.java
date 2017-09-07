@@ -130,12 +130,12 @@ public class RegistrarVendedorServlet extends HttpServlet {
                     //}
 
                 }
+            out.print(json);
 
             }
 
-            out.print(json);
         }
-    }
+    
 
     /**
      * Returns a short description of the servlet.
