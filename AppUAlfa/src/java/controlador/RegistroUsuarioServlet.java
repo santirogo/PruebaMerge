@@ -5,7 +5,7 @@
  */
 package controlador;
 
-import dao.CrearCorreo;
+import dao.EnviarMail;
 import dao.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,7 +25,7 @@ import vo.UsuarioVO;
  */
 public class RegistroUsuarioServlet extends HttpServlet {
     private UsuarioDAO usuario;
-    private int numero;
+    private EnviarMail correo;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -56,26 +56,21 @@ public class RegistroUsuarioServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
-            String correo = request.getParameter("correo");
-            String partesCorreo [] = correo.split("@");
+            String toSend = request.getParameter("correo");
+            String partesCorreo[] = toSend.split("@");
             JSONObject json = new JSONObject();
-            if(partesCorreo[1].equalsIgnoreCase("correo.usa.edu.co")){
-                this.numero = (int) (Math.random()*10000)+1;
-                CrearCorreo cc = new CrearCorreo(correo, numero);
-                boolean envio = cc.enviar();
-                if(envio){
-                    json.put("confirmacion", "ok");
-                    json.put("numero", numero);
-                }else{
-                    json.put("confirmacion", "error");
-                }
+            if (partesCorreo[1].equalsIgnoreCase("correo.usa.edu.co")) {
+//                this.numero = (int) (Math.random()*10000)+1;
+                this.correo = new EnviarMail();
+                this.correo.sendMail(toSend);
+
+                json.put("confirmacion", "ok");
+
                 json.put("universidad", "si");
-            }else{
+            } else {
                 json.put("universidad", "no");
             }
             out.print(json);
-        } catch (MessagingException ex) {
-            Logger.getLogger(RegistroUsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -87,7 +82,6 @@ public class RegistroUsuarioServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
@@ -96,8 +90,8 @@ public class RegistroUsuarioServlet extends HttpServlet {
             int num = Integer.parseInt(request.getParameter("numero"));
             JSONObject json = new JSONObject();
             System.out.println("n1: "+num);
-            System.out.println("n2: "+this.numero);
-            if(num == this.numero){
+            System.out.println("n2: "+this.correo.getCod());
+            if(num == Integer.parseInt(this.correo.getCod())){
                 String correo = request.getParameter("correo");
                 String nombre = request.getParameter("nombre");
                 String pass = request.getParameter("pass");
