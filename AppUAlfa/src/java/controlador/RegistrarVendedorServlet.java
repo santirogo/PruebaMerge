@@ -118,16 +118,16 @@ public class RegistrarVendedorServlet extends HttpServlet {
 
                 sender = new EnviarMail();
                 sender.sendMail(correo);
-                if (request.getParameter("codigo") != null) {
-                    System.out.println("I got the coooooode");
+                //if (request.getParameter("codigo") != null) {
+                  //  System.out.println("I got the coooooode");
 
-                    if (request.getParameter("codigo").equals(sender.getCod())) {
-                        dao.insertar(vo);
-                        json.put("registro", "ok");
-                    } else {
-                        json.put("registro", "fail");
+                    //if (request.getParameter("codigo").equals(sender.getCod())) {
+                      //  dao.insertar(vo);
+                        //json.put("registro", "ok");
+                    //} else {
+                      //  json.put("registro", "fail");
 
-                    }
+                    //}
 
                 }
 
