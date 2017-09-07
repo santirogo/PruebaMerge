@@ -37,7 +37,7 @@ public class TiendaDAO {
 
         try {
 
-            String query = " insert into Tienda (nombre, categoria, IDTienda, IDFondo)"
+            String query = " insert into Tienda (nombre, categoria, celular, IDFondo, producto)"
                     + " values (?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = null;
