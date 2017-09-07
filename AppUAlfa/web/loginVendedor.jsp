@@ -10,7 +10,7 @@
     <body>
         <form>
             Correo:<input type="text" id="correo"/><br>
-            Contraseña:<input type="text" id="password"/><br>
+            Contraseña:<input type="password" id="password"/><br>
             <input type="submit" id="login" value="Entrar"/>
             ¿No tienes una cuenta? <a href="http://localhost:8080/AppuMart/registrarVendedor.jsp">Registrarme</a>
             <p id="ack">CONFIRMACION</p>
