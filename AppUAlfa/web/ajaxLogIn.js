@@ -18,6 +18,7 @@ $(document).ready(function(){
                 if (data.confirmacion === "ACK") {
                     console.log("DATOS CORRECTOS");
                     document.getElementById("ack").innerHTML = "DATOS CORRECTOS";
+                    window.location.replace("CreacionTienda.jsp");
                 } else {
                     console.log("DATOS INCORRECTOS");
                     document.getElementById("ack").innerHTML = "QUE ASCO!!! SANTIAGO ES GAY";
