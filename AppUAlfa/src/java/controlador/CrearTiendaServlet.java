@@ -19,6 +19,7 @@ import org.json.JSONObject;
 import vo.PersonaVO;
 import vo.ProductoVO;
 import vo.TiendaVO;
+import vo.VendedorVO;
 
 /**
  *
@@ -27,6 +28,7 @@ import vo.TiendaVO;
 //@WebServlet(urlPatterns = {"/CrearTiendaServlet"})
 public class CrearTiendaServlet extends HttpServlet {
     private TiendaDAO tienda;
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -47,23 +49,25 @@ public class CrearTiendaServlet extends HttpServlet {
             
             String nombre = request.getParameter("nombre");
             String categoria = request.getParameter("categoria");
-            String celularV = request.getParameter("celularV");
+            //String celularV = request.getParameter("celularV");
             String IDFondo = request.getParameter("fondo");
             prod.add(request.getParameter("productos"));
             
             TiendaVO tiendaVO = new TiendaVO();
+            VendedorVO vendedorVO = new VendedorVO();
+            String cel = vendedorVO.getCelular();
             tiendaVO.setNombre(nombre);
             tiendaVO.setCategoria(categoria);
-            tiendaVO.setVendedor(celularV);
+            tiendaVO.setVendedor(cel);
             tiendaVO.setIdFondo(IDFondo);
             tiendaVO.setProducto(prod);
                   
-            this.tienda.insertar(tiendaVO, celularV);
+            this.tienda.insertar(tiendaVO, vendedorVO);
             
             JSONObject json = new JSONObject();
             json.put("nombre", nombre);
             json.put("categoria", categoria);
-            json.put("celular", celularV);            
+            json.put("celular", cel);            
             json.put("cantidad", prod);
             
             out.print(json);

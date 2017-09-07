@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import util.Conexion;
 import vo.PersonaVO;
 import vo.TiendaVO;
+import vo.VendedorVO;
 
 /**
  *
@@ -30,7 +31,7 @@ public class TiendaDAO {
         this.conexion = db.getConnection();
     }
 
-    public boolean insertar(TiendaVO tienda, String celular) {
+    public boolean insertar(TiendaVO tienda, VendedorVO vendedor) {
         Boolean b;
 
         Connection connection = null;
@@ -46,7 +47,7 @@ public class TiendaDAO {
 
             preparedStmt.setString(1, tienda.getNombre());
             preparedStmt.setString(2, tienda.getCategoria());
-            preparedStmt.setString(3, celular);
+            preparedStmt.setString(3, vendedor.getCelular());
             preparedStmt.setString(4, tienda.getIdFondo()); 
            
             ArrayList arraypro =tienda.getProducto();
