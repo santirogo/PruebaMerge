@@ -85,7 +85,7 @@ public class VendedorDAO {
     public boolean loggear(VendedorVO vendedor) {
 
         boolean res = false;
-        String query = "select * from Usuarios where Correo = ? and Contrasena = ?";
+        String query = "select * from Vendedores where Correo = ? and Contrasena = ?";
 
         try {
             PreparedStatement preparedStmt = this.conexion.prepareStatement(query);
