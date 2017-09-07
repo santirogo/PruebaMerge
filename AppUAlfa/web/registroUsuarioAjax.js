@@ -17,8 +17,12 @@ $(document).ready(function (){
                 data: {correo:correo},
                 dataType: 'json',
                 success: function(data){
-                    if(data.confirmacion === "ok"){
-                        document.getElementById("confirmacion").style.display = 'block';
+                    if (data.universidad === "si") {
+                        if(data.confirmacion === "ok"){
+                            document.getElementById("confirmacion").style.display = 'block';
+                        }
+                    }else{
+                        alert("El correo debe ser de la universidad");
                     }
                 }
             });
@@ -29,35 +33,34 @@ $(document).ready(function (){
         
     });
     
-    $("#confirmar").click(function (){
-        
-//        if(numeroAleatorio === $("#numero").val()){
-            numero = $("#numero").val();
-            correo = $("#correo").val();
-            nombre = $("#nombre").val();
-            pass = $("#pass").val();
-            celular = $("#celular").val();
+    $("#confirmar").click(function () {
 
-            $.ajax({
-                url: 'RegistroUsuarioServlet',
-                type: 'POST',
-                data: {correo:correo, nombre:nombre, pass:pass, celular:celular, numero:numero},
-                dataType: 'json',
-                success: function(data){
-                    
-                    if(data.coincidencia === "ok"){
-                        $("#error").html("");
-                        console.log("Entroooooo al 2 success");
-                        if(data.confirmacion === "ok"){
-                            alert("Se agregó correctamente :)");
-                        }else{
-                            alert("No se pudo agregar");
-                        }
-                    }else{
-                        $("#error").html("");
-                        $("#error").append("<p>número erróneo</p>");
+        numero = $("#numero").val();
+        correo = $("#correo").val();
+        nombre = $("#nombre").val();
+        pass = $("#pass").val();
+        celular = $("#celular").val();
+
+        $.ajax({
+            url: 'RegistroUsuarioServlet',
+            type: 'POST',
+            data: {correo: correo, nombre: nombre, pass: pass, celular: celular, numero: numero},
+            dataType: 'json',
+            success: function (data) {
+
+                if (data.coincidencia === "ok") {
+                    $("#error").html("");
+                    console.log("Entroooooo al 2 success");
+                    if (data.confirmacion === "ok") {
+                        alert("Se agregó correctamente :)");
+                    } else {
+                        alert("No se pudo agregar");
                     }
+                } else {
+                    $("#error").html("");
+                    $("#error").append("<p>número erróneo</p>");
                 }
-            });
+            }
+        });
     });
 });

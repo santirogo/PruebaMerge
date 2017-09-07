@@ -57,15 +57,21 @@ public class RegistroUsuarioServlet extends HttpServlet {
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
             String correo = request.getParameter("correo");
-            this.numero = (int) (Math.random()*10000)+1;
-            CrearCorreo cc = new CrearCorreo(correo, numero);
-            boolean envio = cc.enviar();
+            String partesCorreo [] = correo.split("@");
             JSONObject json = new JSONObject();
-            if(envio){
-                json.put("confirmacion", "ok");
-                json.put("numero", numero);
+            if(partesCorreo[1].equalsIgnoreCase("correo.usa.edu.co")){
+                this.numero = (int) (Math.random()*10000)+1;
+                CrearCorreo cc = new CrearCorreo(correo, numero);
+                boolean envio = cc.enviar();
+                if(envio){
+                    json.put("confirmacion", "ok");
+                    json.put("numero", numero);
+                }else{
+                    json.put("confirmacion", "error");
+                }
+                json.put("universidad", "si");
             }else{
-                json.put("confirmacion", "error");
+                json.put("universidad", "no");
             }
             out.print(json);
         } catch (MessagingException ex) {
