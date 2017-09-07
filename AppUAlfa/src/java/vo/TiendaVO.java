@@ -6,14 +6,24 @@ public class TiendaVO {
     
  private String categoria;
  private String nombre;
- private VendedorVO vendedor;
- private ArrayList<ProductoVO> producto;
+ private String vendedor;
+ private ArrayList<String> producto;
  private double puntuacion;
- 
+ private String idFondo;
+
 
     public TiendaVO() {
-        this.producto= new ArrayList<ProductoVO>();
+        
     }
+    
+    public String getIdFondo() {
+        return idFondo;
+    }
+
+    public void setIdFondo(String idFondo) {
+        this.idFondo = idFondo;
+    }
+    
     public String getCategoria() {
         return categoria;
     }
@@ -30,17 +40,22 @@ public class TiendaVO {
         this.nombre = nombre;
     }
 
-    public VendedorVO getVendedor() {
+    public String getVendedor() {
         return vendedor;
     }
 
-    public void setVendedor(VendedorVO vendedor) {
+    public void setVendedor(String vendedor) {
         this.vendedor = vendedor;
     }
 
-    public ArrayList<ProductoVO> getProducto() {
+    public ArrayList<String> getProducto() {
         return producto;
     }
+
+    public void setProducto(ArrayList<String> producto) {
+        this.producto = producto;
+    }
+
 
     public double getPuntuacion() {
         return puntuacion;
