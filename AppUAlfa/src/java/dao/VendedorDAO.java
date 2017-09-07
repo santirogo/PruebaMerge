@@ -22,7 +22,7 @@ public class VendedorDAO {
         boolean resultado = false;
         try {
             //1.Establecer la consulta
-            String consulta = "INSERT INTO Vendedores VALUES(?,?,?,?,?)";
+            String consulta = "INSERT INTO Vendedores VALUES(?,?,?,?)";
             //2. Crear el PreparedStament
             PreparedStatement statement
                     = this.conexion.prepareStatement(consulta);
@@ -31,7 +31,7 @@ public class VendedorDAO {
             statement.setString(2, vendedor.getNombre());
             statement.setString(3, vendedor.getCorreo());
             statement.setString(4, vendedor.getPassword());
-            statement.setInt(5, 5);
+            
             //--------------------------------------
             //3. Hacer la ejecucion
             resultado = statement.execute();
