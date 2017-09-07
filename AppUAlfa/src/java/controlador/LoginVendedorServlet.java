@@ -20,14 +20,17 @@ import vo.VendedorVO;
  * @author Nicolas
  */
 public class LoginVendedorServlet extends HttpServlet {
+    JSONObject json;
+    VendedorDAO dao;
+    VendedorVO vo;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            JSONObject json = new JSONObject();
-            VendedorDAO dao = new VendedorDAO();
-            VendedorVO vo = new VendedorVO();
+            json = new JSONObject();
+            dao = new VendedorDAO();
+            vo = new VendedorVO();
             String correo = request.getParameter("correo");
             String password = request.getParameter("password");
             vo.setCorreo(correo);
