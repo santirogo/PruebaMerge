@@ -18,6 +18,7 @@ $(document).ready(function(){
                 if (data.confirmacion === "ACK") {
                     console.log("DATOS CORRECTOS");
                     document.getElementById("ack").innerHTML = "DATOS CORRECTOS";
+                    window.location.href = "construccion.jsp";
                 } else {
                     console.log("DATOS INCORRECTOS");
                     document.getElementById("ack").innerHTML = "Datos incorrectos";

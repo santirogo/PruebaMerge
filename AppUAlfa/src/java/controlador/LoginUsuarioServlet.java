@@ -13,14 +13,14 @@ import vo.UsuarioVO;
 
 
 public class LoginUsuarioServlet extends HttpServlet {
-
+    private UsuarioDAO usuario;
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             JSONObject json = new JSONObject();
-            UsuarioDAO dao = new UsuarioDAO();
+            this.usuario = new UsuarioDAO();
             UsuarioVO user = new UsuarioVO();
             String correo = request.getParameter("correo");
             String password = request.getParameter("password");
@@ -28,7 +28,7 @@ public class LoginUsuarioServlet extends HttpServlet {
             user.setPassword(password);
             System.out.println("-------------------------"+correo+"---"+password);
             
-            if (!dao.loggear(user)) {
+            if (!this.usuario.loggear(user)) {
                 json.put("confirmacion","NAK");
                 System.out.println("No se pudo loggear");
             } else {
