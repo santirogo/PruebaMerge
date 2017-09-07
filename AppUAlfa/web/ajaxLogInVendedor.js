@@ -20,7 +20,7 @@ $(document).ready(function(){
             success: function(data) {
                 if (data.confirmacion === "ACK") {
                     console.log("DATOS CORRECTOS");
-                    document.getElementById("ack").innerHTML = "DATOS CORRECTOS
+                    document.getElementById("ack").innerHTML = "DATOS CORRECTOS";
                     window.location.href = "CreacionTienda.jsp";
 
                 } else {
