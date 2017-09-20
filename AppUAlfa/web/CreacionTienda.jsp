@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,6 +13,7 @@
     </center>
         <form>
             Nombre: <input type="text" id="nombre"/><br>
+            Celular: <input type="text" id="celular"/><br>
             <p>Productos:</p><br>
             
             
@@ -83,3 +84,4 @@
         
     </body>
 </html>
+   
