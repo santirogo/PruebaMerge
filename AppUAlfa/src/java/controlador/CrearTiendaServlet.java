@@ -48,28 +48,30 @@ public class CrearTiendaServlet extends HttpServlet {
             ArrayList<String> prod = new ArrayList<>();
             
             String nombre = request.getParameter("nombre");
-            String categoria = request.getParameter("categoria");
-            //String celularV = request.getParameter("celularV");
+            String celularV = request.getParameter("celular");
             String IDFondo = request.getParameter("fondo");
             prod.add(request.getParameter("productos"));
             
             TiendaVO tiendaVO = new TiendaVO();
-            VendedorVO vendedorVO = new VendedorVO();
-            String cel = vendedorVO.getCelular();
+//            VendedorVO vendedorVO = new VendedorVO();
+            //String cel = vendedorVO.getCelular();
             tiendaVO.setNombre(nombre);
-            tiendaVO.setCategoria(categoria);
-            tiendaVO.setVendedor(cel);
+            tiendaVO.setVendedor(celularV);
+            //tiendaVO.setVendedor(vendedorVO.getCelular());
             tiendaVO.setIdFondo(IDFondo);
             tiendaVO.setProducto(prod);
                   
-            this.tienda.insertar(tiendaVO, vendedorVO);
             
             JSONObject json = new JSONObject();
-            json.put("nombre", nombre);
-            json.put("categoria", categoria);
-            json.put("celular", cel);            
-            json.put("cantidad", prod);
             
+            if (!this.tienda.insertar(tiendaVO)) {
+                json.put("confirmacion","NAK");
+                System.out.println("No se pudo crear la tienda");
+            } else {
+                json.put("confirmacion","ACK");
+                System.out.println("Tienda creada exitosamente");
+            }
+
             out.print(json);
             
         }

@@ -31,28 +31,29 @@ public class TiendaDAO {
         this.conexion = db.getConnection();
     }
 
-    public boolean insertar(TiendaVO tienda, VendedorVO vendedor) {
+    public boolean insertar(TiendaVO tienda) {
         Boolean b;
 
         Connection connection = null;
 
         try {
 
-            String query = " insert into Tienda (nombre, categoria, celular, IDFondo, producto)"
-                    + " values (?, ?, ?, ?, ?)";
+            String query = " insert into Tienda (nombre, celular, IDFondo, producto)"
+                    + " values (?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = null;
 
             preparedStmt = connection.prepareStatement(query);
 
             preparedStmt.setString(1, tienda.getNombre());
-            preparedStmt.setString(2, tienda.getCategoria());
-            preparedStmt.setString(3, vendedor.getCelular());
-            preparedStmt.setString(4, tienda.getIdFondo()); 
+            //preparedStmt.setString(2, tienda.getCategoria());
+            preparedStmt.setString(2, tienda.getVendedor());
+            preparedStmt.setString(3, tienda.getIdFondo()); 
            
             ArrayList arraypro =tienda.getProducto();
+            
             String productocapo=(String) arraypro.get(0);
-            preparedStmt.setString(5, productocapo);
+            preparedStmt.setString(4, productocapo);
             
             
             preparedStmt.executeUpdate();

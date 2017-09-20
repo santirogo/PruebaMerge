@@ -11,7 +11,6 @@ public class TiendaVO {
  private double puntuacion;
  private String idFondo;
 
-
     public TiendaVO() {
         
     }
