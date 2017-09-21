@@ -1,0 +1,33 @@
+body {
+    background-image: url("background-main.jpg");
+}
+
+p , h1, b{
+  font-family: 'Leckerli One', cursive;
+}
+
+.btn {
+  margin: 0 auto;
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: 'Leckerli One', cursive;
+  color: #ffffff;
+  font-size: 20px;
+  background: #210dd6;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #deed05;
+  text-decoration: none;
+}
+
+.centrito{
+  margin-top: 250px;
+}
+
+.centritoTu{
+  margin-top: 100px;
+}

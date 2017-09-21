@@ -11,22 +11,26 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="registroUsuarioAjax.js"></script>
-        <title>JSP Page</title>
+        <link href="styles.css" rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
+        <title>Registrate</title>
     </head>
     <body>
+    <center>
         <form>
-            Correo: <input type="text" id="correo"><br>
-            Nombre: <input type="text" id="nombre"><br>
-            Password: <input type="password" id="pass"><br>
-            Confirmar password: <input type="password" id="pass2"><br>
-            Celular: <input type="text" id="celular"><br>
-            <input type="button" value="enviar" id="boton">
+            <p>Correo: </p><input type="text" id="correo"><br>
+            <p>Nombre: </p><input type="text" id="nombre"><br>
+            <p>Password: </p><input type="password" id="pass"><br>
+            <p>Confirmar password: </p><input type="password" id="pass2"><br>
+            <p>Celular: </p><input type="text" id="celular"><br>
+            <input type="button" value="Registrarse" class="btn" id="boton">
             
             <div id="confirmacion" style="display:none">
                 <p id="parrafo">Por favor digita el número de confirmación que te enviamos al correo</p>
-                <input type="text" id="numero"><br> <input type="button" value="Confirmar" id="confirmar">
+                <input type="text" class="btn" id="numero"><br> <input class="btn" type="button" value="Confirmar" id="confirmar">
             </div>
         </form><br>
         <div id="error"></div>
+    </center>    
     </body>
 </html>
