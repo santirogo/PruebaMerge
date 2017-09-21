@@ -33,9 +33,11 @@ public class AgregarProductoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         try (PrintWriter out = response.getWriter()) {
+            
             this.producto = new ProductoDAO();
-            /* TODO output your page here. You may use following sample code. */
+            
             String nombre = request.getParameter("nombre");
             String categoria = request.getParameter("categoria");
             int precio = Integer.parseInt(request.getParameter("precio"));

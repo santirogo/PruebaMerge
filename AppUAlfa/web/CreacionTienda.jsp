@@ -14,21 +14,6 @@
         <form>
             Nombre: <input type="text" id="nombre"/><br>
             Celular: <input type="text" id="celular"/><br>
-            <p>Productos:</p><br>
-            
-            
-            <select name="prod_ref" id="Prod">
-                <option value="1">Papas Margarita BBQ</option>
-                <option value="2">Papas Margarita Limon</option>
-                <option value="3">Papas Margarita Natural</option>
-                <option value="4">Papas Margarita Pollo</option>
-                <option value="5">Mama Ia Ia</option>
-                <option value="6">Trident Menta</option>
-                <option value="7">Trident Canela</option>
-                <option value="8">Trident Mora Azul</option>
-                <option value="9">Cheetos</option>
-                <option value="10">Ponky</option>
-            </select>
             <br><br>
             Ingresa Numero Del Fondo Que Deseas En Tu Tienda: <input type="text" id="Fond"/><br><br>
             <center>
