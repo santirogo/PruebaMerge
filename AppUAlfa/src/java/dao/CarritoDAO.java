@@ -93,6 +93,29 @@ public class CarritoDAO {
         return x;
         
     }
+    
+    
+    public int cantidadTotal(){
+       
+        int x = 0;
+        String query = "select COUNT(nombre) from Carrito";
+
+        try {
+            Statement st = this.conexion.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            
+            while (rs.next()) {
+                x = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("Failed to make insertion!");
+            x = 0;
+            e.printStackTrace();
+        }
+
+        return x;
+        
+    } 
         
     public void vaciarCarrito() throws SQLException{
     
