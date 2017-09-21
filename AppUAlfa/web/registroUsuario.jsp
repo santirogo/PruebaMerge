@@ -17,8 +17,8 @@
         <form>
             Correo: <input type="text" id="correo"><br>
             Nombre: <input type="text" id="nombre"><br>
-            Password: <input type="text" id="pass"><br>
-            Confirmar password: <input type="text" id="pass2"><br>
+            Password: <input type="password" id="pass"><br>
+            Confirmar password: <input type="password" id="pass2"><br>
             Celular: <input type="text" id="celular"><br>
             <input type="button" value="enviar" id="boton">
             

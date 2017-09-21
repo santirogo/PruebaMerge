@@ -6,6 +6,7 @@ public class ProductoVO {
     private int precio;
     private String nombre;
     private int cantidad;
+    
 
     public String getCategoria() {
         return categoria;
