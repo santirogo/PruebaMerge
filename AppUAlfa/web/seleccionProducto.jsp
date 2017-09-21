@@ -11,17 +11,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js" type="text/javascript"></script>
+        <script type="text/javascript" src="seleccionProductoAjax.js"></script>
         <title>JSP Page</title>
     </head>
     <body>
         <form>
-            
-            <%
-                ArrayList<ProductoVO> productos = (ArrayList<ProductoVO>) request.getAttribute("productos");
-                for (int i = 0; i < productos.size(); i++) {%>
-                <b id="nombre<%=+i%>"><%=productos.get(i).getNombre()%>         </b><b id="precio<%=+i%>"><%=productos.get(i).getPrecio()%></b>
-                <input type="button" id="boton<%=+i%>" value="añadir"><br><br> <!--revisar-->
-                <%}
+                    
+                <b id="nPrimero">Primer producto</b>      <b id="pPrimero">Precio: $2000</b><br>
+                <button onclick=clickaction(this) id="Primero">Añadir</button><br><br>
+                
+                <b id="nSegundo">Segundo producto</b>      <b id="pSegundo">Precio: $6000</b><br>
+                <button onclick=clickaction(this) id="Segundo">Añadir</button><br><br>
+                
+                <b id="nTercero">Tercer producto</b>      <b id="pTercero">Precio: $10000</b><br>
+                <button onclick=clickaction(this) id="Tercero">Añadir</button><br><br>
+                <%//}
             %>
         </form>
 
