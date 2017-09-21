@@ -1,34 +1,32 @@
-package controlador;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package controlador;
 
+import dao.CarritoDAO;
 import dao.ProductoDAO;
-import dao.TiendaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
-import vo.PersonaVO;
-import vo.ProductoVO;
-import vo.TiendaVO;
-import vo.VendedorVO;
 
 /**
  *
  * @author Carlos Alberto
  */
-//@WebServlet(urlPatterns = {"/CrearTiendaServlet"})
-public class CrearTiendaServlet extends HttpServlet {
-    private TiendaDAO tienda;
-    
+@WebServlet(name = "MainMenuServlet", urlPatterns = {"/MainMenuServlet"})
+public class MainMenuServlet extends HttpServlet {
+private CarritoDAO carritoDAO;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -39,41 +37,35 @@ public class CrearTiendaServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            this.tienda= new TiendaDAO();
-            /* TODO output your page here. You may use following sample code. */
             
-            ArrayList<String> prod = new ArrayList<>();
             
-            String nombre = request.getParameter("nombre");
-            String celularV = request.getParameter("celular");
-            String IDFondo = request.getParameter("fondo");
-            //prod.add(request.getParameter("productos"));
-            
-            TiendaVO tiendaVO = new TiendaVO();
-//            VendedorVO vendedorVO = new VendedorVO();
-            //String cel = vendedorVO.getCelular();
-            tiendaVO.setNombre(nombre);
-            tiendaVO.setVendedor(celularV);
-            //tiendaVO.setVendedor(vendedorVO.getCelular());
-            tiendaVO.setIdFondo(IDFondo);
-            //tiendaVO.setProducto(prod);
-                  
+            String P="";
+            ProductoDAO productoDAO= new ProductoDAO();
+            String info= productoDAO.enviar();
             
             JSONObject json = new JSONObject();
+            json.put("info", info);
             
-            if (!this.tienda.insertar(tiendaVO)) {
-                json.put("confirmacion","NAK");
-                System.out.println("No se pudo crear la tienda");
-            } else {
-                json.put("confirmacion","ACK");
-                System.out.println("Tienda creada exitosamente");
-            }
-
             out.print(json);
             
+            
+            String nombre= request.getParameter("nombre");
+            int precio= Integer.parseInt(request.getParameter("precio"));
+            P = request.getParameter("opcion");
+            
+            ArrayList Arreglo = new ArrayList();
+            Arreglo.add(nombre);
+            Arreglo.add(precio);
+            
+            this.carritoDAO.AgregarProd(Arreglo);
+            
+            if(P.equals("1")){
+            Integer x=this.carritoDAO.precioTotal();
+            json.put("PrecioTotal", x.toString());
+            }
         }
     }
 
@@ -89,7 +81,11 @@ public class CrearTiendaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainMenuServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -103,7 +99,11 @@ public class CrearTiendaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainMenuServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

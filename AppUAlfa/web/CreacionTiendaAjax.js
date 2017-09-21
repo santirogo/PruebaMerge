@@ -2,13 +2,12 @@ $(document).ready(function () {
     $('#login').click(function () {
 
         var nombre = $('#nombre').val();
-        var productos = $('#Prod').val();
         var fondo = $('#Fond').val();
         var celular = $('#celular').val();
         $.ajax({ 
-            url: 'http://localhost:8080/AppuMart/CrearTiendaServlet',
+            url: 'http://localhost:8090/AppuMart/CrearTiendaServlet',
             type: 'post',
-            data: {nombre: nombre, celular: celular, productos: productos, fondo: fondo},
+            data: {nombre: nombre, celular: celular, fondo: fondo},
             dataType: 'json',
             success: function (data) {
                 
