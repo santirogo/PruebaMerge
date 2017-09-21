@@ -14,6 +14,7 @@
             <input type="submit" id="login" value="Entrar"/>
             <p id="ack">CONFIRMACION</p>
             
+            
             ¿Eres nuevo? <a registroUsuario.jsp><button>Registrarse</button></a>
         </form>
         

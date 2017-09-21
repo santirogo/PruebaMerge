@@ -23,6 +23,7 @@ $(document).ready(function(){
                     console.log("DATOS INCORRECTOS");
                     document.getElementById("ack").innerHTML = "Datos incorrectos";
                 }
+                
             },
 
             error: function(){
