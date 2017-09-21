@@ -13,15 +13,15 @@ function clickaction( b ){
         
         console.log("n:"+nombre);
         console.log("p:"+precio);
-//        $.ajax({
-//            url: 'AgregarProductoServlet',
-//            type: 'POST',
-//            data: {nombre:nombre, precio:precio},
-//            dataType: 'json',
-//            success: function(data){
-//                $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
-//            }
-//        });
+        $.ajax({
+            url: 'MainMenuServlet',
+            type: 'POST',
+            data: {nombre:nombre, precio:precio},
+            dataType: 'json',
+            success: function(data){
+                $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
+            }
+        });
     }
 $(document).ready(function (){
     

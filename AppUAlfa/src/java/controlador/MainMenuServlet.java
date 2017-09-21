@@ -65,12 +65,11 @@ private CarritoDAO carritoDAO;
             if(P.equals("1")){
             Integer x=this.carritoDAO.precioTotal();
             json.put("PrecioTotal", x.toString());
+            Integer y=this.carritoDAO.cantidadTotal();
+            json.put("CantiTotal", y.toString());
+            out.print(json);
             }
-            
-            if(P.equals("2")){
-            Integer x=this.carritoDAO.cantidadTotal();
-            json.put("CantiTotal", x.toString());
-            }
+
         }
     }
 
