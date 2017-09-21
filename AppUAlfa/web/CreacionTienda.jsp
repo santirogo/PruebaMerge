@@ -10,7 +10,7 @@
     <body>
     <center>
         <p>Configura Tu Tienda</p>
-    </center>
+    </center>  
         <form>
             Nombre: <input type="text" id="nombre"/><br>
             Celular: <input type="text" id="celular"/><br>
