@@ -17,15 +17,24 @@
     </head>
     <body>
         <form>
-                    
-                <b id="nPrimero">Primer producto</b>      <b id="pPrimero">Precio: $2000</b><br>
+                <%ArrayList productos = (ArrayList) request.getAttribute("productos");
+                  
+                    for (int i = 0; i < productos.size(); i=i+2) {%>
+                        <b id="n<%=(i/2)+1%>"><%productos.get(i);%></b>      <b id="p<%=(i/2)+1%>">Precio: $<%productos.get(i+1);%></b><br>
+                        <button onclick=clickaction(this) id="<%=(i/2)+1%>">Añadir</button><br><br>
+                  <%}%>
+                
+                
+                
+                
+<!--                <b id="nPrimero">Primer producto</b>      <b id="pPrimero">Precio: $2000</b><br>
                 <button onclick=clickaction(this) id="Primero">Añadir</button><br><br>
                 
                 <b id="nSegundo">Segundo producto</b>      <b id="pSegundo">Precio: $6000</b><br>
                 <button onclick=clickaction(this) id="Segundo">Añadir</button><br><br>
                 
                 <b id="nTercero">Tercer producto</b>      <b id="pTercero">Precio: $10000</b><br>
-                <button onclick=clickaction(this) id="Tercero">Añadir</button><br><br>
+                <button onclick=clickaction(this) id="Tercero">Añadir</button><br><br>-->
                 <%//}
             %>
         </form>

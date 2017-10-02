@@ -25,6 +25,4 @@ function clickaction( b ){
     }
 $(document).ready(function (){
     
-    
-    
 });

@@ -88,6 +88,10 @@
         <servlet-name>CorreoServlet</servlet-name>
         <servlet-class>controlador.CorreoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SeleccionTiendaServlet</servlet-name>
+        <servlet-class>controlador.SeleccionTiendaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
         <url-pattern>/IndexServlet</url-pattern>
@@ -171,6 +175,10 @@
     <servlet-mapping>
         <servlet-name>RegistroUsuarioServlet</servlet-name>
         <url-pattern>/RegistroUsuarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SeleccionTiendaServlet</servlet-name>
+        <url-pattern>/SeleccionTiendaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
