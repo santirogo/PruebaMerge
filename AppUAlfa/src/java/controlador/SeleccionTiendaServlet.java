@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  *
@@ -32,15 +34,20 @@ public class SeleccionTiendaServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SeleccionTiendaServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SeleccionTiendaServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            JSONArray array = new JSONArray();
+            JSONObject primero = new JSONObject();
+            primero.put("nombre", "p1");
+            primero.put("precio", "2000");
+            JSONObject segundo = new JSONObject();
+            segundo.put("nombre", "p2");
+            segundo.put("precio", "1500");
+            
+            array.put(primero);
+            array.put(segundo);
+            
+            String s = array.toString();
+            
+            out.print(s);
         }
     }
 

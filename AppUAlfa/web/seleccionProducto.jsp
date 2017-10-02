@@ -17,11 +17,19 @@
     </head>
     <body>
         <form>
-                <%ArrayList productos = (ArrayList) request.getAttribute("productos");
+                <%//ArrayList productos = (ArrayList) request.getAttribute("productos");
+                  ArrayList productos = new ArrayList();
+                  productos.add("producto1");
+                  productos.add("2000");
+                  productos.add("producto2");
+                  productos.add("1500");
                   
-                    for (int i = 0; i < productos.size(); i=i+2) {%>
-                        <b id="n<%=(i/2)+1%>"><%productos.get(i);%></b>      <b id="p<%=(i/2)+1%>">Precio: $<%productos.get(i+1);%></b><br>
-                        <button onclick=clickaction(this) id="<%=(i/2)+1%>">Añadir</button><br><br>
+                    for (int i = 0; i < productos.size(); i=i+2) {
+                        String nombre = (String) productos.get(i);
+                        String precio = (String) productos.get(i+1);
+                        %>
+                        <b id="n<%=(i/2)+1%>"><%=nombre%></b>      <b id="p<%=(i/2)+1%>">Precio: $<%=precio%></b><br>
+                        <button class="boton" id="<%=(i/2)+1%>">Añadir</button><br><br>
                   <%}%>
                 
                 
@@ -38,6 +46,6 @@
                 <%//}
             %>
         </form>
-
+        <div id="prueba"></div>
     </body>
 </html>

@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-function clickaction( b ){
-    let id = b.id;
-    console.log("id: "+id);
-        a = "#n"+id; 
+$(document).ready(function (){
+    $('.boton').click(function() {
+        var id = this.id;
+        console.log(id)
+        console.log("id: "+this.id);
+        a = "#n"+this.id; 
         console.log("a: "+a);
-        nombre = $("#n"+id).text();
-        precio = $("#p"+id).text();
+        nombre = $("#n"+this.id).text();
+        precio = $("#p"+this.id).text();
         
         console.log("n:"+nombre);
         console.log("p:"+precio);
 //        $.ajax({
-//            url: 'AgregarProductoServlet',
+//            url: 'MainMenuServlet',
 //            type: 'POST',
 //            data: {nombre:nombre, precio:precio},
 //            dataType: 'json',
@@ -22,7 +24,5 @@ function clickaction( b ){
 //                $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
 //            }
 //        });
-    }
-$(document).ready(function (){
-    
+    });
 });
