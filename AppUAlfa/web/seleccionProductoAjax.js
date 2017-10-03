@@ -4,6 +4,27 @@
  * and open the template in the editor.
  */
 $(document).ready(function (){
+    
+    $.ajax({
+        url: 'SeleccionTiendaServlet',
+        type: 'get',
+        dataType: 'json',
+        success: function(data){
+            console.log(JSON.stringify(data));
+            var str = JSON.stringify(data);
+            var precio = str.substr(10,10);
+            console.log(precio);
+//            var r = arr.substr(3,6);
+//            console.log(r);
+//            var i,x="";
+//            for (i in arr) {
+//                x += arr[i].nombre;
+//                x += arr[i].precio;
+//            }
+//            $("#prueba").append(""+x);
+        }
+    });
+    
     $('.boton').click(function() {
         var id = this.id;
         console.log(id)

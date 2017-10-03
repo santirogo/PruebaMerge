@@ -34,7 +34,7 @@ public class SeleccionTiendaServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            JSONArray array = new JSONArray();
+            JSONArray jArray = new JSONArray();
             JSONObject primero = new JSONObject();
             primero.put("nombre", "p1");
             primero.put("precio", "2000");
@@ -42,10 +42,12 @@ public class SeleccionTiendaServlet extends HttpServlet {
             segundo.put("nombre", "p2");
             segundo.put("precio", "1500");
             
-            array.put(primero);
-            array.put(segundo);
+            jArray.put(primero);
+            jArray.put(segundo);
             
-            String s = array.toString();
+            System.out.println("s: "+jArray.toString());
+            
+            String s = jArray.toString();
             
             out.print(s);
         }

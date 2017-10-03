@@ -17,34 +17,28 @@
     </head>
     <body>
         <form>
+                
                 <%//ArrayList productos = (ArrayList) request.getAttribute("productos");
                   ArrayList productos = new ArrayList();
                   productos.add("producto1");
                   productos.add("2000");
+                  productos.add("margarita.jpg");
                   productos.add("producto2");
                   productos.add("1500");
+                  productos.add("margarita2.jpg");
                   
-                    for (int i = 0; i < productos.size(); i=i+2) {
+                    for (int i = 0; i < productos.size(); i=i+3) {
                         String nombre = (String) productos.get(i);
                         String precio = (String) productos.get(i+1);
+                        String src = (String) productos.get(i+2);
                         %>
-                        <b id="n<%=(i/2)+1%>"><%=nombre%></b>      <b id="p<%=(i/2)+1%>">Precio: $<%=precio%></b><br>
+                        <pre style='display:inline'><b id="n<%=(i/2)+1%>"><%=nombre%></b></pre>      
+                        <pre style='display:inline'><b id="p<%=(i/2)+1%>"><%="\t"%>Precio: $<%=precio%></b></pre><br>
+                        <img src="<%=src%>" alt="foto" width="100" height="100">
                         <button class="boton" id="<%=(i/2)+1%>">Añadir</button><br><br>
                   <%}%>
-                
-                
-                
-                
-<!--                <b id="nPrimero">Primer producto</b>      <b id="pPrimero">Precio: $2000</b><br>
-                <button onclick=clickaction(this) id="Primero">Añadir</button><br><br>
-                
-                <b id="nSegundo">Segundo producto</b>      <b id="pSegundo">Precio: $6000</b><br>
-                <button onclick=clickaction(this) id="Segundo">Añadir</button><br><br>
-                
-                <b id="nTercero">Tercer producto</b>      <b id="pTercero">Precio: $10000</b><br>
-                <button onclick=clickaction(this) id="Tercero">Añadir</button><br><br>-->
-                <%//}
-            %>
+                  <div id="prueba"></div>
+                  
         </form>
         <div id="prueba"></div>
     </body>
