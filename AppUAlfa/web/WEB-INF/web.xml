@@ -77,6 +77,10 @@
         <servlet-class>controlador.LoginUsuarioServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ListarTiendasServlet</servlet-name>
+        <servlet-class>controlador.ListarTiendasServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AgregarProductoServlet</servlet-name>
         <servlet-class>controlador.AgregarProductoServlet</servlet-class>
     </servlet>
@@ -183,6 +187,10 @@
     <servlet-mapping>
         <servlet-name>LoginVendedorServlet</servlet-name>
         <url-pattern>/LoginVendedorServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarTiendasServlet</servlet-name>
+        <url-pattern>/ListarTiendasServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

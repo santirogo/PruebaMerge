@@ -6,7 +6,7 @@ public class TiendaVO {
     
  private String nombre;
  private String vendedor;
- //private ArrayList<String> producto;
+ private ArrayList<String> producto;
  private double puntuacion;
  private String idFondo;
 
@@ -39,13 +39,13 @@ public class TiendaVO {
         this.vendedor = vendedor;
     }
 
-//    public ArrayList<String> getProducto() {
-//        return producto;
-//    }
-//
-//    public void setProducto(ArrayList<String> producto) {
-//        this.producto = producto;
-//    }
+    public ArrayList<String> getProducto() {
+        return producto;
+    }
+
+    public void setProducto(ArrayList<String> producto) {
+        this.producto = producto;
+    }
 
 
     public double getPuntuacion() {
@@ -55,12 +55,4 @@ public class TiendaVO {
     public void setPuntuacion(double puntuacion) {
         this.puntuacion = puntuacion;
     }
-
-    
- 
- 
- 
- 
- 
- 
 }
