@@ -40,6 +40,7 @@
             </div>
             
         </form>
-
+        <iframe name="window" src="InfoCarrito.jsp" width="400" height="900" marginwidth="0" scrolling="yes" frameborder="0"></iframe>
+       
     </body>
 </html>
