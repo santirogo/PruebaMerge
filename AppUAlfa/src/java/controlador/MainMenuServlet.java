@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
+import com.google.gson.*;
 
 /**
  *
@@ -43,13 +44,13 @@ private CarritoDAO carritoDAO;
             
             
             String P="";
-            ProductoDAO productoDAO= new ProductoDAO();
-            String info= productoDAO.enviar();
-            
+//            ProductoDAO productoDAO= new ProductoDAO();
+//            String info= productoDAO.enviar();
+//            
             JSONObject json = new JSONObject();
-            json.put("info", info);
-            
-            out.print(json);
+//            json.put("info", info);
+//            
+//            out.print(json);
             
             
             String nombre= request.getParameter("nombre");
@@ -64,9 +65,9 @@ private CarritoDAO carritoDAO;
             
             if(P.equals("1")){
             Integer x=this.carritoDAO.precioTotal();
-            json.put("PrecioTotal", x.toString());
-            Integer y=this.carritoDAO.cantidadTotal();
-            json.put("CantiTotal", y.toString());
+            json.put("PrecioTotal", new Gson().toJson(x));
+//            Integer y=this.carritoDAO.cantidadTotal();
+//            json.put("CantiTotal", y.toString());
             out.print(json);
             }
 

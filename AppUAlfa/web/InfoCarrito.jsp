@@ -15,8 +15,8 @@
                 <br><br><br>
             <input type="text" id="opcion" value="1"/>
             <input type="submit" id="InfoCarro" value="Consultar"/>
-            <p id="ack"> . </p>
-            <p id="ackk"> . </p>
+            <p id="ack"></p>
+            <p id="ackk"></p>
             </center>
         </form>
         

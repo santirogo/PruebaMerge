@@ -3,7 +3,7 @@ $(document).ready(function(){
 
         var opcion = $('#opcion').val();
         $.ajax({
-            url:'http://localhost:8080/AppuMart/MainMenuServlet',
+            url:'MainMenuServlet',
             type:'post',
             data:{opcion:opcion},
             dataType: 'json',
