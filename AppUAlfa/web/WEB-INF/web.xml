@@ -100,6 +100,10 @@
         <servlet-name>LoginVendedorServlet</servlet-name>
         <servlet-class>controlador.LoginVendedorServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SeleccionTiendaServlet</servlet-name>
+        <servlet-class>controlador.SeleccionTiendaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
         <url-pattern>/IndexServlet</url-pattern>
@@ -191,6 +195,10 @@
     <servlet-mapping>
         <servlet-name>ListarTiendasServlet</servlet-name>
         <url-pattern>/ListarTiendasServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SeleccionTiendaServlet</servlet-name>
+        <url-pattern>/SeleccionTiendaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

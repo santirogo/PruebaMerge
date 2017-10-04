@@ -21,25 +21,30 @@
     </head>
     <body>
         <form>
-            
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <b id="nPrimero">Primer producto</b>      <b id="pPrimero">Precio: $2000</b><br>
-                        <button class="btn" onclick=clickaction(this) id="Primero">Añadir</button><br><br>
-                    </div>
-                    <div class="col-sm-4">
-                        <b id="nSegundo">Segundo producto</b>      <b id="pSegundo">Precio: $6000</b><br>
-                        <button class="btn" onclick=clickaction(this) id="Segundo">Añadir</button><br><br>
-                    </div>
-                    <div class="col-sm-4">
-                        <b id="nTercero">Tercer producto</b>      <b id="pTercero">Precio: $10000</b><br>
-                        <button class="btn" onclick=clickaction(this) id="Tercero">Añadir</button><br><br>                        
-                    </div>
-                </div>
-            </div>
-            
+                
+                <%//ArrayList productos = (ArrayList) request.getAttribute("productos");
+                  ArrayList productos = new ArrayList();
+                  productos.add("producto1");
+                  productos.add("2000");
+                  productos.add("margarita.jpg");
+                  productos.add("producto2");
+                  productos.add("1500");
+                  productos.add("margarita2.jpg");
+                  
+                    for (int i = 0; i < productos.size(); i=i+3) {
+                        String nombre = (String) productos.get(i);
+                        String precio = (String) productos.get(i+1);
+                        String src = (String) productos.get(i+2);
+                        %>
+                        <pre style='display:inline'><b id="n<%=(i/2)+1%>"><%=nombre%></b></pre>      
+                        <pre style='display:inline'><b id="p<%=(i/2)+1%>"><%="\t"%>Precio: $<%=precio%></b></pre><br>
+                        <img src="<%=src%>" alt="foto" width="100" height="100">
+                        <button class="boton" id="<%=(i/2)+1%>">Añadir</button><br><br>
+                  <%}%>
+                  <div id="prueba"></div>
+                  
         </form>
+        <div id="prueba"></div>
         <iframe name="window" src="InfoCarrito.jsp" width="400" height="900" marginwidth="0" scrolling="yes" frameborder="0"></iframe>
        
     </body>
