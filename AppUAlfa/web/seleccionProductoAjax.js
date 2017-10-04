@@ -5,10 +5,11 @@
  */
 function cli (id){
     console.log("Holaaaaaa "+id);
+    nombre = $("#n"+id).text();
     $.ajax({
             url: 'MainMenuServlet',
             type: 'POST',
-            data: {nombre:nombre, precio:precio},
+            data: {nombre:nombre},
             dataType: 'json',
             success: function(data){
                 $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
@@ -37,17 +38,17 @@ $(document).ready(function (){
         }
     });
     
-    $('.boton').click(function() {
-        var id = this.id;
-        console.log(id)
-        console.log("id: "+this.id);
-        a = "#n"+this.id; 
-        console.log("a: "+a);
-        nombre = $("#n"+this.id).text();
-        precio = $("#p"+this.id).text();
-        
-        console.log("n:"+nombre);
-        console.log("p:"+precio);
+//    $('.boton').click(function() {
+//        var id = this.id;
+//        console.log(id)
+//        console.log("id: "+this.id);
+//        a = "#n"+this.id; 
+//        console.log("a: "+a);
+//        nombre = $("#n"+this.id).text();
+//        precio = $("#p"+this.id).text();
+//        
+//        console.log("n:"+nombre);
+//        console.log("p:"+precio);
 //        $.ajax({
 //            url: 'MainMenuServlet',
 //            type: 'POST',
@@ -57,5 +58,5 @@ $(document).ready(function (){
 //                $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
 //            }
 //        });
-    });
+//    });
 });
