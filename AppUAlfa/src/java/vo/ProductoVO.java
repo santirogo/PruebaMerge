@@ -6,6 +6,7 @@ public class ProductoVO {
     private int precio;
     private String nombre;
     private int cantidad;
+    private String rutaImagen;
     private String Tienda;
 
     public String getTienda() {
@@ -46,5 +47,13 @@ public class ProductoVO {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public String getRutaImagen() {
+        return rutaImagen;
+    }
+
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
     }
 }
