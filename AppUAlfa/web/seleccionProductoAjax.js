@@ -10,18 +10,17 @@ $(document).ready(function (){
         type: 'get',
         dataType: 'json',
         success: function(data){
-            console.log(JSON.stringify(data));
-            var str = JSON.stringify(data);
-            var precio = str.substr(10,10);
-            console.log(precio);
-//            var r = arr.substr(3,6);
-//            console.log(r);
-//            var i,x="";
-//            for (i in arr) {
-//                x += arr[i].nombre;
-//                x += arr[i].precio;
-//            }
-//            $("#prueba").append(""+x);
+            for (var i = 0; i < data.arreglo.length; i++) {
+                console.log(data.arreglo[i].nombre);
+                console.log(data.arreglo[i].precio);
+                $("#prueba").append(
+                        "<pre style='display:inline'> <b id='n"+i+"'>"+data.arreglo[i].nombre+"</b></pre>", 
+                        "<pre style='display:inline'><b id='p"+i+"'>          Precio: $"+data.arreglo[i].precio+"</b></pre><br>",
+                        "<img src='margarita.jpg' alt='foto' width='100' height='100'>",
+                        "<button class='boton' id="+i+">Añadir</button><br><br>"
+                );
+            }
+            
         }
     });
     

@@ -45,11 +45,12 @@ public class SeleccionTiendaServlet extends HttpServlet {
             jArray.put(primero);
             jArray.put(segundo);
             
-            System.out.println("s: "+jArray.toString());
+            JSONObject fin = new JSONObject();
+            fin.put("arreglo", jArray);
             
-            String s = jArray.toString();
             
-            out.print(s);
+            
+            out.print(fin);
         }
     }
 
