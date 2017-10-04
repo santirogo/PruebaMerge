@@ -8,25 +8,25 @@
             <web-module-libraries>
                 <library dirs="200">
                     <file>${libs.MySQLDriver.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.activation.jar-1}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${file.reference.gson-2.8.0.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-<<<<<<< HEAD
-                    <file>${file.reference.activation.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.json-20140107.jar-2}</file>
+                    <file>${file.reference.json-20140107.jar-3}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${file.reference.mail.jar-1}</file>
-=======
-                    <file>${libs.MySQLDriver.classpath}</file>
->>>>>>> Santiago
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
