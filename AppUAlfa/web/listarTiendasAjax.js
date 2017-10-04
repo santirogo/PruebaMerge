@@ -18,7 +18,7 @@ $(document).ready(function () {
                 console.log(data.tiendas[i].nombre);
                 $('#div').append(
                         
-                        "<a href='http://localhost:8080/AppuMart/seleccionProducto.jsp'><button>\n\
+                        "<a href='http://localhost:8080/AppuMart/seleccionProducto.jsp'><button  onclick='sendName("+data.tiendas[i].nombre+")'>\n\
                          <img src="+data.tiendas[i].idfondo+" width='100' height='100'></button></a><br>",
                         "<a>"+data.tiendas[i].nombre+"</a><br>",
                         "<a>Vendedor: "+data.tiendas[i].vendedor+"</a><br>",
@@ -32,3 +32,25 @@ $(document).ready(function () {
         }
     });
 });
+function sendName(nTienda){
+    
+    
+
+        console.log("Entreeee a la funcioooooon");
+        
+        $.ajax({
+            url: 'SeleccionTiendaServlet',
+            type: 'get',
+            data: {nombre: nTienda},
+            dataType: 'json',
+            success: function (data) {
+                console.log("Nombresito de tienda enviado");
+            },
+            error: function () {
+                $('#conf1').val("ERROR FATAL");
+            }
+        });
+
+   
+    
+}
