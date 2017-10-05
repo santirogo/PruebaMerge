@@ -53,6 +53,7 @@ public class ListarTiendasServlet extends HttpServlet {
             json = new JSONObject();
             
 
+            json.put("id",tienda.getId());
             json.put("nombre", tienda.getNombre());
             json.put("vendedor", tienda.getVendedor());
             String punt = String.valueOf(tienda.getPuntuacion());
