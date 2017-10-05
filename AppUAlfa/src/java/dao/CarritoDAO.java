@@ -23,7 +23,8 @@ import vo.ProductoVO;
 public class CarritoDAO {
     
     private Connection conexion;
-    private CarritoVO carritoVO;
+    private CarritoVO carritoVO = CarritoVO.getCarrito();
+    
     
     public CarritoDAO() {
         Conexion db = Conexion.getConexion();
@@ -34,9 +35,12 @@ public class CarritoDAO {
     public boolean Agregar(ArrayList producto){
         boolean b=false;
 
+        System.out.println("NFREKGVNERKFNEK"+producto.get(0));
+        System.out.println("NFREKGVNERKFNEK"+producto.get(1));
+        
         int x = 0;
         
-        String query = "select * from productos where nombre='"+producto.get(0)+"' and tienda='"+producto.get(1)+"'";
+        String query = "select * from productos where nombre='"+producto.get(0)+"' and tienda="+producto.get(1);
 
         try {
             PreparedStatement preparedStmt = null;
@@ -51,17 +55,22 @@ public class CarritoDAO {
             if(rs!=null){
                 
             
-            while (rs.next()) {
-                
-                prod.setNombre(rs.getString(1));
-                prod.setCategoria(rs.getString(2));
-                prod.setPrecio(rs.getInt(3));              
-                prod.setTienda(rs.getInt(6));
+                while (rs.next()) {
+                    System.out.println("WHILEEEEEEE");
+                    prod.setNombre(rs.getString(1));
+                    System.out.println(rs.getString(1));
+                    prod.setCategoria(rs.getString(2));
+                    prod.setPrecio(rs.getInt(3));              
+                    prod.setTienda(rs.getInt(6));
 
-           }
-            carritoVO.agregarProducto(prod);
-            b=true;
-            return b;
+               }
+                
+                
+                carritoVO.agregarProducto(prod);
+                System.out.println(prod);
+                b=true;
+                return b;
+            
             
             
             }else{
@@ -82,12 +91,15 @@ public class CarritoDAO {
         ProductoVO productos = new ProductoVO();
         ArrayList<ProductoVO> productosVO = carritoVO.getProductos();
         int x=0;
+        System.out.println("ANTES DE FOOOOOOTTT"+productosVO.size());
         for (int i = 0; i < productosVO.size(); i++) {
+            System.out.println("FOOOOOOOOOOOORRRRRRRR");
             productos=productosVO.get(i);
             x=productos.getPrecio()+x;
         }
        
         String xs= Integer.toString(x);
+        System.out.println("XXXXXSSSS "+xs);
         return xs;
     }
     

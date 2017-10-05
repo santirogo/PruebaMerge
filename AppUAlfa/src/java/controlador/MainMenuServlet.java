@@ -75,22 +75,23 @@ private CarritoDAO carritoDAO;
             
             if(P.equals("1")){
                 //Envia Precio y cantidad
-            String x= Mateo.Precio();
-            String y=Mateo.Cantidad();
-            JSONObject total = new JSONObject();
-            JSONObject cant = new JSONObject();
-            
-            total.put("Total", x);
-            cant.put("Cant", y);
-            
-            JSONArray arreglo = new JSONArray();
-            
-            arreglo.put(total);
-            arreglo.put(cant);
-            
-            JSONObject fin = new JSONObject();
-            fin.put("Arreglo",arreglo);
-            out.print(fin);
+                String x= Mateo.Precio();
+                System.out.println("XXXXXXXX "+ x);
+                String y=Mateo.Cantidad();
+                JSONObject total = new JSONObject();
+                JSONObject cant = new JSONObject();
+
+                total.put("Total", x);
+                cant.put("Cant", y);
+
+                JSONArray arreglo = new JSONArray();
+
+                arreglo.put(total);
+                arreglo.put(cant);
+
+                JSONObject fin = new JSONObject();
+                fin.put("Arreglo",arreglo);
+                out.print(fin);
 
             }
             

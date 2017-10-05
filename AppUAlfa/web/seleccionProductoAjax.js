@@ -8,7 +8,7 @@ function cli (id){
     nombre = $("#n"+id).text();
     tienda = $("#encabezado").text();
     $.ajax({
-            url: 'MainMenuServlet',
+            url: 'AgregarCarritoServlet',
             type: 'POST',
             data: {nombre:nombre,tienda:tienda},
             dataType: 'json',

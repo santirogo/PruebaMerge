@@ -73,11 +73,14 @@ public class AgregarCarritoServlet extends HttpServlet {
             //processRequest(request, response);
         
             CarritoDAO carritoDAO = new CarritoDAO();
-            CarritoVO carritoVO = new CarritoVO();
+            CarritoVO carritoVO = CarritoVO.getCarrito();
             ProductoVO producto = new ProductoVO();
             
             String nombre= request.getParameter("nombre");
-            int tienda= Integer.parseInt(request.getParameter("Tienda"));
+            int tienda= Integer.parseInt(request.getParameter("tienda"));
+            
+            System.out.println("Nombreeeeee:  "+nombre);
+            System.out.println("Tiendaaaaaa id: "+tienda);
             
             ArrayList arregloCarro= new ArrayList();
             arregloCarro.add(nombre);

@@ -60,5 +60,7 @@
                 <div id="prueba"></div><br>
                 <div id="respuesta"></div>
             </form>
+            
+            <iframe src="InfoCarrito.jsp" width="300px" height="300px"></iframe>
     </body>
 </html>
