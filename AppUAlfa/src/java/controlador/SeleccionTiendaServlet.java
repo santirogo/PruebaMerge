@@ -40,8 +40,8 @@ public class SeleccionTiendaServlet extends HttpServlet {
             this.producto = new ProductoDAO();
             
 //            String nombreTienda = request.getParameter("nombre");
-            String nombreTienda = "Tienda De Perritos";
-            ArrayList <ProductoVO> productos = this.producto.productosPorTienda(nombreTienda);
+            int idTienda = 1;
+            ArrayList <ProductoVO> productos = this.producto.productosPorTienda(idTienda);
             JSONArray jArray = new JSONArray();
             
             for (int i = 0; i < productos.size(); i++) {
@@ -53,9 +53,10 @@ public class SeleccionTiendaServlet extends HttpServlet {
                 jArray.put(objeto);
             }
             
+            
             JSONObject fin = new JSONObject();
             fin.put("arreglo", jArray);
-            fin.put("tienda", nombreTienda);
+            fin.put("tienda", idTienda);
             
             out.print(fin);
         }

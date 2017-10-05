@@ -33,7 +33,7 @@ public class ProductoDAO {
             statement.setString(2, producto.getCategoria());
             statement.setInt(3, producto.getPrecio());
             statement.setInt(4, producto.getCantidad());
-            statement.setString(5, producto.getTienda());
+            statement.setInt(5, producto.getTienda());
             statement.setString(6, producto.getRutaImagen());
             //--------------------------------------
             //3. Hacer la ejecucion
@@ -129,10 +129,10 @@ public class ProductoDAO {
     
     }
     
-    public ArrayList productosPorTienda(String nombre){
+    public ArrayList productosPorTienda(int id){
         //1.Consulta
        ArrayList<ProductoVO> respuesta = new ArrayList<ProductoVO>();
-       String consulta ="SELECT * FROM Productos WHERE tienda = '"+nombre+"'";
+       String consulta ="SELECT * FROM Productos WHERE tienda = "+id;
         try {
             //----------------------------
             //Statement
@@ -147,7 +147,7 @@ public class ProductoDAO {
                 String name = resultado.getString("nombre");
                 int precio = resultado.getInt("precio");
                 String imagen = resultado.getString("imagen");
-                String tienda = resultado.getString("tienda");
+                int tienda = resultado.getInt("tienda");
                 ProductoVO p = new ProductoVO();
                 p.setNombre(name);
                 p.setPrecio(precio);
