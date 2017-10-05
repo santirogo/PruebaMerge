@@ -147,10 +147,12 @@ public class ProductoDAO {
                 String name = resultado.getString("nombre");
                 int precio = resultado.getInt("precio");
                 String imagen = resultado.getString("imagen");
+                String tienda = resultado.getString("tienda");
                 ProductoVO p = new ProductoVO();
                 p.setNombre(nombre);
                 p.setPrecio(precio);
                 p.setRutaImagen(imagen);
+                p.setTienda(tienda);
                 respuesta.add(p);
             }
             

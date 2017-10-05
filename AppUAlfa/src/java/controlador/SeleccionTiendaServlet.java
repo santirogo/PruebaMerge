@@ -48,6 +48,7 @@ public class SeleccionTiendaServlet extends HttpServlet {
                 objeto.put("nombre", productos.get(i).getNombre());
                 objeto.put("precio", productos.get(i).getPrecio());
                 objeto.put("ruta", productos.get(i).getRutaImagen());
+                objeto.put("tienda", productos.get(i).getTienda());
                 
                 jArray.put(objeto);
             }
