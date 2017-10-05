@@ -32,12 +32,10 @@ public class TiendaDAO {
 
         try {
 
-            String query = " insert into Tiendas (nombre, vendedor, puntuacion, idfondo)"
+            String query = "INSERT INTO Tiendas (nombre, vendedor, puntuacion, idfondo)"
                     + " values (?, ?, ?, ?)";
 
-            PreparedStatement preparedStmt = null;
-
-            preparedStmt = this.conexion.prepareStatement(query);
+            PreparedStatement preparedStmt = this.conexion.prepareStatement(query);
 
             preparedStmt.setString(1, tienda.getNombre());
             preparedStmt.setString(2, tienda.getVendedor());

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : agregarProducto
-    Created on : 23/08/2017, 11:51:07 PM
-    Author     : ayoro
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

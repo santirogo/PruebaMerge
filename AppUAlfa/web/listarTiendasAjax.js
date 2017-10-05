@@ -18,12 +18,12 @@ $(document).ready(function () {
                 console.log(data.tiendas[i].nombre);
                 $('#div').append(
                         
-                        "<a href='http://localhost:8080/AppuMart/seleccionProducto.jsp'><button  onclick='sendName("+data.tiendas[i].nombre+")'>\n\
+                        "<a href='http://localhost:44617/AppuMart/seleccionProducto.jsp'><button  onclick='sendName("+data.tiendas[i].nombre+")'>\n\
                          <img src="+data.tiendas[i].idfondo+" width='100' height='100'></button></a><br>",
                         "<a>"+data.tiendas[i].nombre+"</a><br>",
                         "<a>Vendedor: "+data.tiendas[i].vendedor+"</a><br>",
                         "<a>Puntuación: "+data.tiendas[i].puntuacion+"</a><br>"
-                        
+                       
                         );
             }
         },
