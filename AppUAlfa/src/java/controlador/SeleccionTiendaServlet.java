@@ -5,22 +5,25 @@
  */
 package controlador;
 
+import dao.ProductoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import vo.ProductoVO;
 
 /**
  *
  * @author ayoro
  */
 public class SeleccionTiendaServlet extends HttpServlet {
-
-    /*
+    private ProductoDAO producto;
+    /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -34,21 +37,23 @@ public class SeleccionTiendaServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            JSONArray jArray = new JSONArray();
-            JSONObject primero = new JSONObject();
-            primero.put("nombre", "p1");
-            primero.put("precio", "2000");
-            JSONObject segundo = new JSONObject();
-            segundo.put("nombre", "p2");
-            segundo.put("precio", "1500");
+            this.producto = new ProductoDAO();
             
-            jArray.put(primero);
-            jArray.put(segundo);
+            String nombreTienda = request.getParameter("nombre");
+            ArrayList <ProductoVO> productos = this.producto.productosPorTienda(nombreTienda);
+            JSONArray jArray = new JSONArray();
+            
+            for (int i = 0; i < productos.size(); i++) {
+                JSONObject objeto = new JSONObject();
+                objeto.put("nombre", productos.get(i).getNombre());
+                objeto.put("precio", productos.get(i).getPrecio());
+                objeto.put("ruta", productos.get(i).getRutaImagen());
+                
+                jArray.put(objeto);
+            }
             
             JSONObject fin = new JSONObject();
             fin.put("arreglo", jArray);
-            
-            
             
             out.print(fin);
         }
