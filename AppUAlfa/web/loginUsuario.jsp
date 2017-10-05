@@ -10,7 +10,9 @@
         <title>Login Usuario</title>
     </head>
     <body>
-        <p>¿Eres nuevo?</p><a registroUsuario.jsp> <button class="btn">Regístrate</button></a>
+        <img src="index_bg.jpg" class="background">
+        <p>¿Eres nuevo?</p>
+        <p><a href="http://localhost:8080/AppuMart/registroUsuario.jsp">Regístrate</button></a></p>
     <center class="centritoTu">
             <p>CORREO:</p><input type="text" id="correo"/><br>
             <p>CONTRASEÑA:</p><input type="password" id="password"/><br>
