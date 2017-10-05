@@ -53,6 +53,7 @@ public class SeleccionTiendaServlet extends HttpServlet {
                 jArray.put(objeto);
             }
             
+            
             JSONObject fin = new JSONObject();
             fin.put("arreglo", jArray);
             fin.put("tienda", idTienda);
