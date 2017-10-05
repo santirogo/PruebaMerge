@@ -23,7 +23,7 @@ import vo.ProductoVO;
 public class CarritoDAO {
     
     private Connection conexion;
-    private CarritoVO carritoVO;
+    private CarritoVO carritoVO = new CarritoVO();
     
     public CarritoDAO() {
         Conexion db = Conexion.getConexion();
