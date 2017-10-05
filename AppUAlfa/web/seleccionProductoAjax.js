@@ -25,7 +25,7 @@ $(document).ready(function (){
         type: 'get',
         dataType: 'json',
         success: function(data){
-            $("#encabezado").append("<h1>"+data.arreglo[0].tienda+"</h1>");
+            $("#encabezado").append("<h1>"+data.tienda+"</h1>");
             for (var i = 0; i < data.arreglo.length; i++) {
                 console.log(data.arreglo[i].nombre);
                 console.log(data.arreglo[i].precio);
