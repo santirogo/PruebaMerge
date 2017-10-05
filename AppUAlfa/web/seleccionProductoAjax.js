@@ -22,7 +22,7 @@ $(document).ready(function (){
     
     $.ajax({
         url: 'SeleccionTiendaServlet',
-        type: 'get',
+        type: 'POST',
         dataType: 'json',
         success: function(data){
             $("#encabezado").append("<h1>"+data.tienda+"</h1>");
