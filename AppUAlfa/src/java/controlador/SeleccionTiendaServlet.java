@@ -39,7 +39,8 @@ public class SeleccionTiendaServlet extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             this.producto = new ProductoDAO();
             
-            String nombreTienda = request.getParameter("nombre");
+//            String nombreTienda = request.getParameter("nombre");
+            String nombreTienda = "Tienda De Perritos";
             ArrayList <ProductoVO> productos = this.producto.productosPorTienda(nombreTienda);
             JSONArray jArray = new JSONArray();
             
@@ -48,13 +49,13 @@ public class SeleccionTiendaServlet extends HttpServlet {
                 objeto.put("nombre", productos.get(i).getNombre());
                 objeto.put("precio", productos.get(i).getPrecio());
                 objeto.put("ruta", productos.get(i).getRutaImagen());
-                objeto.put("tienda", productos.get(i).getTienda());
                 
                 jArray.put(objeto);
             }
             
             JSONObject fin = new JSONObject();
             fin.put("arreglo", jArray);
+            fin.put("tienda", nombreTienda);
             
             out.print(fin);
         }
