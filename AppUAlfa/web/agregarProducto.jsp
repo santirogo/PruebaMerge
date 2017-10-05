@@ -8,15 +8,20 @@
         <title>Agregar Producto</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js" type="text/javascript"></script>
         <script type="text/javascript" src="agregarProductoAjax.js"></script>
+        <link href="styles.css" rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
     </head>
     <body>
+        <img src="carrito_bg.jpg" class="background">
+    <center>
         <form>
-            Nombre: <input type="text" id="nombre">
-            Categoria: <input type="text" id="categoria"><br>
-            Precio: <input type="text" id="precio">
-            Cantidad: <input type="text" id="cantidad"><br>
-            Tienda: <input type="text" id="tienda"><br>
-            <input type="button" id="boton">
+            NOMBRE: <input type="text" id="nombre"><br><br>
+            CATEGORIA: <input type="text" id="categoria"><br><br>
+            PRECIO: <input type="text" id="precio"><br><br>
+            CANTIDAD: <input type="text" id="cantidad"><br><br>
+            TIENDA: <input type="text" id="tienda"><br><br>
+            <input type="button" id="boton" value="AGREGAR" class="btn">
         </form>
+    </center>
     </body>
 </html>

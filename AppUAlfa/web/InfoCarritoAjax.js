@@ -24,7 +24,7 @@ $(document).ready(function(){
     
     
     
-    $('.submit').click(function(){
+    $('.btn').click(function(){
         
         
         

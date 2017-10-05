@@ -8,20 +8,10 @@
         <title>Bienvenido a AppU Mart</title>
     </head>
     <body>
-        
-        
-        
-        
-    <center class="centrito">
-        <a href="http://localhost:8080/AppuMart/loginUsuario.jsp"><button class="btn">Usuario</button></a>
-        <a href="http://localhost:8080/AppuMart/loginVendedor.jsp"><button class="btn">Vendedor</button></a>
-    </center>
-        
-        
-        
-        
-        
-        
-        
+        <img src="index_bg.jpg" class="background">
+        <center class="centrito">
+            <a href="http://localhost:8080/AppuMart/loginUsuario.jsp"><button class="btn">Usuario</button></a>
+            <a href="http://localhost:8080/AppuMart/loginVendedor.jsp"><button class="btn">Vendedor</button></a>
+        </center>
     </body>
 </html>
