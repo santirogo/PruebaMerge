@@ -43,7 +43,7 @@ function sendName(idTienda) {
         dataType: 'json',
         success: function (data) {
             console.log("Nombresito de tienda enviado");
-            window.location.href = "SeleccionProducto.jsp";
+            window.location.href = "seleccionProducto.jsp";
 
         },
         error: function () {
