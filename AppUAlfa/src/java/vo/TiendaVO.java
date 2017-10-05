@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class TiendaVO {
     
+ private int id;   
  private String nombre;
  private String vendedor;
  private ArrayList<String> producto;
@@ -55,4 +56,13 @@ public class TiendaVO {
     public void setPuntuacion(double puntuacion) {
         this.puntuacion = puntuacion;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 }

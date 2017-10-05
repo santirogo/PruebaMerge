@@ -32,16 +32,16 @@ public class TiendaDAO {
 
         try {
 
-            String query = "INSERT INTO Tiendas (nombre, vendedor, puntuacion, idfondo)"
-                    + " values (?, ?, ?, ?)";
-            
+            String query = " insert into Tiendas (id,nombre, vendedor, puntuacion, idfondo)"
+                    + " values (?, ?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = this.conexion.prepareStatement(query);
 
-            preparedStmt.setString(1, tienda.getNombre());
-            preparedStmt.setString(2, tienda.getVendedor());
-            preparedStmt.setDouble(3, tienda.getPuntuacion());
-            preparedStmt.setString(4, tienda.getIdFondo());
+            preparedStmt.setInt(1, tienda.getId());
+            preparedStmt.setString(2, tienda.getNombre());
+            preparedStmt.setString(3, tienda.getVendedor());
+            preparedStmt.setDouble(4, tienda.getPuntuacion());
+            preparedStmt.setString(5, tienda.getIdFondo());
 
             preparedStmt.executeUpdate();
 
@@ -73,12 +73,15 @@ public class TiendaDAO {
             //Recorrido sobre el resultado
             while (resultado.next()) {
 
+                int id = resultado.getInt("id");
                 String nombre = resultado.getString("nombre");
                 String vendedor = resultado.getString("vendedor");
                 double puntuacion = resultado.getDouble("puntuacion");
                 String idfondo = resultado.getString("idfondo");
                 
                 TiendaVO t = new TiendaVO();
+                
+                t.setId(id);
                 t.setNombre(nombre);
                 t.setVendedor(vendedor);
                 t.setPuntuacion(puntuacion);
