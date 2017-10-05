@@ -9,17 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="listarTiendasAjax.js"></script>
+        <link href="styles.css" rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
+        <title>Nuestras Tiendas</title>
     </head>
     <body>
-        
-    <div id="div"></div>
-    
-    
-    
+        <img src="tiendas_bg.jpg" class="background">
+        <div id="div"></div>
     
     </body>
 </html>
