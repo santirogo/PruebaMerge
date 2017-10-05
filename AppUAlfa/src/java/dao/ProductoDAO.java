@@ -128,4 +128,36 @@ public class ProductoDAO {
                     return new Gson().toJson(Arreglo);
     
     }
+    
+     public ArrayList productosPorTienda(String nombre){
+        //1.Consulta
+       ArrayList<ProductoVO> respuesta = new ArrayList<ProductoVO>();
+       String consulta ="SELECT * FROM Productos WHERE tienda = "+nombre;
+        try {
+            //----------------------------
+            //Statement
+            Statement statement =
+                    this.conexion.createStatement();
+            //Ejecucion
+            ResultSet resultado = 
+                    statement.executeQuery(consulta);
+            //----------------------------
+            //Recorrido sobre el resultado
+            while(resultado.next()){
+                String name = resultado.getString("nombre");
+                int precio = resultado.getInt("precio");
+                String imagen = resultado.getString("imagen");
+                ProductoVO p = new ProductoVO();
+                p.setNombre(nombre);
+                p.setPrecio(precio);
+                p.setRutaImagen(imagen);
+                respuesta.add(p);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return respuesta;
+    }
 }
