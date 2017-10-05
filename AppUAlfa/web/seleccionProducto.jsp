@@ -21,8 +21,9 @@
     </head>
     <body>
         <form>
-                <div id="prueba"></div>
-                <div id="respuesta"></div>
+            <div id="encabezado"></div><br><br>
+            <div id="prueba"></div><br>
+            <div id="respuesta"></div>
         </form>
     </body>
 </html>
