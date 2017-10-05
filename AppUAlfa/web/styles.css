@@ -13,7 +13,7 @@ body {
     background-size: cover;
 }
 
-p , b{
+p,b{
   font-family: 'Leckerli One', cursive;
 }
 
@@ -41,4 +41,21 @@ p , b{
 
 .centritoTu{
   margin-top: 100px;
+}
+
+.carritoIcon{
+    float: right !important;
+    height: 30px;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+
+.carritoButt{
+    float: right !important;
+    background: transparent;
+    border: 0px;
+}
+
+.col-sm-4{
+    text-align: center;
 }
