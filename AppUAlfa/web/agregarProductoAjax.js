@@ -9,11 +9,12 @@ $(document).ready(function (){
         var categoria = $("#categoria").val();
         var precio = $("#precio").val();
         var cantidad = $("#cantidad").val();
+        var tienda = $('#tienda').val();
         
         $.ajax({
             url: 'AgregarProductoServlet',
             type: 'POST',
-            data: {nombre:nombre, categoria:categoria, precio:precio, cantidad:cantidad},
+            data: {nombre:nombre, categoria:categoria, precio:precio, cantidad:cantidad,tienda:tienda},
             dataType: 'json',
             success: function(data){
                 if (data.confirmacion === "ACK") {

@@ -19,6 +19,7 @@
             Categoria: <input type="text" id="categoria"><br>
             Precio: <input type="text" id="precio">
             Cantidad: <input type="text" id="cantidad"><br>
+            Tienda: <input type="text" id="tienda"><br>
             <input type="button" id="boton">
         </form>
     </body>
