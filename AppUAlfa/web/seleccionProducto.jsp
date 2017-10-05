@@ -22,13 +22,44 @@
             b{
                 color: #ffffff !important;
             }
+            
+            h2, h4{
+                font-family: 'Leckerli One', cursive;
+            }
         </style>
     </head>
     <body>
-        <form>
-            <div id="encabezado"></div><br><br>
-            <div id="prueba"></div><br>
-            <div id="respuesta"></div>
-        </form>
+        <div class="contenedor" style="background-image: url('dulces_bg.jpg');">
+            <button class="carritoButt" data-toggle="modal" data-target="#myModal"><img src="carrito_wh.png" class="carritoIcon"></button><br>
+            <h2 style="text-align: center; color: #ffffff;">NUESTRAS TIENDAS!!!</h2>
+            
+            <!-- Modal -->
+            <div class="container">
+                <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Carrito de compras</h4>
+                      </div>
+                      <div class="modal-body">
+                        <p>LISTADO DE PRODUCTOS AÑADIDOS: </p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Check-out</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+            <form>
+                <div id="encabezado"></div><br><br>
+                <div id="prueba"></div><br>
+                <div id="respuesta"></div>
+            </form>
+        </div>
     </body>
 </html>

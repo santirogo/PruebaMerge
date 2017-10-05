@@ -33,7 +33,7 @@ $(document).ready(function (){
                         "<b id='n"+i+"'>"+data.arreglo[i].nombre+"</b>", 
                         "<b id='p"+i+"'>Precio: $"+data.arreglo[i].precio+"</b><br>",
                         "<img src='"+data.arreglo[i].ruta+"' alt='foto' width='100' height='100'>",
-                        "<button class='boton' onclick='cli("+i+")' id="+i+">Añadir</button><br><br>"
+                        "<button class='btn' onclick='cli("+i+")' id="+i+">Añadir</button><br><br>"
                 );
             }
             
