@@ -56,7 +56,7 @@ public class CarritoDAO {
                 prod.setNombre(rs.getString(1));
                 prod.setCategoria(rs.getString(2));
                 prod.setPrecio(rs.getInt(3));              
-                prod.setTienda(rs.getString(5));
+                prod.setTienda(rs.getInt(6));
 
            }
             carritoVO.agregarProducto(prod);

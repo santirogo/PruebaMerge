@@ -40,7 +40,7 @@ public class AgregarProductoServlet extends HttpServlet {
             String categoria = request.getParameter("categoria");
             int precio = Integer.parseInt(request.getParameter("precio"));
             int tienda = Integer.parseInt(request.getParameter("cantidad"));
-            String celular = request.getParameter("tienda");
+            int idTienda = Integer.parseInt(request.getParameter("tienda"));
             
             ProductoVO productoVO = new ProductoVO();
             JSONObject json = new JSONObject();
@@ -55,7 +55,7 @@ public class AgregarProductoServlet extends HttpServlet {
             productoVO.setCategoria(categoria);
             productoVO.setPrecio(precio);
             productoVO.setCantidad(tienda);
-            productoVO.setTienda(celular);
+            productoVO.setTienda(idTienda);
             productoVO.setRutaImagen("margarita.jpg");
             
             if (!this.producto.insertar(productoVO)) {
@@ -283,7 +283,7 @@ public class AgregarProductoServlet extends HttpServlet {
             String categoria = request.getParameter("categoria");
             int precio = Integer.parseInt(request.getParameter("precio"));
             int tienda = Integer.parseInt(request.getParameter("cantidad"));
-            String celular = request.getParameter("tienda");
+            int idTienda = Integer.parseInt(request.getParameter("tienda"));
             
             ProductoVO productoVO = new ProductoVO();
             JSONObject json = new JSONObject();
@@ -298,7 +298,7 @@ public class AgregarProductoServlet extends HttpServlet {
             productoVO.setCategoria(categoria);
             productoVO.setPrecio(precio);
             productoVO.setCantidad(tienda);
-            productoVO.setTienda(celular);
+            productoVO.setTienda(idTienda);
             productoVO.setRutaImagen("margarita.jpg");
             
             if (!this.producto.insertar(productoVO)) {
