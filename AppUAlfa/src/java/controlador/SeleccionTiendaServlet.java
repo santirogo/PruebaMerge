@@ -51,8 +51,11 @@ public class SeleccionTiendaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         int idTienda = Integer.parseInt(request.getParameter("nombre"));
         this.idT = idTienda;
+        System.out.println("Holaaaaa recibi id :* "+this.idT);
+        
     }
 
     /**
@@ -70,6 +73,7 @@ public class SeleccionTiendaServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             this.producto = new ProductoDAO();
+            System.out.println("POSTTTTTTTT");
             
 //            String nombreTienda = request.getParameter("nombre");
 //            int idTienda = 1;

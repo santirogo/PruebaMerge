@@ -17,7 +17,7 @@ $(document).ready(function () {
                 console.log(data.tiendas[i].idfondo);
                 console.log(data.tiendas[i].nombre);
                 $('#div').append(
-                        "<a><button class='btn' onclick='sendName(" + data.tiendas[i].id + ")'>\n\
+                        "<a href = 'seleccionProducto.jsp'><button class='btn' onclick='sendName(" + data.tiendas[i].id + ")'>\n\
                          <img src=" + data.tiendas[i].idfondo + " width='100' height='100'></button></a><br>",
                         "<a>" + data.tiendas[i].nombre + "</a><br>",
                         "<a>Vendedor: " + data.tiendas[i].vendedor + "</a><br>",
@@ -47,6 +47,7 @@ function sendName(idTienda) {
 
         },
         error: function () {
+            console.log("Error en el ajax");
         }
     });
 
