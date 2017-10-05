@@ -15,7 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
         <title>Registrate</title>
         <style>
-            body{
+            body {
                 background-repeat: no-repeat;
                 background-size: cover;
                 margin: 0;
@@ -23,9 +23,8 @@
             }
         </style>
     </head>
-    <body style="background-image: url('index_bg.jpg');">
-            <button class="carritoButt" data-toggle="modal" data-target="#myModal"><img src="carrito.png" class="carritoIcon"></button><br>
-            
+    <body>
+        <img src="index_bg.jpg" id="background">
             <center>
                 <form>
                     <p>Correo: </p><input type="text" id="correo"><br>

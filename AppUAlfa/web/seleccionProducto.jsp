@@ -28,7 +28,8 @@
             }
         </style>
     </head>
-    <body style="background-image: url('dulces_bg.jpg');">
+    <body>
+        <img src="dulces_bg.jpg" class="background">
             <button class="carritoButt" data-toggle="modal" data-target="#myModal"><img src="carrito_wh.png" class="carritoIcon"></button><br>
             <h2 style="text-align: center; color: #ffffff;">NUESTRAS TIENDAS!!!</h2>
             

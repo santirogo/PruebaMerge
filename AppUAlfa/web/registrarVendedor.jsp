@@ -9,36 +9,37 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="registrarVendedorAjax.js"></script>
         <link href="styles.css" rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
-        <title>Registro</title>
+        <title>Registrate</title>
     </head>
-    <body>
-    <center>
-        <form>
+    <body style="background-image: url('index_bg.jpg');">
+        <img src="index_bg.jpg" id="background">
+        <center>
+            <form>
 
-            <p>Correo: </p><input type="text" id="correo"><br>
-            <p>Celular: </p><input type="text" id="celular"><br>
-            <p>Nombre: </p><input type="text" id="nombre"><br>
-            <p>Contraseña: </p><input type="password" id="password"><br>
-            <p>Confirmar contraseña: </p><input type="password" id="password2"><br>
+                <p>Correo: </p><input type="text" id="correo"><br>
+                <p>Celular: </p><input type="text" id="celular"><br>
+                <p>Nombre: </p><input type="text" id="nombre"><br>
+                <p>Contraseña: </p><input type="password" id="password"><br>
+                <p>Confirmar contraseña: </p><input type="password" id="password2"><br><br>
 
-            <input type="button" class="btn" id="boton" value="Registrarme">
-            
-            <h1 id="conf1"></h1>
-            <div id="oculto">
-                <p>Ingresa el código que enviamos a tu correo: </p><input type='text' class="btn" id ='codigo'>
-            <input type='button' id ='confirmar' value ='confirmar'></div><br>
-            <div id="oculto2">
-                <a href="http://localhost:8080/AppuMart/loginVendedor.jsp"><button><p>¡Registrarme!</p></button></a>
-            </div>
-            
-            
-            <div id="div"></div>
-            
-        </form>
-    </center>    
+                <input type="button" class="btn" id="boton" value="Registrarme">
+
+                <h1 id="conf1"></h1>
+                <div id="oculto">
+                    <p>Ingresa el código que enviamos a tu correo: </p><input type='text' class="btn" id ='codigo'>
+                <input type='button' id ='confirmar' value ='confirmar'></div><br>
+                <div id="oculto2">
+                    <a href="http://localhost:8080/AppuMart/loginVendedor.jsp"><button><p>¡Registrarme!</p></button></a>
+                </div>
+
+
+                <div id="div"></div>
+
+            </form>
+        </center>    
     </body>
 </html>
