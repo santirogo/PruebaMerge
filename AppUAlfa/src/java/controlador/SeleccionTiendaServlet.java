@@ -39,7 +39,8 @@ public class SeleccionTiendaServlet extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             this.producto = new ProductoDAO();
             
-            String nombreTienda = request.getParameter("nombre");
+//            String nombreTienda = request.getParameter("nombre");
+            String nombreTienda = "Tienda De Perritos";
             ArrayList <ProductoVO> productos = this.producto.productosPorTienda(nombreTienda);
             JSONArray jArray = new JSONArray();
             

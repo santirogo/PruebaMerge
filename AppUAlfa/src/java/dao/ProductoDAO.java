@@ -132,7 +132,7 @@ public class ProductoDAO {
     public ArrayList productosPorTienda(String nombre){
         //1.Consulta
        ArrayList<ProductoVO> respuesta = new ArrayList<ProductoVO>();
-       String consulta ="SELECT * FROM Productos WHERE tienda = "+nombre;
+       String consulta ="SELECT * FROM Productos WHERE tienda = '"+nombre+"'";
         try {
             //----------------------------
             //Statement
