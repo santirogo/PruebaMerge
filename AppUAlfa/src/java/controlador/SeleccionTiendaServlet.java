@@ -23,6 +23,7 @@ import vo.ProductoVO;
  */
 public class SeleccionTiendaServlet extends HttpServlet {
     private ProductoDAO producto;
+    private int idT;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,31 +36,7 @@ public class SeleccionTiendaServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            this.producto = new ProductoDAO();
-            
-//            String nombreTienda = request.getParameter("nombre");
-            int idTienda = 1;
-            ArrayList <ProductoVO> productos = this.producto.productosPorTienda(idTienda);
-            JSONArray jArray = new JSONArray();
-            
-            for (int i = 0; i < productos.size(); i++) {
-                JSONObject objeto = new JSONObject();
-                objeto.put("nombre", productos.get(i).getNombre());
-                objeto.put("precio", productos.get(i).getPrecio());
-                objeto.put("ruta", productos.get(i).getRutaImagen());
-                
-                jArray.put(objeto);
-            }
-            
-            
-            JSONObject fin = new JSONObject();
-            fin.put("arreglo", jArray);
-            fin.put("tienda", idTienda);
-            
-            out.print(fin);
-        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -74,7 +51,8 @@ public class SeleccionTiendaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        int idTienda = Integer.parseInt(request.getParameter("nombre"));
+        this.idT = idTienda;
     }
 
     /**
@@ -88,7 +66,33 @@ public class SeleccionTiendaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            this.producto = new ProductoDAO();
+            
+//            String nombreTienda = request.getParameter("nombre");
+//            int idTienda = 1;
+            ArrayList <ProductoVO> productos = this.producto.productosPorTienda(this.idT);
+            JSONArray jArray = new JSONArray();
+            
+            for (int i = 0; i < productos.size(); i++) {
+                JSONObject objeto = new JSONObject();
+                objeto.put("nombre", productos.get(i).getNombre());
+                objeto.put("precio", productos.get(i).getPrecio());
+                objeto.put("ruta", productos.get(i).getRutaImagen());
+                
+                jArray.put(objeto);
+            }
+            
+            
+            JSONObject fin = new JSONObject();
+            fin.put("arreglo", jArray);
+            fin.put("tienda", this.idT);
+            
+            out.print(fin);
+        }
+        
     }
 
     /**
