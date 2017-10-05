@@ -28,8 +28,7 @@
             }
         </style>
     </head>
-    <body>
-        <div class="contenedor" style="background-image: url('dulces_bg.jpg');">
+    <body style="background-image: url('dulces_bg.jpg');">
             <button class="carritoButt" data-toggle="modal" data-target="#myModal"><img src="carrito_wh.png" class="carritoIcon"></button><br>
             <h2 style="text-align: center; color: #ffffff;">NUESTRAS TIENDAS!!!</h2>
             
@@ -60,6 +59,5 @@
                 <div id="prueba"></div><br>
                 <div id="respuesta"></div>
             </form>
-        </div>
     </body>
 </html>

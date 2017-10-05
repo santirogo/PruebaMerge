@@ -4,13 +4,21 @@ body, html{
 
 body {
     font-family: 'Leckerli One', cursive;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
 }
+
+body{
+
+            }
 
 .contenedor{
     height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
 }
 
 p,b{
@@ -18,21 +26,21 @@ p,b{
 }
 
 .btn {
-  margin: 0 auto;
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
-  font-family: 'Leckerli One', cursive;
-  color: #ffffff;
-  font-size: 20px;
-  background: #210dd6;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
+  margin: 0 auto !important;
+  -webkit-border-radius: 28 !important;
+  -moz-border-radius: 28 !important;
+  border-radius: 28px !important;
+  font-family: 'Leckerli One', cursive !important;
+  color: #ffffff !important;
+  font-size: 20px !important;
+  background: #210dd6 !important;
+  padding: 10px 20px 10px 20px !important;
+  text-decoration: none !important;
 }
 
 .btn:hover {
-  background: #deed05;
-  text-decoration: none;
+  background: #deed05 !important;
+  text-decoration: none !important;
 }
 
 .centrito{
