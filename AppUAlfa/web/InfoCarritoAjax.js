@@ -1,19 +1,39 @@
 $(document).ready(function(){
-    $('#login').click(function(){
-
-        var opcion = $('#opcion').val();
+    
+    
+    var opcion = $('#opcion').val();
+        
         $.ajax({
             url:'MainMenuServlet',
-            type:'post',
+            type:'GET',
             data:{opcion:opcion},
             dataType: 'json',
             success: function(data) {
-                document.getElementById("ack").innerHTML = "Precio Total: "+data.PrecioTotal+ " - ";
-                document.getElementById("ackk").innerHTML = "Cantidad Total: "+data.CantiTotal+ " - ";
+
+                
+                console.log("holaaaaaa "+data);
+                document.getElementById("ack").innerHTML = "Precio Total: "+data.Arreglo[0].Total+ " - ";
+                document.getElementById("ackk").innerHTML = "CantidadTotal: "+data.Arreglo[1].Cant+ " - ";
+                
+                
             },
             error: function(){
                 $('#ack').val("ERROR FATAL");
             }
         });
+    
+    
+    
+    $('.submit').click(function(){
+        
+        
+        
+        
     });
+    
+    
+    
+    ;
+    
+    
 });

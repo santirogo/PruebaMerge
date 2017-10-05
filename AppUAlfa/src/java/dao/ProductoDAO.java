@@ -37,12 +37,14 @@ public class ProductoDAO {
             //--------------------------------------
             //3. Hacer la ejecucion
             resultado = statement.execute();
+            resultado=true;
+            return resultado;
 
         } catch (SQLException ex) {
             ex.printStackTrace();
+            return resultado;
         }
 
-        return resultado;
     }
     
     public ArrayList<ProductoVO> listarTodo(){

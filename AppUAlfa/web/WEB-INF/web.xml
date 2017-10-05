@@ -2,7 +2,7 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>MainMenuServlet</servlet-name>
-        <servlet-class>controlador.IndexServlet</servlet-class>
+        <servlet-class>controlador.MainMenuServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RecordatorioServlet</servlet-name>
@@ -202,7 +202,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MainMenuServlet</servlet-name>
-        <url-pattern>/IMainMenuServlet</url-pattern>
+        <url-pattern>/MainMenuServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CrearTiendaServlet</servlet-name>

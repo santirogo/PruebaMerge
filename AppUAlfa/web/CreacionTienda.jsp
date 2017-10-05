@@ -14,7 +14,7 @@
         <form>
             Nombre: <input type="text" id="nombre"/><br>
             Celular: <input type="text" id="celular"/><br>
-            <p>Productos:</p><br>
+            
             
             <br><br>
             Ingresa Numero Del Fondo Que Deseas En Tu Tienda: <input type="text" id="Fond"/><br><br>

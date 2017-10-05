@@ -6,7 +6,7 @@
 $(document).ready(function (){
     
     $.ajax({
-        url: 'MainMenuServlet',
+        url: 'SeleccionTiendaServlet',
         type: 'get',
         dataType: 'json',
         success: function(data){
