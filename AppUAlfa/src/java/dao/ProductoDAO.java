@@ -23,8 +23,8 @@ public class ProductoDAO {
         boolean resultado = false;
         try {
             //1.Establecer la consulta
-            String consulta = "INSERT INTO Productos(nombre, categoria, precio, cantidad, tienda)"
-                    + "VALUES(?,?,?,?,?)";
+            String consulta = "INSERT INTO Productos(nombre, categoria, precio, cantidad, tienda, imagen)"
+                    + "VALUES(?,?,?,?,?,?)";
             //2. Crear el PreparedStament
             PreparedStatement statement
                     = this.conexion.prepareStatement(consulta);
@@ -75,7 +75,7 @@ public class ProductoDAO {
     
     public boolean editar(ProductoVO producto) {
         boolean result = false;
-        String query = "update Productos set Categoria = ?, Precio = ?, Cantidad = ? where Nombre = ?";
+        String query = "update Productos set Categoria = ?, Precio = ?, Cantidad = ?, imagen=? where Nombre = ?";
         PreparedStatement preparedStmt = null;
         try {
             preparedStmt = this.conexion.prepareStatement(query);
@@ -83,6 +83,7 @@ public class ProductoDAO {
             preparedStmt.setInt(2, producto.getPrecio());
             preparedStmt.setInt(3, producto.getCantidad());
             preparedStmt.setString(4, producto.getNombre());
+            preparedStmt.setString(4, producto.getRutaImagen());
             
             if (preparedStmt.executeUpdate() > 0) {
                 result = true;
