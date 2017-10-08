@@ -7,10 +7,13 @@
 $(document).ready(function(){
     $('#login').click(function(){
 
-        var correo = $('#correo').val();
+        var correo = $('#correo').val();        
         var password = $('#password').val();
+        
+        
+        
         $.ajax({
-            url:'http://localhost:8080/AppuMart/LoginUsuarioServlet',
+            url:'LoginVendedorServlet',
             type:'post',
             data:{correo:correo,password:password},
             dataType: 'json',
@@ -18,12 +21,12 @@ $(document).ready(function(){
                 if (data.confirmacion === "ACK") {
                     console.log("DATOS CORRECTOS");
                     document.getElementById("ack").innerHTML = "DATOS CORRECTOS";
-                    window.location.href = "construccion.jsp";
+                    window.location.href = "CreacionTienda.jsp";
+
                 } else {
                     console.log("DATOS INCORRECTOS");
-                    document.getElementById("ack").innerHTML = "Datos incorrectos";
+                    document.getElementById("ack").innerHTML = "Datos incorrecto";
                 }
-                
             },
 
             error: function(){

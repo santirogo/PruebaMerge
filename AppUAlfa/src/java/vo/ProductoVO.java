@@ -6,8 +6,16 @@ public class ProductoVO {
     private int precio;
     private String nombre;
     private int cantidad;
-    
+    private String Tienda;
 
+    public String getTienda() {
+        return Tienda;
+    }
+
+    public void setTienda(String Tienda) {
+        this.Tienda = Tienda;
+    }
+    
     public String getCategoria() {
         return categoria;
     }

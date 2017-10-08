@@ -37,27 +37,212 @@ public class AgregarProductoServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             this.producto = new ProductoDAO();
-            
-            String nombre = request.getParameter("nombre");
+            /* TODO output your page here. You may use following sample code. */
+            int nombre = Integer.parseInt(request.getParameter("nombre"));
             String categoria = request.getParameter("categoria");
             int precio = Integer.parseInt(request.getParameter("precio"));
             int cantidad = Integer.parseInt(request.getParameter("cantidad"));
+            String celular = request.getParameter("celular");
             
             ProductoVO productoVO = new ProductoVO();
-            productoVO.setNombre(nombre);
+            JSONObject json = new JSONObject();
+            
+            
+            
+            switch(nombre){
+                
+                case 1: 
+                    
+            productoVO.setNombre("Papas Margarita BBQ");
             productoVO.setCategoria(categoria);
             productoVO.setPrecio(precio);
             productoVO.setCantidad(cantidad);
+            productoVO.setTienda(celular);
             
-            this.producto.insertar(productoVO);
-            
-            JSONObject json = new JSONObject();
-            json.put("nombre", nombre);
-            json.put("categoria", categoria);
-            json.put("precio", precio);
-            json.put("cantidad", cantidad);
+            if (!this.producto.insertar(productoVO)) {
+                json.put("confirmacion","NAK");
+                System.out.println("No se pudo agregar producto");
+            } else {
+                json.put("confirmacion","ACK");
+                System.out.println("Producto agregado exitosamente");
+            }
             
             out.print(json);
+            ;
+            
+            case 2: 
+                    
+            productoVO.setNombre("Papas Margarita Limon");
+            productoVO.setCategoria(categoria);
+            productoVO.setPrecio(precio);
+            productoVO.setCantidad(cantidad);
+            productoVO.setTienda(celular);
+            
+            if (!this.producto.insertar(productoVO)) {
+                json.put("confirmacion","NAK");
+                System.out.println("No se pudo agregar producto");
+            } else {
+                json.put("confirmacion","ACK");
+                System.out.println("Producto agregado exitosamente");
+            }
+            
+            out.print(json);
+            ;
+            
+            case 3: 
+                    
+            productoVO.setNombre("Papas Margarita Natural");
+            productoVO.setCategoria(categoria);
+            productoVO.setPrecio(precio);
+            productoVO.setCantidad(cantidad);
+            productoVO.setTienda(celular);
+            
+            if (!this.producto.insertar(productoVO)) {
+                json.put("confirmacion","NAK");
+                System.out.println("No se pudo agregar producto");
+            } else {
+                json.put("confirmacion","ACK");
+                System.out.println("Producto agregado exitosamente");
+            }
+            
+            out.print(json);
+            ;
+            
+            case 4: 
+                    
+            productoVO.setNombre("Papas Margarita Pollo");
+            productoVO.setCategoria(categoria);
+            productoVO.setPrecio(precio);
+            productoVO.setCantidad(cantidad);
+            productoVO.setTienda(celular);
+            
+            if (!this.producto.insertar(productoVO)) {
+                json.put("confirmacion","NAK");
+                System.out.println("No se pudo agregar producto");
+            } else {
+                json.put("confirmacion","ACK");
+                System.out.println("Producto agregado exitosamente");
+            }
+            
+            out.print(json);
+            ;
+            
+            case 5: 
+                    
+            productoVO.setNombre("Mama Ia Ia");
+            productoVO.setCategoria(categoria);
+            productoVO.setPrecio(precio);
+            productoVO.setCantidad(cantidad);
+            productoVO.setTienda(celular);
+            
+            if (!this.producto.insertar(productoVO)) {
+                json.put("confirmacion","NAK");
+                System.out.println("No se pudo agregar producto");
+            } else {
+                json.put("confirmacion","ACK");
+                System.out.println("Producto agregado exitosamente");
+            }
+            
+            out.print(json);
+            ;
+            
+            case 6: 
+                    
+            productoVO.setNombre("Trident Menta");
+            productoVO.setCategoria(categoria);
+            productoVO.setPrecio(precio);
+            productoVO.setCantidad(cantidad);
+            productoVO.setTienda(celular);
+            
+            if (!this.producto.insertar(productoVO)) {
+                json.put("confirmacion","NAK");
+                System.out.println("No se pudo agregar producto");
+            } else {
+                json.put("confirmacion","ACK");
+                System.out.println("Producto agregado exitosamente");
+            }
+            
+            out.print(json);
+            ;
+            
+            case 7: 
+                    
+            productoVO.setNombre("Trident Canela");
+            productoVO.setCategoria(categoria);
+            productoVO.setPrecio(precio);
+            productoVO.setCantidad(cantidad);
+            productoVO.setTienda(celular);
+            
+            if (!this.producto.insertar(productoVO)) {
+                json.put("confirmacion","NAK");
+                System.out.println("No se pudo agregar producto");
+            } else {
+                json.put("confirmacion","ACK");
+                System.out.println("Producto agregado exitosamente");
+            }
+            
+            out.print(json);
+            ;
+            
+            case 8: 
+                    
+            productoVO.setNombre("Trident Mora Azul");
+            productoVO.setCategoria(categoria);
+            productoVO.setPrecio(precio);
+            productoVO.setCantidad(cantidad);
+            productoVO.setTienda(celular);
+            
+            if (!this.producto.insertar(productoVO)) {
+                json.put("confirmacion","NAK");
+                System.out.println("No se pudo agregar producto");
+            } else {
+                json.put("confirmacion","ACK");
+                System.out.println("Producto agregado exitosamente");
+            }
+            
+            out.print(json);
+            ;
+            
+            case 9: 
+                    
+            productoVO.setNombre("Cheetos");
+            productoVO.setCategoria(categoria);
+            productoVO.setPrecio(precio);
+            productoVO.setCantidad(cantidad);
+            productoVO.setTienda(celular);
+            
+            if (!this.producto.insertar(productoVO)) {
+                json.put("confirmacion","NAK");
+                System.out.println("No se pudo agregar producto");
+            } else {
+                json.put("confirmacion","ACK");
+                System.out.println("Producto agregado exitosamente");
+            }
+            
+            out.print(json);
+            ;
+            
+            case 10: 
+                    
+            productoVO.setNombre("Ponky");
+            productoVO.setCategoria(categoria);
+            productoVO.setPrecio(precio);
+            productoVO.setCantidad(cantidad);
+            productoVO.setTienda(celular);
+            
+            if (!this.producto.insertar(productoVO)) {
+                json.put("confirmacion","NAK");
+                System.out.println("No se pudo agregar producto");
+            } else {
+                json.put("confirmacion","ACK");
+                System.out.println("Producto agregado exitosamente");
+            }
+            
+            out.print(json);
+            ;
+            
+            }
+
         }
     }
 

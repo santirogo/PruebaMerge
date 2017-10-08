@@ -10,10 +10,10 @@
         
         
         
-    <center>
-        <a href="http://localhost:32056/AppuMart/loginUsuario.jsp"><button>Usuario</button></a>
-        <a href="http://localhost:32056/AppuMart/loginVendedor.jsp"><button>Vendedor</button></a>
-    </center>
+        
+        <a href="http://localhost:8080/AppuMart/loginUsuario.jsp"><button>Usuario</button></a>
+        <a href="http://localhost:8080/AppuMart/loginVendedor.jsp"><button>Vendedor</button></a>
+        
         
         
         
