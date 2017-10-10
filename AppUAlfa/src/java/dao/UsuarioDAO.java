@@ -105,11 +105,4 @@ public class UsuarioDAO {
 
         return res;
     }
-    
-    
-    
-    
-    
-    
-    
 }

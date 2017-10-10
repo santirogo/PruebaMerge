@@ -5,16 +5,19 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="CreacionTiendaAjax.js"></script>
+        <link href="styles.css" rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
         <title>Crear Tienda</title>
     </head>
     <body>
+        <img src="crearTienda_bg.jpg" class="background">
     <center>
         <p>Configura Tu Tienda</p>
     </center>  
         <form>
             Nombre: <input type="text" id="nombre"/><br>
             Celular: <input type="text" id="celular"/><br>
-            <p>Productos:</p><br>
+            
             
             <br><br>
             Ingresa Numero Del Fondo Que Deseas En Tu Tienda: <input type="text" id="Fond"/><br><br>
@@ -65,7 +68,7 @@
             </table>
             </center>
             
-            <input type="submit" id="login" value="Ingresar"/>
+            <input class="btn" type="submit" id="login" value="Ingresar"/>
             <p id="ack"> . </p>
         </form>
         

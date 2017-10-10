@@ -19,6 +19,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
+import com.google.gson.*;
+import org.json.JSONArray;
 
 /**
  *
@@ -38,37 +40,11 @@ private CarritoDAO carritoDAO;
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("application/json");
         try (PrintWriter out = response.getWriter()) {
             
             
-            String P="";
-            ProductoDAO productoDAO= new ProductoDAO();
-            String info= productoDAO.enviar();
-            
-            JSONObject json = new JSONObject();
-            json.put("info", info);
-            
-            out.print(json);
-            
-            
-            String nombre= request.getParameter("nombre");
-            int precio= Integer.parseInt(request.getParameter("precio"));
-            P = request.getParameter("opcion");
-            
-            ArrayList Arreglo = new ArrayList();
-            Arreglo.add(nombre);
-            Arreglo.add(precio);
-            
-            this.carritoDAO.AgregarProd(Arreglo);
-            
-            if(P.equals("1")){
-            Integer x=this.carritoDAO.precioTotal();
-            json.put("PrecioTotal", x.toString());
-            Integer y=this.carritoDAO.cantidadTotal();
-            json.put("CantiTotal", y.toString());
-            out.print(json);
-            }
+
 
         }
     }
@@ -85,11 +61,41 @@ private CarritoDAO carritoDAO;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(MainMenuServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        try(PrintWriter out = response.getWriter()) {
+            //processRequest(request, response);
+            response.setContentType("application/json");
+        
+            CarritoDAO Mateo= new CarritoDAO();
+            
+            String P="";
+
+            P = request.getParameter("opcion");
+            
+
+            
+            if(P.equals("1")){
+                //Envia Precio y cantidad
+            String x= Mateo.Precio();
+            String y=Mateo.Cantidad();
+            JSONObject total = new JSONObject();
+            JSONObject cant = new JSONObject();
+            
+            total.put("Total", x);
+            cant.put("Cant", y);
+            
+            JSONArray arreglo = new JSONArray();
+            
+            arreglo.put(total);
+            arreglo.put(cant);
+            
+            JSONObject fin = new JSONObject();
+            fin.put("Arreglo",arreglo);
+            out.print(fin);
+
+            }
+            
+            
+        }    
     }
 
     /**
@@ -103,11 +109,11 @@ private CarritoDAO carritoDAO;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(MainMenuServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        try (PrintWriter out = response.getWriter()) {
+            //processRequest(request, response);
+            
+
+      }
     }
 
     /**

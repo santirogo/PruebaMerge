@@ -6,15 +6,8 @@ public class ProductoVO {
     private int precio;
     private String nombre;
     private int cantidad;
-    private String Tienda;
-
-    public String getTienda() {
-        return Tienda;
-    }
-
-    public void setTienda(String Tienda) {
-        this.Tienda = Tienda;
-    }
+    private String rutaImagen;
+    private int Tienda;
     
     public String getCategoria() {
         return categoria;
@@ -46,5 +39,21 @@ public class ProductoVO {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public String getRutaImagen() {
+        return rutaImagen;
+    }
+
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
+    }
+
+    public int getTienda() {
+        return Tienda;
+    }
+
+    public void setTienda(int Tienda) {
+        this.Tienda = Tienda;
     }
 }
