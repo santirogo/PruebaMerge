@@ -7,15 +7,22 @@ function cli (id){
     console.log("Holaaaaaa "+id);
     nombre = $("#n"+id).text();
     tienda = $("#encabezado").text();
-    $.ajax({
-            url: 'MainMenuServlet',
-            type: 'POST',
-            data: {nombre:nombre,tienda:tienda},
-            dataType: 'json',
-            success: function(data){
-                $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
-            }
-        });
+    cantidad = $("#c"+id).val();
+    if(cantidad===""){
+        alert("Debe escribir una cantidad");
+        
+    }else{
+        console.log("cantidad: "+cantidad);
+        $.ajax({
+                url: 'MainMenuServlet',
+                type: 'POST',
+                data: {nombre:nombre,tienda:tienda,cantidad:cantidad},
+                dataType: 'json',
+                success: function(data){
+                    $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
+                }
+            });
+    }
 }
 
 $(document).ready(function (){
@@ -32,33 +39,12 @@ $(document).ready(function (){
                 $("#prueba").append(
                         "<b id='n"+i+"'>"+data.arreglo[i].nombre+"</b>", 
                         "<b id='p"+i+"'>          Precio: $"+data.arreglo[i].precio+"</b><br>",
-                        "<img src='"+data.arreglo[i].ruta+"' alt='foto' width='100' height='100'>",
+                        "<img src='"+data.arreglo[i].ruta+"' alt='foto' width='100' height='100'><br><br>",
+                        "<b>Cantidad </b><input type='text' id='c"+i+"' name='pruebaaa"+i+"'>",
                         "<button class='boton' onclick='cli("+i+")' id="+i+">Añadir</button><br><br>"
                 );
             }
             
         }
     });
-    
-//    $('.boton').click(function() {
-//        var id = this.id;
-//        console.log(id)
-//        console.log("id: "+this.id);
-//        a = "#n"+this.id; 
-//        console.log("a: "+a);
-//        nombre = $("#n"+this.id).text();
-//        precio = $("#p"+this.id).text();
-//        
-//        console.log("n:"+nombre);
-//        console.log("p:"+precio);
-//        $.ajax({
-//            url: 'MainMenuServlet',
-//            type: 'POST',
-//            data: {nombre:nombre, precio:precio},
-//            dataType: 'json',
-//            success: function(data){
-//                $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
-//            }
-//        });
-//    });
 });
