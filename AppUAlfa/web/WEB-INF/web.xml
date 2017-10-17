@@ -5,72 +5,8 @@
         <servlet-class>controlador.MainMenuServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RecordatorioServlet</servlet-name>
-        <servlet-class>controlador.RecordatorioServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ServletBB</servlet-name>
-        <servlet-class>controlador.ServletBB</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>EditarClienteServlet</servlet-name>
-        <servlet-class>controlador.EditarClienteServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ListarClienteServlet</servlet-name>
-        <servlet-class>controlador.ListarClienteServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>NuevoClienteServlet</servlet-name>
-        <servlet-class>controlador.NuevoClienteServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>BuscarRecordatorioServlet</servlet-name>
-        <servlet-class>controlador.BuscarRecordatorioServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ListarRecordatorioServlet</servlet-name>
-        <servlet-class>controlador.ListarRecordatorioServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>BorrarUsuarioServlet</servlet-name>
-        <servlet-class>controlador.BorrarUsuarioServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>NuevoUsuarioServlet</servlet-name>
-        <servlet-class>controlador.NuevoUsuarioServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CerrarSesionServlet</servlet-name>
-        <servlet-class>controlador.CerrarSesionServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>EditarUsuarioServlet</servlet-name>
-        <servlet-class>controlador.EditarUsuarioServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>nuevoViajeServlet</servlet-name>
-        <servlet-class>controlador.nuevoViajeServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CoincidenciasServlet</servlet-name>
-        <servlet-class>controlador.CoincidenciasServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ChartServlet</servlet-name>
-        <servlet-class>controlador.ChartServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>HSSFCreate</servlet-name>
-        <servlet-class>controlador.HSSFCreate</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PDFServlet</servlet-name>
-        <servlet-class>controlador.PDFServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>GraficoServlet</servlet-name>
-        <servlet-class>controlador.GraficoServlet</servlet-class>
+        <servlet-name>SeleccionTiendaServlet</servlet-name>
+        <servlet-class>controlador.SeleccionTiendaServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginUsuarioServlet</servlet-name>
@@ -81,6 +17,14 @@
         <servlet-class>controlador.ListarTiendasServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>EditarCompradorServlet</servlet-name>
+        <servlet-class>controlador.EditarCompradorServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AgregarCarritoServlet</servlet-name>
+        <servlet-class>controlador.AgregarCarritoServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AgregarProductoServlet</servlet-name>
         <servlet-class>controlador.AgregarProductoServlet</servlet-class>
     </servlet>
@@ -88,10 +32,7 @@
         <servlet-name>RegistroUsuarioServlet</servlet-name>
         <servlet-class>controlador.RegistroUsuarioServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>CorreoServlet</servlet-name>
-        <servlet-class>controlador.CorreoServlet</servlet-class>
-    </servlet>
+    
     <servlet>
         <servlet-name>RegistrarVendedorServlet</servlet-name>
         <servlet-class>controlador.RegistrarVendedorServlet</servlet-class>
@@ -100,140 +41,79 @@
         <servlet-name>LoginVendedorServlet</servlet-name>
         <servlet-class>controlador.LoginVendedorServlet</servlet-class>
     </servlet>
+    
     <servlet>
-        <servlet-name>CrearTiendaServlet</servlet-name>
-        <servlet-class>controlador.CrearTiendaServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ListarTiendasVendedor</servlet-name>
+        <servlet-name>MostrarTiendaServlet</servlet-name>
         <servlet-class>controlador.MostrarTiendaServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ProductosBodegaServlet</servlet-name>
         <servlet-class>controlador.ProductosBodegaServlet</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>IndexServlet</servlet-name>
-        <url-pattern>/IndexServlet</url-pattern>
-    </servlet-mapping>
-        <servlet-name>CrearTiendaServlet</servlet-name>
-        <servlet-class>controlador.CrearTiendaServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>RecordatorioServlet</servlet-name>
-        <url-pattern>/RecordatorioServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ServletBB</servlet-name>
-        <url-pattern>/ServletBB</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>EditarClienteServlet</servlet-name>
-        <url-pattern>/EditarClienteServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ListarClienteServlet</servlet-name>
-        <url-pattern>/ListarClienteServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>NuevoClienteServlet</servlet-name>
-        <url-pattern>/NuevoClienteServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BuscarRecordatorioServlet</servlet-name>
-        <url-pattern>/BuscarRecordatorioServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ListarRecordatorioServlet</servlet-name>
-        <url-pattern>/ListarRecordatorioServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BorrarUsuarioServlet</servlet-name>
-        <url-pattern>/BorrarUsuarioServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>NuevoUsuarioServlet</servlet-name>
-        <url-pattern>/NuevoUsuarioServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CerrarSesionServlet</servlet-name>
-        <url-pattern>/CerrarSesionServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>EditarUsuarioServlet</servlet-name>
-        <url-pattern>/EditarUsuarioServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>nuevoViajeServlet</servlet-name>
-        <url-pattern>/nuevoViajeServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CoincidenciasServlet</servlet-name>
-        <url-pattern>/CoincidenciasServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ChartServlet</servlet-name>
-        <url-pattern>/ChartServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>HSSFCreate</servlet-name>
-        <url-pattern>/HSSFCreate</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PDFServlet</servlet-name>
-        <url-pattern>/PDFServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>GraficoServlet</servlet-name>
-        <url-pattern>/GraficoServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoginUsuarioServlet</servlet-name>
-        <url-pattern>/LoginUsuarioServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AgregarProductoServlet</servlet-name>
-        <url-pattern>/AgregarProductoServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RegistrarVendedorServlet</servlet-name>
-        <url-pattern>/RegistrarVendedorServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoginVendedorServlet</servlet-name>
-        <url-pattern>/LoginVendedorServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ListarTiendasServlet</servlet-name>
-        <url-pattern>/ListarTiendasServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SeleccionTiendaServlet</servlet-name>
-        <url-pattern>/SeleccionTiendaServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>EditarCompradorServlet</servlet-name>
-        <url-pattern>/EditarCompradorServlet</url-pattern>
-        <servlet-name>MainMenuServlet</servlet-name>
-        <url-pattern>/MainMenuServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CrearTiendaServlet</servlet-name>
-        <url-pattern>/CrearTiendaServlet</url-pattern>
-        <servlet-name>CrearTiendaServlet</servlet-name>
-        <url-pattern>/CrearTiendaServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ListarTiendasVendedor</servlet-name>
-        <url-pattern>/ListarTiendasVendedor</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ProductosBodegaServlet</servlet-name>
-        <url-pattern>/ProductosBodegaServlet</url-pattern>
-    </servlet-mapping>
-    <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
-    </session-config>
+    
+    <servlet-name>CrearTiendaServlet</servlet-name>
+    <servlet-class>controlador.CrearTiendaServlet</servlet-class>
+</servlet>
+
+
+<servlet-mapping>
+    <servlet-name>LoginUsuarioServlet</servlet-name>
+    <url-pattern>/LoginUsuarioServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>AgregarProductoServlet</servlet-name>
+    <url-pattern>/AgregarProductoServlet</url-pattern>
+</servlet-mapping>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>AgregarCarritoServlet</servlet-name>
+    <url-pattern>/AgregarCarritoServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>RegistrarVendedorServlet</servlet-name>
+    <url-pattern>/RegistrarVendedorServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>LoginVendedorServlet</servlet-name>
+    <url-pattern>/LoginVendedorServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>ListarTiendasServlet</servlet-name>
+    <url-pattern>/ListarTiendasServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>SeleccionTiendaServlet</servlet-name>
+    <url-pattern>/SeleccionTiendaServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>RegistroUsuarioServlet</servlet-name>
+    <url-pattern>/RegistroUsuarioServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>EditarCompradorServlet</servlet-name>
+    <url-pattern>/EditarCompradorServlet</url-pattern>
+</servlet-mapping>   
+<servlet-mapping>
+    <servlet-name>MainMenuServlet</servlet-name>
+    <url-pattern>/MainMenuServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>MostrarTiendaServlet</servlet-name>
+    <url-pattern>/MostrarTiendaServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>CrearTiendaServlet</servlet-name>
+    <url-pattern>/CrearTiendaServlet</url-pattern>
+        
+</servlet-mapping>
+
+<servlet-mapping>
+    <servlet-name>ProductosBodegaServlet</servlet-name>
+    <url-pattern>/ProductosBodegaServlet</url-pattern>
+</servlet-mapping>
+<session-config>
+    <session-timeout>
+        30
+    </session-timeout>
+</session-config>
 </web-app>
