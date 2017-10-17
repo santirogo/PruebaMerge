@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 
     $.ajax({
-        url: 'ListarTiendasServlet',
+        url: 'ProductosBodegaServlet',
         type: 'get',
         dataType: 'json',
         success: function (data) {
