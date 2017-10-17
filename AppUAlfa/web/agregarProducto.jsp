@@ -1,5 +1,3 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,14 +10,16 @@
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
     </head>
     <body>
-        <img src="carrito_bg.jpg" class="background">
+        <!--<img src="carrito_bg.jpg" class="background">-->
     <center>
         <form>
             NOMBRE: <input type="text" id="nombre"><br><br>
-            CATEGORIA: <input type="text" id="categoria"><br><br>
+            CATEGORIA:<select id="combobox">
+            </select><br><br>
             PRECIO: <input type="text" id="precio"><br><br>
             CANTIDAD: <input type="text" id="cantidad"><br><br>
-            TIENDA: <input type="text" id="tienda"><br><br>
+            RUTA DE LA IMAGEN: <input type="text" id="imagen"><br><br>
+
             <input type="button" id="boton" value="AGREGAR" class="btn">
         </form>
     </center>

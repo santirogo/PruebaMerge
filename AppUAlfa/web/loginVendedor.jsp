@@ -10,16 +10,12 @@
         <title>Iniciar Sesión</title>
     </head>
     <body>
-        <img src="index_bg.jpg" class="background">
-        <p>¿No tienes una cuenta?</p>
-        <p><a href="http://localhost:8080/AppuMart/registrarVendedor.jsp">Registrarme</a></p>
-        <center class="centritoTu">
-            <form>
-                <p>CORREO:</p><input type="text" id="correo"/><br>
-                <p>CONTRASEÑA:</p><input type="password" id="password"/><br><br>
-                <input type="submit" id="login" class="btn" value="Entrar"/>
-                <p id="ack"></p>
-            </form>
-        </center>    
+        <form>
+            Correo:<input type="text" id="correo"/><br>
+            Contraseña:<input type="password" id="password"/><br>
+            <input type="submit" id="login" value="Entrar"/>
+            ¿No tienes una cuenta? <a href="http://localhost:8080/AppuMart/registrarVendedor.jsp">Registrarme</a>
+        </form>
+        
     </body>
 </html>

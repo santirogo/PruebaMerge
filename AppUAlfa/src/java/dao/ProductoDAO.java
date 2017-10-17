@@ -164,4 +164,28 @@ public class ProductoDAO {
         
         return respuesta;
     }
+    public ArrayList<String> getCategorias() {
+        //1.Consulta
+        ArrayList<String> respuesta = new ArrayList();
+        String consulta = "SELECT * FROM Categorias";
+        try {
+            //----------------------------
+            //Statement
+            Statement statement
+                    = this.conexion.createStatement();
+            //Ejecucion
+            ResultSet resultado
+                    = statement.executeQuery(consulta);
+            //----------------------------
+            //Recorrido sobre el resultado
+            while (resultado.next()) {
+                respuesta.add(resultado.getString("nombre"));
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return respuesta;
+    }
 }

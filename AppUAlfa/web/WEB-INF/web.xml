@@ -101,12 +101,16 @@
         <servlet-class>controlador.LoginVendedorServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SeleccionTiendaServlet</servlet-name>
-        <servlet-class>controlador.SeleccionTiendaServlet</servlet-class>
+        <servlet-name>CrearTiendaServlet</servlet-name>
+        <servlet-class>controlador.CrearTiendaServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>EditarCompradorServlet</servlet-name>
-        <servlet-class>controlador.EditarCompradorServlet</servlet-class>
+        <servlet-name>ListarTiendasVendedor</servlet-name>
+        <servlet-class>controlador.MostrarTiendaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductosBodegaServlet</servlet-name>
+        <servlet-class>controlador.ProductosBodegaServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
@@ -216,6 +220,16 @@
     <servlet-mapping>
         <servlet-name>CrearTiendaServlet</servlet-name>
         <url-pattern>/CrearTiendaServlet</url-pattern>
+        <servlet-name>CrearTiendaServlet</servlet-name>
+        <url-pattern>/CrearTiendaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarTiendasVendedor</servlet-name>
+        <url-pattern>/ListarTiendasVendedor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductosBodegaServlet</servlet-name>
+        <url-pattern>/ProductosBodegaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -5,67 +5,67 @@
  */
 package controlador;
 
+import dao.TiendaDAO;
 import dao.VendedorDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import vo.VendedorVO;
+import vo.TiendaVO;
 
 /**
  *
  * @author Nicolas
  */
-public class LoginVendedorServlet extends HttpServlet {
+public class MostrarTiendaServlet extends HttpServlet {
 
-    JSONObject json;
-    VendedorDAO dao;
-    VendedorVO vo;
+    private TiendaDAO t;
+    private TiendaVO vo;
+    private JSONObject json;
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            this.t=new TiendaDAO();
+            
+            HttpSession mySession = request.getSession();
+            String correo = (String)mySession.getAttribute("correo");
+            VendedorDAO vDAO = new VendedorDAO();
+            String celular = vDAO.buscarCelVendedor(correo);
+            
+            this.vo = t.mostrarPorVendedor(celular);
+            
             json = new JSONObject();
-            dao = new VendedorDAO();
-            vo = new VendedorVO();
-            HttpSession session = request.getSession();
-            vo = (VendedorVO) session.getAttribute("vendedor");
-
-            if (vo == null) {
-
-                vo = new VendedorVO();
-                session.setAttribute("vendedor", vo);
-
-            }
-
-            String correo = request.getParameter("correo");
-            String password = request.getParameter("password");
-            vo.setCorreo(correo);
-
-            vo.setPassword(password);
-            System.out.println("-------------------------" + correo + "---" + password);
-
-            if (!dao.loggear(vo)) {
-                json.put("confirmacion", "NAK");
-                System.out.println("No se pudo loggear");
-            } else {
-                json.put("confirmacion", "ACK");
-                session.setAttribute("correo", correo);
-
-                System.out.println("OOOOKKKKKKKKKKKK");
-            }
-
+            
+            json.put("id",vo.getId());
+            json.put("nombre", vo.getNombre());
+            System.out.println("Json nooooombreeeeeeee"+vo.getNombre());
+            json.put("vendedor", vo.getVendedor());
+            String punt = String.valueOf(vo.getPuntuacion());
+            json.put("puntuacion", punt);
+            json.put("idfondo",vo.getIdFondo());
+            
             out.print(json);
-
         }
     }
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

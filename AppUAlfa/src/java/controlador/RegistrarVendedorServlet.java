@@ -102,12 +102,11 @@ public class RegistrarVendedorServlet extends HttpServlet {
             vo.setNombre(nombre);
             vo.setPassword(password);
             String array[] = correo.split("@");
-            System.out.println("parte 111111: " + array[0]);
-            System.out.println("parte 222222: " + array[1]);
+            
 
             if (dao.buscar(vo)) {
                 json.put("existe", "si");
-            } else if (!array[1].equals("correo.usa.edu.co")) {
+            } else if (array.length==1||!array[1].equals("correo.usa.edu.co")) {
                 json.put("sergista", "no");
                 System.out.println("No es de la sergioooooooo");
 
