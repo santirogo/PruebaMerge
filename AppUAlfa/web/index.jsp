@@ -3,15 +3,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="styles.css" rel='stylesheet' type='text/css'>
-        <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
+        <link href="dist/semantic.css" rel='stylesheet' type='text/css'>
         <title>Bienvenido a AppU Mart</title>
     </head>
     <body>
-        <img src="index_bg.jpg" class="background">
-        <center class="centrito">
-            <a href="http://localhost:8080/AppuMart/loginUsuario.jsp"><button class="btn">Usuario</button></a>
-            <a href="http://localhost:8080/AppuMart/loginVendedor.jsp"><button class="btn">Vendedor</button></a>
-        </center>
+        <div class="ui buttons centered grid" style="position: relative; top: 50%; transform: translateY(-50%);">  
+            <a href="http://localhost:8080/AppuMart/loginUsuario.jsp">
+                <button class="ui primary button">Comprador</button></a>
+                <div class="or" data-text="ó"></div>
+            <a href="http://localhost:8080/AppuMart/loginVendedor.jsp">
+                <button class="ui positive button">Vendedor</button></a>            
+        </div>
     </body>
 </html>

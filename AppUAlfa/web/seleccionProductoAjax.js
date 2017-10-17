@@ -30,10 +30,10 @@ $(document).ready(function (){
                 console.log(data.arreglo[i].nombre);
                 console.log(data.arreglo[i].precio);
                 $("#prueba").append(
-                        "<b id='n"+i+"'>"+data.arreglo[i].nombre+"</b>", 
-                        "<b id='p"+i+"'>Precio: $"+data.arreglo[i].precio+"</b><br>",
-                        "<img src='"+data.arreglo[i].ruta+"' alt='foto' width='100' height='100'>",
-                        "<button class='btn' onclick='cli("+i+")' id="+i+">Añadir</button><br><br>"
+                        "<div class='col-md-4'><b id='n"+i+"'>"+data.arreglo[i].nombre+"</b>\n\
+                        <b id='p"+i+"'>Precio: $"+data.arreglo[i].precio+"</b><br>\n\
+                        <img src='"+data.arreglo[i].ruta+"' alt='foto' width='100' height='100'>\n\
+                        <button class='btn' onclick='cli("+i+")' id="+i+">Añadir</button><br><br></div>"
                 );
             }
             

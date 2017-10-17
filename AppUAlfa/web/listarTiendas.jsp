@@ -19,7 +19,6 @@
     </head>
     <body>
         <img src="tiendas_bg.jpg" class="background">
-        <div class="container-fluid" id="containerP"></div>
-        <div id="div"></div>
+        <div id="div" class="container-fluid"></div>
     </body>
 </html>
