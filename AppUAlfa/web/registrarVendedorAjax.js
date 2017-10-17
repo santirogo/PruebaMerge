@@ -12,13 +12,21 @@ function ocultar() {
     document.getElementById('oculto').style.display = 'none';
 }
 function mostrarBoton() {
+    console.log("jejej");
     document.getElementById('oculto2').style.display = 'block';
+//    $('#oculto2').click(function () {
+//        console.log("click");
+//        window.locatkhkhion.href = "CreacionTienda.jsp";
+//        console.log("click2222222222222222222222");
+//
+//    });
 
 }
 
 function ocultarBoton() {
     document.getElementById('oculto2').style.display = 'none';
 }
+
 $(document).ready(function () {
     ocultar();
     ocultarBoton();
@@ -47,9 +55,9 @@ $(document).ready(function () {
 
                     } else if (data.sergista === "no") {
                         console.log("No es de la sergio");
-                        document.getElementById("conf1").innerHTML = "Debe ser un correo de la Sergio Arboleda";
+                        alert("Debe ser un correo de la Universidad Sergio Arboleda.");
                     } else {
-                        document.getElementById("conf1").innerHTML = "Ya hay un usuario con este correo";
+                        alert("Ya existe un usuario con este correo.");
 
                     }
                 },
@@ -58,8 +66,7 @@ $(document).ready(function () {
                 }
             });
         } else {
-            document.getElementById("conf1").innerHTML = "Las contraseñas no coinciden";
-
+            alert("Las contraseñas no coinciden.");
         }
     });
     $('#confirmar').click(function () {
@@ -74,20 +81,25 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 if (data.registro === "ok") {
-
+                    console.log("ja ja ja");
                     mostrarBoton();
 
                 } else {
-                    $("#div").append("<h1>El codigo es incorrecto</h1>")
-
+                    alert("El código es incorrecto.");
                 }
             },
             error: function () {
-                $('#conf1').val("ERROR FATAL");
+                console.log("Error fatal");
             }
         });
 
     });
 });
+function redirigir() {
+    
+    console.log("funcion");
+    window.locatkhkhion.href = "CreacionTienda.jsp";
+
+};
 
 

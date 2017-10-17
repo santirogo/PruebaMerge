@@ -29,7 +29,7 @@
             Ingresa el código que enviamos a tu correo: <input type='text' id ='codigo'>
             <input type='button' id ='confirmar' value ='confirmar'></div><br>
             <div id="oculto2">
-                <a href="http://localhost:8080/AppuMart/loginVendedor.jsp"><button>¡Registrarme!</button></a>
+                <a><button onclick='redirigir();' >¡Registrarme!</button></a>
             </div>
             
             
