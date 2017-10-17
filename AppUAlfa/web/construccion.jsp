@@ -12,6 +12,13 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <% HttpSession mySession = request.getSession();
+            String correo = (String) mySession.getAttribute("correo");
+//            String correo = "diego@correo.usa.edu.co";
+            System.out.println("SESIÓN: "+correo);
+        %>
+        
+        
         <h1>Lo sentimos, estamos en construcción</h1>
         <img src="https://s-media-cache-ak0.pinimg.com/originals/ec/d5/e0/ecd5e08a55d54584284ac68d05f8271d.jpg" alt="Lo Sentimos">
     </body>

@@ -16,6 +16,16 @@
         <title>JSP Page</title>
     </head>
     <body>
+        
+        <% HttpSession mySession = request.getSession();
+            String correo = (String) mySession.getAttribute("correo");
+//            String correo = "diego@correo.usa.edu.co";
+        %>
+        
+        <%if(correo==null){%>
+            <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
+        <%}%>
+        
         <form>
             <div id="encabezado"></div><br><br>
             <div id="prueba"></div><br>

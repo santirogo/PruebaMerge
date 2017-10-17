@@ -14,9 +14,9 @@
         <title>Editar Comprador</title>
     </head>
     <body>
-        <% //HttpSession mySession = request.getSession();
-//            String correo = (String) mySession.getAttribute("correo");
-            String correo = "diego@correo.usa.edu.co";
+        <% HttpSession mySession = request.getSession();
+            String correo = (String) mySession.getAttribute("correo");
+//            String correo = "diego@correo.usa.edu.co";
         %>
         
         <%if(correo==null){%>
