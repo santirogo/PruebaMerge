@@ -14,6 +14,13 @@
         <title>Estamos en construcción</title>
     </head>
     <body>
+        <% HttpSession mySession = request.getSession();
+            String correo = (String) mySession.getAttribute("correo");
+//            String correo = "diego@correo.usa.edu.co";
+            System.out.println("SESIÓN: "+correo);
+        %>
+        
+        
     <center>
         <h1>Lo sentimos, estamos en construcción</h1>
         <img src="construccion.png" alt="Lo Sentimos">

@@ -5,25 +5,22 @@
  */
 package controlador;
 
-import dao.ProductoDAO;
+import dao.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import vo.ProductoVO;
+import vo.UsuarioVO;
 
 /**
  *
  * @author ayoro
  */
-public class SeleccionTiendaServlet extends HttpServlet {
-    private ProductoDAO producto;
-    private int idT;
+public class EditarCompradorServlet extends HttpServlet {
+    private UsuarioDAO usuario;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -36,7 +33,41 @@ public class SeleccionTiendaServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        try (PrintWriter out = response.getWriter()) {
+            this.usuario = new UsuarioDAO();
+            JSONObject json = new JSONObject();
+            int opcion = -1;
+            try {
+                opcion = Integer.parseInt(request.getParameter("opcion"));
+            } catch (Exception e) {
+                json.put("error", "numero");
+            }
+            String correo = request.getParameter("correo");
+            
+            if (opcion == 1) {
+                String nombre = request.getParameter("nombre");
+                UsuarioVO u = new UsuarioVO();
+                u.setNombre(nombre);
+                u.setCorreo(correo);
+                this.usuario.editarNombre(u);
+            }else if(opcion == 2){
+                String celular = request.getParameter("celular");
+                UsuarioVO u = new UsuarioVO();
+                u.setCelular(celular);
+                u.setCorreo(correo);
+                this.usuario.editarCelular(u);
+            }else if(opcion == 3){
+                String contrasena = request.getParameter("contrasena");
+                UsuarioVO u = new UsuarioVO();
+                u.setPassword(contrasena);
+                u.setCorreo(correo);
+                this.usuario.editarContrasena(u);
+            }
+            
+            
+            
+            System.out.println("opcion: "+opcion);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,11 +82,7 @@ public class SeleccionTiendaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        int idTienda = Integer.parseInt(request.getParameter("nombre"));
-        this.idT = idTienda;
-        System.out.println("Holaaaaa recibi id :* "+this.idT);
-        
+        processRequest(request, response);
     }
 
     /**
@@ -69,34 +96,7 @@ public class SeleccionTiendaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            this.producto = new ProductoDAO();
-            System.out.println("POSTTTTTTTT");
-            
-            String nombreTienda = request.getParameter("nombre");
-//            int idTienda = 1;
-            ArrayList <ProductoVO> productos = this.producto.productosPorTienda(this.idT);
-            JSONArray jArray = new JSONArray();
-            
-            for (int i = 0; i < productos.size(); i++) {
-                JSONObject objeto = new JSONObject();
-                objeto.put("nombre", productos.get(i).getNombre());
-                objeto.put("precio", productos.get(i).getPrecio());
-                objeto.put("ruta", productos.get(i).getRutaImagen());
-                
-                jArray.put(objeto);
-            }
-            
-            
-            JSONObject fin = new JSONObject();
-            fin.put("arreglo", jArray);
-            fin.put("tienda", this.idT); //cambiar acá
-            
-            out.print(fin);
-        }
-        
+        processRequest(request, response);
     }
 
     /**

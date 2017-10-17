@@ -29,6 +29,16 @@
         </style>
     </head>
     <body>
+        
+        <% HttpSession mySession = request.getSession();
+            String correo = (String) mySession.getAttribute("correo");
+//            String correo = "diego@correo.usa.edu.co";
+        %>
+        
+        <%if(correo==null){%>
+            <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
+        <%}%>
+        
         <img src="dulces_bg.jpg" class="background">
             <button class="carritoButt" data-toggle="modal" data-target="#myModal"><img src="carrito_wh.png" class="carritoIcon"></button><br>
             <h2 style="text-align: center; color: #ffffff;">NUESTRAS TIENDAS!!!</h2>
@@ -62,5 +72,6 @@
             </form>
             
             <iframe src="InfoCarrito.jsp" width="300px" height="300px"></iframe>
+        
     </body>
 </html>
