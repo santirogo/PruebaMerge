@@ -6,7 +6,7 @@
         <link href="StyleLogin.css" rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
         <title>Registro Vendedor</title>
-                <style>
+        <style>
             body {
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -69,7 +69,7 @@
             <div id="div"></div>
 
         </form>
-    </center>    -->
+    </center>-->    
 
 
     <div class="login-wrap">
@@ -98,5 +98,6 @@
             <div id="div"></div>
         </div>
     </div>
+    
 </body>
 </html>

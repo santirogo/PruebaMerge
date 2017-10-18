@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
 import vo.UsuarioVO;
 
@@ -26,7 +27,11 @@ public class LoginUsuarioServlet extends HttpServlet {
             String password = request.getParameter("password");
             user.setCorreo(correo);
             user.setPassword(password);
-            System.out.println("-------------------------"+correo+"---"+password);
+            
+            HttpSession session = request.getSession();
+            session.setAttribute("correo", correo);
+            
+
             
             if (!this.usuario.loggear(user)) {
                 json.put("confirmacion","NAK");

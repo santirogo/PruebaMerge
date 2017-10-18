@@ -4,20 +4,20 @@
  * and open the template in the editor.
  */
 
-$(document).ready(function(){
-    $('#login').click(function(){
+$(document).ready(function () {
+    $('#login').click(function () {
 
-        var correo = $('#correo').val();        
+        var correo = $('#correo').val();
         var password = $('#password').val();
-        
-        
-        
+
+
+
         $.ajax({
-            url:'LoginVendedorServlet',
-            type:'post',
-            data:{correo:correo,password:password},
+            url: 'LoginVendedorServlet',
+            type: 'post',
+            data: {correo: correo, password: password},
             dataType: 'json',
-            success: function(data) {
+            success: function (data) {
                 if (data.confirmacion === "ACK") {
                     console.log("DATOS CORRECTOS");
                     document.getElementById("ack").innerHTML = "DATOS CORRECTOS";
@@ -29,9 +29,23 @@ $(document).ready(function(){
                 }
             },
 
-            error: function(){
+            error: function () {
                 $('#ack').val("ERROR FATAL");
             }
         });
     });
+
+    $("#loginn").submit(function (e) {
+        e.preventDefault();
+        $(".login").addClass("init-shake");
+        setTimeout(function () {
+            $(".login").removeClass("init-shake");
+        }, 1000);
+    });
+
+    $(".pass").on("keypress", function () {
+        $(".arrow").css("opacity", "1");
+    });
+
+
 });

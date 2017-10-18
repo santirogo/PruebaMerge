@@ -1,11 +1,3 @@
-<%-- 
-    Document   : registro
-    Created on : 3/09/2017, 03:12:44 PM
-    Author     : ayoro
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -52,7 +44,7 @@
     <center>
         <img src="Pictures/Registrate.png" style="height: 70px; width: 423px; margin-top: 30px">
     </center>
-        <img src="Pictures/barraInf.png"  class="background" style="filter:brightness(1);">
+        <img src="Pictures/barraInf.png"  class="background"  style="filter:brightness(1);">
         <!--<center>
             <form>
                 <p>Correo: </p><input type="text" id="correo"><br>
@@ -63,7 +55,7 @@
                 <input type="button" value="Registrarse" class="btn" id="boton">
 
                 <div id="confirmacion" style="display:none">
-                    <p id="parrafo">Por favor digita el nÃºmero de confirmaciÃ³n que te enviamos al correo</p>
+                    <p id="parrafo">Por favor digita el número de confirmación que te enviamos al correo</p>
                     <input type="text" class="btn" id="numero"><br> <input class="btn" type="button" value="Confirmar" id="confirmar">
                 </div>
             </form><br>
@@ -78,13 +70,13 @@
                 <form id="loginn" class="login-form">
                     <input id="correo" type="text" class="pass" placeholder="Correo"/>
                     <input id="nombre" type="text" class="pass" placeholder="Nombre"/>
-                    <input id="pass" type="password" placeholder="ContraseÃ±a" class="pass"/>
-                    <input id="pass2" type="password" placeholder="Confirma tu ContraseÃ±a" class="pass"/>
+                    <input id="pass" type="password" placeholder="Contraseña" class="pass"/>
+                    <input id="pass2" type="password" placeholder="Confirma tu Contraseña" class="pass"/>
                     <input id="celular" type="text" class="pass" placeholder="Celular"/>
                     <input type="submit" id="boton" class="btn" value="Sign Up"/>
 
                     <div id="confirmacion" style="display:none">
-                        <p id="parrafo">Por favor digita el nÃºmero de confirmaciÃ³n que fue enviado a tu correo</p>
+                        <p id="parrafo">Por favor digita el número de confirmación que fue enviado a tu correo</p>
                         <input type="text" class="btn" id="numero"><br> 
                         <input class="btn" type="button" value="Confirmar" id="confirmar">
                     </div>
@@ -92,8 +84,10 @@
                 </form>
                 <!--<p id="ack"></p>-->
                 <div id="error"></div>
+                
             </div>
+            <br><br>
         </div>
-
+        <br><br>
     </body>
 </html>

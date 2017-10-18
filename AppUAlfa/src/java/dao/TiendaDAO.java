@@ -95,4 +95,56 @@ public class TiendaDAO {
 
         return respuesta;
     }
+    
+    
+    public String NombreTienda(int id) {
+
+        String consulta = "select nombre from Tiendas where id=" + id;
+        String nombreEmpresa="";
+        try {
+            //----------------------------
+            //Statement
+            Statement statement
+                    = this.conexion.createStatement();
+            //Ejecucion
+            ResultSet resultado
+                    = statement.executeQuery(consulta);
+            //----------------------------
+            while(resultado.next()){
+            nombreEmpresa = resultado.getString("nombre");
+            }
+            return nombreEmpresa;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+
+    }
+    
+        public String LogoTienda(int id) {
+
+        String consulta = "select idfondo from Tiendas where id=" + id;
+        String nombreEmpresa="";
+        try {
+            //----------------------------
+            //Statement
+            Statement statement
+                    = this.conexion.createStatement();
+            //Ejecucion
+            ResultSet resultado
+                    = statement.executeQuery(consulta);
+            //----------------------------
+            while(resultado.next()){
+            nombreEmpresa = resultado.getString("idfondo");
+            }
+            return nombreEmpresa;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+
+    }
+    
 }

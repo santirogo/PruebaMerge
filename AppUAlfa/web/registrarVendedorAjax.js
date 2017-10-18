@@ -1,11 +1,5 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 function mostrar() {
     document.getElementById('oculto').style.display = 'block';
-
 }
 
 function ocultar() {
@@ -13,12 +7,12 @@ function ocultar() {
 }
 function mostrarBoton() {
     document.getElementById('oculto2').style.display = 'block';
-
 }
 
 function ocultarBoton() {
     document.getElementById('oculto2').style.display = 'none';
 }
+
 $(document).ready(function () {
     ocultar();
     ocultarBoton();

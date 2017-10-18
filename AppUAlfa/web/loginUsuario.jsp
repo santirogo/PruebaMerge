@@ -61,25 +61,7 @@
 
     <center style="margin-top: 100px">
         <p>¿Eres nuevo?</p>
-        <p><a href="http://localhost:8080/AppuMart/registroUsuario.jsp">Regístrate</button></a></p>
+        <p><a href="http://localhost:8080/AppuMart/registroUsuario.jsp">Regístrate</button></a></p> <!-- 8080-->
     </center>
 </body>
 </html>
-
-
-
-<!--<div class="login-wrap">
-    <div class="login">
-        <div class="avatar">
-        </div>
-        <span class="user">Matt Boldt</span>
-        <form id="login" class="login-form">
-            <input type="password" placeholder="Password" class="pass"/><span class="arrow">&rarr;</span>
-        </form>
-
-    </div>
-</div>
-<div class="wrap">by <a href="https://www.mattboldt.com">Matt Boldt</a><br /><span class="info">Check out the history of Apple.com's Nav bar <a href="https://www.mattboldt.com/demos/css-apple-nav/">here</a> or <a href="https://codepen.io/mattboldt/pen/fJgDj">here</a>.</span></div>
-
-
-<div class="hint">Press enter!</div>-->

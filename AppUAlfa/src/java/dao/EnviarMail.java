@@ -30,7 +30,9 @@ public class EnviarMail {
 
             // Preparamos la sesion
             Session session = Session.getDefaultInstance(props);
-
+            
+            System.out.println("Entro Al Metodo De Registro");
+            
             // Construimos el mensaje
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress("appumartsw@gmail.com"));
