@@ -20,11 +20,11 @@
     </head>
     <body>
         <%HttpSession mySession = request.getSession();
-            VendedorVO vo = (VendedorVO) mySession.getAttribute("vendedor");
+            String correo = (String) mySession.getAttribute("correo");
         %>
 
 
-        <%if (vo == null) {%>
+        <%if (correo == null) {%>
         <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
         <%}%>
         
