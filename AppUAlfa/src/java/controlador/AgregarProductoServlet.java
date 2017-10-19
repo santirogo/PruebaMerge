@@ -47,209 +47,35 @@ public class AgregarProductoServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            this.producto = new ProductoDAO();
-            /* TODO output your page here. You may use following sample code. */
-            String nombre = request.getParameter("nombre");
-            String categoria = request.getParameter("categoria");
-            int precio = Integer.parseInt(request.getParameter("precio"));
-            int tienda = Integer.parseInt(request.getParameter("cantidad"));
-            int idTienda = Integer.parseInt(request.getParameter("tienda"));
-
-            ProductoVO productoVO = new ProductoVO();
-            JSONObject json = new JSONObject();
-
-            //switch(nombre){
-            productoVO.setNombre(nombre);
-            productoVO.setCategoria(categoria);
-            productoVO.setPrecio(precio);
-            productoVO.setCantidad(tienda);
-            productoVO.setTienda(idTienda);
-            productoVO.setRutaImagen("margarita.jpg");
-
-            if (!this.producto.insertar(productoVO)) {
-                json.put("confirmacion", "NAK");
-                System.out.println("No se pudo agregar producto");
-            } else {
-                json.put("confirmacion", "ACK");
-                System.out.println("Producto agregado exitosamente");
-            }
-
-            out.print(json);
-
-//            case 2: 
-//                    
-//            productoVO.setNombre("Papas Margarita Limon");
+//            this.producto = new ProductoDAO();
+//            /* TODO output your page here. You may use following sample code. */
+//            String nombre = request.getParameter("nombre");
+//            String categoria = request.getParameter("categoria");
+//            int precio = Integer.parseInt(request.getParameter("precio"));
+//            int cantidad = Integer.parseInt(request.getParameter("cantidad"));
+//            int idTienda = Integer.parseInt(request.getParameter("tienda"));
+//
+//            ProductoVO productoVO = new ProductoVO();
+//            JSONObject json = new JSONObject();
+//
+//            //switch(nombre){
+//            productoVO.setNombre(nombre);
 //            productoVO.setCategoria(categoria);
 //            productoVO.setPrecio(precio);
 //            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            productoVO.setRutaImagen("margarita2.jpg");
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            case 3: 
-//                    
-//            productoVO.setNombre("Papas Margarita Natural");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            case 4: 
-//                    
-//            productoVO.setNombre("Papas Margarita Pollo");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
+//            productoVO.setTienda(idTienda);
 //            productoVO.setRutaImagen("margarita.jpg");
-//            
+//
 //            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
+//                json.put("confirmacion", "NAK");
 //                System.out.println("No se pudo agregar producto");
 //            } else {
-//                json.put("confirmacion","ACK");
+//                json.put("confirmacion", "ACK");
 //                System.out.println("Producto agregado exitosamente");
 //            }
-//            
+//
 //            out.print(json);
-//            ;
-//            
-//            case 5: 
-//                    
-//            productoVO.setNombre("Mama Ia Ia");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            case 6: 
-//                    
-//            productoVO.setNombre("Trident Menta");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            case 7: 
-//                    
-//            productoVO.setNombre("Trident Canela");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            case 8: 
-//                    
-//            productoVO.setNombre("Trident Mora Azul");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            case 9: 
-//                    
-//            productoVO.setNombre("Cheetos");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            case 10: 
-//                    
-//            productoVO.setNombre("Ponky");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            }
+
         }
     }
 
@@ -307,8 +133,16 @@ public class AgregarProductoServlet extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String nombre = request.getParameter("nombre");
             String categoria = request.getParameter("categoria");
-            int precio = Integer.parseInt(request.getParameter("precio"));
-            int cantidad = Integer.parseInt(request.getParameter("cantidad"));
+
+            int precio = -1;
+            int cantidad = -1;
+            try {
+                precio = Integer.parseInt(request.getParameter("precio"));
+                cantidad = Integer.parseInt(request.getParameter("cantidad"));
+            } catch (NumberFormatException e) {
+
+            }
+
             String imagen = request.getParameter("imagen");
             //int idTienda = Integer.parseInt(request.getParameter("tienda"));
             HttpSession mySession = request.getSession();
@@ -330,7 +164,9 @@ public class AgregarProductoServlet extends HttpServlet {
             productoVO.setTienda(idTienda);
             productoVO.setRutaImagen(imagen);
 
-            if (!this.producto.insertar(productoVO)) {
+            if (precio == -1 || cantidad == -1) {
+                json.put("confirmacion", "NAK");
+            } else if (!this.producto.insertar(productoVO)) {
                 json.put("confirmacion", "NAK");
                 System.out.println("No se pudo agregar producto");
             } else {
@@ -340,180 +176,6 @@ public class AgregarProductoServlet extends HttpServlet {
 
             out.print(json);
 
-//            case 2: 
-//                    
-//            productoVO.setNombre("Papas Margarita Limon");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            productoVO.setRutaImagen("margarita2.jpg");
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            case 3: 
-//                    
-//            productoVO.setNombre("Papas Margarita Natural");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            case 4: 
-//                    
-//            productoVO.setNombre("Papas Margarita Pollo");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            productoVO.setRutaImagen("margarita.jpg");
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            case 5: 
-//                    
-//            productoVO.setNombre("Mama Ia Ia");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            case 6: 
-//                    
-//            productoVO.setNombre("Trident Menta");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            case 7: 
-//                    
-//            productoVO.setNombre("Trident Canela");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            case 8: 
-//                    
-//            productoVO.setNombre("Trident Mora Azul");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            case 9: 
-//                    
-//            productoVO.setNombre("Cheetos");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            case 10: 
-//                    
-//            productoVO.setNombre("Ponky");
-//            productoVO.setCategoria(categoria);
-//            productoVO.setPrecio(precio);
-//            productoVO.setCantidad(cantidad);
-//            productoVO.setTienda(celular);
-//            
-//            if (!this.producto.insertar(productoVO)) {
-//                json.put("confirmacion","NAK");
-//                System.out.println("No se pudo agregar producto");
-//            } else {
-//                json.put("confirmacion","ACK");
-//                System.out.println("Producto agregado exitosamente");
-//            }
-//            
-//            out.print(json);
-//            ;
-//            
-//            }
         }
 
     }

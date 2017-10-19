@@ -10,6 +10,7 @@
         <title>Iniciar Sesión</title>
     </head>
     <body>
+        
         <form>
             Correo:<input type="text" id="correo"/><br>
             Contraseña:<input type="password" id="password"/><br>

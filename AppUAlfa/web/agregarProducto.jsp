@@ -1,3 +1,4 @@
+<%@page import="vo.VendedorVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,6 +12,14 @@
     </head>
     <body>
         <!--<img src="carrito_bg.jpg" class="background">-->
+        <%HttpSession mySession = request.getSession();
+            VendedorVO vo = (VendedorVO) mySession.getAttribute("vendedor");
+        %>
+
+
+        <%if (vo == null) {%>
+        <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
+        <%}%>
     <center>
         <form>
             NOMBRE: <input type="text" id="nombre"><br><br>
@@ -22,6 +31,7 @@
 
             <input type="button" id="boton" value="AGREGAR" class="btn">
         </form>
+        <a href="mostrarTiendaVendedor.jsp" ><button>Volver a mi tienda</button></a>
     </center>
     </body>
 </html>

@@ -151,6 +151,7 @@ public class ProductoDAO {
                 String imagen = resultado.getString("imagen");
                 int tienda = resultado.getInt("tienda");
                 String categoria = resultado.getString("categoria");
+                int cantidad = resultado.getInt("cantidad");
                 
                 ProductoVO p = new ProductoVO();
                 p.setNombre(name);
@@ -158,6 +159,7 @@ public class ProductoDAO {
                 p.setRutaImagen(imagen);
                 p.setTienda(id);
                 p.setCategoria(categoria);
+                p.setCantidad(cantidad);
                 respuesta.add(p);
             }
             
