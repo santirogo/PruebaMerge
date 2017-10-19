@@ -67,7 +67,7 @@
             
             <form>
                 <div id="encabezado"></div><br><br>
-                <div id="prueba"></div><br>
+                <div id="prueba" class="container-fluid"></div><br>
                 <div id="respuesta"></div>
             </form>
             
