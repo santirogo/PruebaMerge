@@ -5,7 +5,6 @@
  */
 package dao;
 
-import com.google.gson.Gson;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,95 +20,110 @@ import vo.ProductoVO;
  * @author Carlos Alberto
  */
 public class CarritoDAO {
-    
+
     private Connection conexion;
-    private CarritoVO carritoVO = CarritoVO.getCarrito();
-    
-    
+    private CarritoVO carritoVO;
+
     public CarritoDAO() {
         Conexion db = Conexion.getConexion();
         this.conexion = db.getConnection();
     }
-    
-    
-    public boolean Agregar(ArrayList producto){
-        boolean b=false;
 
-        System.out.println("NFREKGVNERKFNEK"+producto.get(0));
-        System.out.println("NFREKGVNERKFNEK"+producto.get(1));
-        
+    public ArrayList Agregar(ArrayList producto, ArrayList<ProductoVO> sesion) {
+        boolean b = false;
+
         int x = 0;
-        
-        String query = "select * from productos where nombre='"+producto.get(0)+"' and tienda="+producto.get(1);
+
+        for (int i = 0; i < sesion.size(); i++) {
+            this.carritoVO.agregarProducto(sesion.get(i));
+        }
+
+        String query = "select * from productos where nombre='" + producto.get(0) + "' and tienda='" + producto.get(1) + "'";
 
         try {
             PreparedStatement preparedStmt = null;
             Statement st = this.conexion.createStatement();
             ResultSet rs = st.executeQuery(query);
-            
-//            ArrayList<ProductoVO> productosVO = carritoVO.getProductos();
-            ArrayList carro = new ArrayList();
-            ProductoVO prod= new ProductoVO();
-            
-            
-            if(rs!=null){
-                
-            
-                while (rs.next()) {
-                    System.out.println("WHILEEEEEEE");
-                    prod.setNombre(rs.getString(1));
-                    System.out.println(rs.getString(1));
-                    prod.setCategoria(rs.getString(2));
-                    prod.setPrecio(rs.getInt(3));              
-                    prod.setTienda(rs.getInt(6));
 
-               }
-                
-                
-                carritoVO.agregarProducto(prod);
-                System.out.println(prod);
-                b=true;
-                return b;
-            
-            
-            
-            }else{
+            ArrayList carro = new ArrayList();
+            ProductoVO prod = new ProductoVO();
+
+            if (rs != null) {
+
+                if (this.carritoVO.getProductos() == null) { //Revisa si esta vacio para agregar
+                    while (rs.next()) {
+
+                        prod.setID(rs.getString(1));
+                        prod.setNombre(rs.getString(2));
+                        prod.setCategoria(rs.getString(3));
+                        prod.setPrecio(rs.getInt(4));
+                        prod.setCantidad((int) producto.get(2));
+                        prod.setTienda(rs.getInt(6));
+
+                    }
+                    this.carritoVO.agregarProducto(prod);
+                    b = true;
+                    return this.carritoVO.getProductos();
+                } else {
+                    int i = 0;
+                    for (i = 0; i < this.carritoVO.getProductos().size(); i++) {
+                        //Aumenta la cantidad del producto ya ingresado
+                        if (producto.get(0).equals(this.carritoVO.getProductos().get(i).getNombre())) {
+                                int cant= this.carritoVO.getProductos().get(i).getCantidad();
+                                int cant2= (int) producto.get(2);
+                            this.carritoVO.getProductos().get(i).setCantidad(cant+cant2);
+                            
+                        }
+
+                    }
+                    
+                    if (i==this.carritoVO.getProductos().size()){
+                    
+                    
+                    }
+
+                }
+
+            } else {
                 System.out.println("PRODUCTO NO ENCONTADO :/");
-            
+
             }
-    
+
         } catch (SQLException e) {
             System.out.println("Failed to make insertion!");
             e.printStackTrace();
         }
-        
-        return b;
+
+        return this.carritoVO.getProductos();
     }
-    
-    
-    public String Precio(){
+
+    public String Precio() {
         ProductoVO productos = new ProductoVO();
         ArrayList<ProductoVO> productosVO = carritoVO.getProductos();
-        int x=0;
-        System.out.println("ANTES DE FOOOOOOTTT"+productosVO.size());
+        int x = 0;
         for (int i = 0; i < productosVO.size(); i++) {
-            System.out.println("FOOOOOOOOOOOORRRRRRRR");
-            productos=productosVO.get(i);
-            x=productos.getPrecio()+x;
+            productos = productosVO.get(i);
+            x = productos.getPrecio() + x;
         }
-       
-        String xs= Integer.toString(x);
-        System.out.println("XXXXXSSSS "+xs);
-        return xs;
-    }
-    
-    
-    public String Cantidad(){
-        ArrayList<ProductoVO> productosVO = carritoVO.getProductos();
-        int x= productosVO.size();
-        
+
         String xs = Integer.toString(x);
         return xs;
     }
-      
+
+    public String Cantidad() {
+        ArrayList<ProductoVO> productosVO = carritoVO.getProductos();
+        int x = productosVO.size();
+
+        String xs = Integer.toString(x);
+        return xs;
+    }
+
+    public String PrecioTotal(ArrayList<ProductoVO> CarroSesion) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void borrar(String nombre, String tienda) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

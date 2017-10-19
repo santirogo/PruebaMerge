@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import vo.CarritoVO;
 import vo.ProductoVO;
 
@@ -73,20 +74,24 @@ public class AgregarCarritoServlet extends HttpServlet {
             //processRequest(request, response);
         
             CarritoDAO carritoDAO = new CarritoDAO();
-            CarritoVO carritoVO = CarritoVO.getCarrito();
+            CarritoVO carritoVO = new CarritoVO();
             ProductoVO producto = new ProductoVO();
+            HttpSession sesion = request.getSession();
+            ArrayList CarroSesion = (ArrayList) sesion.getAttribute("carrito");
+
+            
+            
             
             String nombre= request.getParameter("nombre");
-            int tienda= Integer.parseInt(request.getParameter("tienda"));
-            
-            System.out.println("Nombreeeeee:  "+nombre);
-            System.out.println("Tiendaaaaaa id: "+tienda);
+            String tienda= request.getParameter("tienda");
+            int cantidad= Integer.parseInt(request.getParameter("cantidad"));
             
             ArrayList arregloCarro= new ArrayList();
             arregloCarro.add(nombre);
             arregloCarro.add(tienda);
+            arregloCarro.add(cantidad);
             
-            carritoDAO.Agregar(arregloCarro);
+            carritoDAO.Agregar(arregloCarro, CarroSesion);
             
 
         }

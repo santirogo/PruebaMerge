@@ -14,7 +14,7 @@ public class CarritoVO {
         return carrito;
     }
 
-    private CarritoVO() {
+    public CarritoVO() {
         this.productos = new ArrayList<ProductoVO>();
     }
 

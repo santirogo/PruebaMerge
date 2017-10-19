@@ -1,6 +1,5 @@
 package dao;
 
-import com.google.gson.Gson;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,18 +22,19 @@ public class ProductoDAO {
         boolean resultado = false;
         try {
             //1.Establecer la consulta
-            String consulta = "INSERT INTO Productos(nombre, categoria, precio, cantidad, tienda, imagen)"
+            String consulta = "INSERT INTO Productos(ID, nombre, categoria, precio, cantidad, tienda, imagen)"
                     + "VALUES(?,?,?,?,?,?)";
             //2. Crear el PreparedStament
             PreparedStatement statement
                     = this.conexion.prepareStatement(consulta);
             //-----------------------------------
-            statement.setString(1, producto.getNombre());
-            statement.setString(2, producto.getCategoria());
-            statement.setInt(3, producto.getPrecio());
-            statement.setInt(4, producto.getCantidad());
-            statement.setInt(5, producto.getTienda());
-            statement.setString(6, producto.getRutaImagen());
+            statement.setString(1, producto.getID());
+            statement.setString(2, producto.getNombre());
+            statement.setString(3, producto.getCategoria());
+            statement.setInt(4, producto.getPrecio());
+            statement.setInt(5, producto.getCantidad());
+            statement.setInt(6, producto.getTienda());
+            statement.setString(7, producto.getRutaImagen());
             //--------------------------------------
             //3. Hacer la ejecucion
             resultado = statement.execute();
@@ -111,25 +111,25 @@ public class ProductoDAO {
         return result;
     }
     
-    public String enviar() throws SQLException{
-        
-        String query="Select * from productos";
-        PreparedStatement preparedStmt = null;
-        
-        ArrayList Arreglo = new ArrayList();
-                Arreglo.clear();
-           
-
-                    Statement st = this.conexion.createStatement();
-                    ResultSet rs = st.executeQuery(query);
-                    while (rs.next()) {
-                        Arreglo.add(rs.getString(1));
-                        Arreglo.add(rs.getInt(3));
-                    }
-
-                    return new Gson().toJson(Arreglo);
-    
-    }
+//    public String enviar() throws SQLException{
+//        
+//        String query="Select * from productos";
+//        PreparedStatement preparedStmt = null;
+//        
+//        ArrayList Arreglo = new ArrayList();
+//                Arreglo.clear();
+//           
+//
+//                    Statement st = this.conexion.createStatement();
+//                    ResultSet rs = st.executeQuery(query);
+//                    while (rs.next()) {
+//                        Arreglo.add(rs.getString(1));
+//                        Arreglo.add(rs.getInt(3));
+//                    }
+//
+//                    return new Gson().toJson(Arreglo);
+//    
+//    }
     
     public ArrayList productosPorTienda(int id){
         //1.Consulta

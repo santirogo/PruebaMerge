@@ -157,6 +157,7 @@ public class AgregarProductoServlet extends HttpServlet {
             JSONObject json = new JSONObject();
 
             //switch(nombre){
+            productoVO.setID(nombre+Integer.toString(idTienda));
             productoVO.setNombre(nombre);
             productoVO.setCategoria(categoria);
             productoVO.setPrecio(precio);
