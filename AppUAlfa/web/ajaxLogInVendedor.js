@@ -28,7 +28,7 @@ $(document).ready(function () {
             },
 
             error: function () {
-                console.log("errooooooooor");
+                console.log("errooooooooor en ajax");
             }
         });
     });

@@ -8,7 +8,7 @@ $(document).ready(function () {
     comboBox();
     $("#boton").click(function () {
         var nombre = $("#nombre").val();
-        var categoria = $("#categoria").val();
+        var categoria = $("#combobox").val();
         var precio = $("#precio").val();
         var cantidad = $("#cantidad").val();
         var imagen = $('#imagen').val();
