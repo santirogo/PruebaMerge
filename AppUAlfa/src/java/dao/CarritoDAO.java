@@ -22,7 +22,7 @@ import vo.ProductoVO;
 public class CarritoDAO {
 
     private Connection conexion;
-    private CarritoVO carritoVO;
+    private CarritoVO carritoVO = new CarritoVO();
 
     public CarritoDAO() {
         Conexion db = Conexion.getConexion();
@@ -38,7 +38,7 @@ public class CarritoDAO {
             this.carritoVO.agregarProducto(sesion.get(i));
         }
 
-        String query = "select * from productos where nombre='" + producto.get(0) + "' and tienda='" + producto.get(1) + "'";
+        String query = "select * from productos where nombre='" + producto.get(0) + "' and tienda=" + producto.get(1) + "";
 
         try {
             PreparedStatement preparedStmt = null;
@@ -61,24 +61,38 @@ public class CarritoDAO {
                         prod.setTienda(rs.getInt(6));
 
                     }
-                    this.carritoVO.agregarProducto(prod);
+                    carritoVO.agregarProducto(prod);
                     b = true;
-                    return this.carritoVO.getProductos();
+                    return carritoVO.getProductos();
                 } else {
                     int i = 0;
-                    for (i = 0; i < this.carritoVO.getProductos().size(); i++) {
+                    for (i = 0; i < carritoVO.getProductos().size(); i++) {
                         //Aumenta la cantidad del producto ya ingresado
-                        if (producto.get(0).equals(this.carritoVO.getProductos().get(i).getNombre())) {
-                            int cant = this.carritoVO.getProductos().get(i).getCantidad();
+                        if (producto.get(0).equals(carritoVO.getProductos().get(i).getNombre())) {
+                            int cant = carritoVO.getProductos().get(i).getCantidad();
                             int cant2 = (int) producto.get(2);
-                            this.carritoVO.getProductos().get(i).setCantidad(cant + cant2);
+                            carritoVO.getProductos().get(i).setCantidad(cant + cant2);
 
                         }
 
                     }
 
-                    if (i == this.carritoVO.getProductos().size()) {
+                    if (i == carritoVO.getProductos().size()) {
+                        
+                        while (rs.next()) {
 
+                        prod.setID(rs.getString(1));
+                        prod.setNombre(rs.getString(2));
+                        prod.setCategoria(rs.getString(3));
+                        prod.setPrecio(rs.getInt(4));
+                        prod.setCantidad((int) producto.get(2));
+                        prod.setTienda(rs.getInt(6));
+
+                    }
+                    carritoVO.agregarProducto(prod);
+                    b = true;
+                    return carritoVO.getProductos();
+                        
                     }
 
                 }

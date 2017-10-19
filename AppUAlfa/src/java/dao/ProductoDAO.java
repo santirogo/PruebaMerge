@@ -11,13 +11,14 @@ import util.Conexion;
 import vo.ProductoVO;
 
 public class ProductoDAO {
+
     private Connection conexion;
 
     public ProductoDAO() {
         Conexion db = Conexion.getConexion();
         this.conexion = db.getConnection();
     }
-    
+
     public boolean insertar(ProductoVO producto) {
         boolean resultado = false;
         try {
@@ -38,7 +39,7 @@ public class ProductoDAO {
             //--------------------------------------
             //3. Hacer la ejecucion
             resultado = statement.execute();
-            resultado=true;
+            resultado = true;
             return resultado;
 
         } catch (SQLException ex) {
@@ -47,32 +48,32 @@ public class ProductoDAO {
         }
 
     }
-    
-    public ArrayList<ProductoVO> listarTodo(){
-       //1.Consulta
-       ArrayList<ProductoVO> respuesta = new ArrayList<ProductoVO>();
-       String consulta ="SELECT * FROM Productos";
+
+    public ArrayList<ProductoVO> listarTodo() {
+        //1.Consulta
+        ArrayList<ProductoVO> respuesta = new ArrayList<ProductoVO>();
+        String consulta = "SELECT * FROM Productos";
         try {
             //----------------------------
             //Statement
-            Statement statement =
-                    this.conexion.createStatement();
+            Statement statement
+                    = this.conexion.createStatement();
             //Ejecucion
-            ResultSet resultado = 
-                    statement.executeQuery(consulta);
+            ResultSet resultado
+                    = statement.executeQuery(consulta);
             //----------------------------
             //Recorrido sobre el resultado
-            while(resultado.next()){
+            while (resultado.next()) {
                 respuesta.add((ProductoVO) resultado);
             }
-            
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
+
         return respuesta;
     }
-    
+
     public boolean editar(ProductoVO producto) {
         boolean result = false;
         String query = "update Productos set Categoria = ?, Precio = ?, Cantidad = ?, imagen=? where Nombre = ?";
@@ -84,7 +85,7 @@ public class ProductoDAO {
             preparedStmt.setInt(3, producto.getCantidad());
             preparedStmt.setString(4, producto.getNombre());
             preparedStmt.setString(4, producto.getRutaImagen());
-            
+
             if (preparedStmt.executeUpdate() > 0) {
                 result = true;
             }
@@ -95,7 +96,7 @@ public class ProductoDAO {
 
         return result;
     }
-    
+
     public boolean borrar(ProductoVO producto) {
         boolean result = false;
         String query = "delete from Productos where Nombre = ?";
@@ -133,19 +134,19 @@ public class ProductoDAO {
     
     public ArrayList productosPorTienda(int id){
         //1.Consulta
-       ArrayList<ProductoVO> respuesta = new ArrayList<ProductoVO>();
-       String consulta ="SELECT * FROM Productos WHERE tienda = "+id;
+        ArrayList<ProductoVO> respuesta = new ArrayList<ProductoVO>();
+        String consulta = "SELECT * FROM Productos WHERE tienda = " + id;
         try {
             //----------------------------
             //Statement
-            Statement statement =
-                    this.conexion.createStatement();
+            Statement statement
+                    = this.conexion.createStatement();
             //Ejecucion
-            ResultSet resultado = 
-                    statement.executeQuery(consulta);
+            ResultSet resultado
+                    = statement.executeQuery(consulta);
             //----------------------------
             //Recorrido sobre el resultado
-            while(resultado.next()){
+            while (resultado.next()) {
                 String name = resultado.getString("nombre");
                 int precio = resultado.getInt("precio");
                 String imagen = resultado.getString("imagen");
@@ -162,11 +163,11 @@ public class ProductoDAO {
                 p.setCantidad(cantidad);
                 respuesta.add(p);
             }
-            
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
+
         return respuesta;
     }
     public ArrayList<String> getCategorias() {

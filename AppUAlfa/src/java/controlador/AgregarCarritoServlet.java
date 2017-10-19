@@ -74,7 +74,7 @@ public class AgregarCarritoServlet extends HttpServlet {
             //processRequest(request, response);
         
             CarritoDAO carritoDAO = new CarritoDAO();
-            CarritoVO carritoVO = new CarritoVO();
+            CarritoVO carritoVO = CarritoVO.getCarrito();
             ProductoVO producto = new ProductoVO();
             HttpSession sesion = request.getSession();
             ArrayList CarroSesion = (ArrayList) sesion.getAttribute("carrito");
