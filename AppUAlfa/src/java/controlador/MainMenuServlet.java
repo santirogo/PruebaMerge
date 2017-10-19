@@ -19,8 +19,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
-//import com.google.gson.*;
+import javax.servlet.http.HttpSession;
 import org.json.JSONArray;
+import vo.ProductoVO;
 
 /**
  *
@@ -66,33 +67,61 @@ private CarritoDAO carritoDAO;
             response.setContentType("application/json");
         
             CarritoDAO Mateo= new CarritoDAO();
+            HttpSession sesion = request.getSession();
+            ArrayList<ProductoVO> CarroSesion = (ArrayList) sesion.getAttribute("carrito");
             
             String P="";
 
             P = request.getParameter("opcion");
+           
             
 
             
             if(P.equals("1")){
+                
+                ProductoVO productos= new ProductoVO();
+            ArrayList<ProductoVO> Arreglo= new ArrayList();
+            
+            JSONArray array = new JSONArray();
+            JSONObject json= new JSONObject();
+            
+            //Arreglo= Mateo.infoCheckOut();
+            Arreglo = CarroSesion;
+            
+            for (int i = 0; i <Arreglo.size() ; i++) {
+                
+                productos= (ProductoVO) Arreglo.get(i);
+                json.put("nombre", productos.getNombre());
+                json.put("cantidad", String.valueOf(productos.getCantidad()));
+                json.put("precio", String.valueOf(productos.getPrecio()));
+                array.put(json);
+                
+            }
+                
                 //Envia Precio y cantidad
-                String x= Mateo.Precio();
-                System.out.println("XXXXXXXX "+ x);
-                String y=Mateo.Cantidad();
-                JSONObject total = new JSONObject();
-                JSONObject cant = new JSONObject();
+            String x= Mateo.PrecioTotal(CarroSesion);
+            JSONObject total = new JSONObject();
+            
+            total.put("Total", x);
+ 
+            array.put(total);
+            
+            
+            JSONObject fin = new JSONObject();
+            fin.put("Productos",array);
+            out.print(fin);
 
-                total.put("Total", x);
-                cant.put("Cant", y);
-
-                JSONArray arreglo = new JSONArray();
-
-                arreglo.put(total);
-                arreglo.put(cant);
-
-                JSONObject fin = new JSONObject();
-                fin.put("Arreglo",arreglo);
-                out.print(fin);
-
+            }
+            
+            if(P.equals("2")){
+                ArrayList<ProductoVO> Arreglo= new ArrayList();
+                
+                Arreglo = CarroSesion;
+                 String ID= request.getParameter("idprod");
+                 
+            Mateo.borrar(ID, Arreglo);
+            
+            
             }
             
             

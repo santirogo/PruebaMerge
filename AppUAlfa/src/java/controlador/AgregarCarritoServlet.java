@@ -91,8 +91,9 @@ public class AgregarCarritoServlet extends HttpServlet {
             arregloCarro.add(tienda);
             arregloCarro.add(cantidad);
             
-            carritoDAO.Agregar(arregloCarro, CarroSesion);
-            
+            ArrayList<ProductoVO> Carro= new ArrayList();
+            Carro=carritoDAO.Agregar(arregloCarro, CarroSesion);
+            sesion.setAttribute("carrito", Carro);
 
         }
         

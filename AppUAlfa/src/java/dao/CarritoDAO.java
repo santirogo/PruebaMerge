@@ -69,17 +69,16 @@ public class CarritoDAO {
                     for (i = 0; i < this.carritoVO.getProductos().size(); i++) {
                         //Aumenta la cantidad del producto ya ingresado
                         if (producto.get(0).equals(this.carritoVO.getProductos().get(i).getNombre())) {
-                                int cant= this.carritoVO.getProductos().get(i).getCantidad();
-                                int cant2= (int) producto.get(2);
-                            this.carritoVO.getProductos().get(i).setCantidad(cant+cant2);
-                            
+                            int cant = this.carritoVO.getProductos().get(i).getCantidad();
+                            int cant2 = (int) producto.get(2);
+                            this.carritoVO.getProductos().get(i).setCantidad(cant + cant2);
+
                         }
 
                     }
-                    
-                    if (i==this.carritoVO.getProductos().size()){
-                    
-                    
+
+                    if (i == this.carritoVO.getProductos().size()) {
+
                     }
 
                 }
@@ -119,11 +118,33 @@ public class CarritoDAO {
     }
 
     public String PrecioTotal(ArrayList<ProductoVO> CarroSesion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        for (int i = 0; i < CarroSesion.size(); i++) {
+            this.carritoVO.agregarProducto(CarroSesion.get(i));
+        }
+        int x = 0;
+        for (int i = 0; i < carritoVO.getProductos().size(); i++) {
+            x = x + carritoVO.getProductos().get(i).getCantidad();
+        }
+        String xs = Integer.toString(x);
+        return xs;
+
     }
 
-    public void borrar(String nombre, String tienda) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void borrar(String ID, ArrayList<ProductoVO> CarroSesion) {
+        for (int i = 0; i < CarroSesion.size(); i++) {
+            this.carritoVO.agregarProducto(CarroSesion.get(i));
+        }
+        
+        for (int i = 0; i < carritoVO.getProductos().size(); i++) {
+            
+            if(ID.equals(carritoVO.getProductos().get(i).getID())){
+                carritoVO.getProductos().remove(i);
+            
+            }
+            
+        }
+
     }
 
 }

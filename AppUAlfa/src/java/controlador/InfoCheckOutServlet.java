@@ -55,24 +55,24 @@ public class InfoCheckOutServlet extends HttpServlet {
             //Arreglo = carrito.infoCheckOut();
             Arreglo =(ArrayList<ProductoVO>) session.getAttribute("carrito");
 
-            String opcion = request.getParameter("opcion");
-            String comentario = request.getParameter("comentario");
+            String opcion = request.getParameter("confirmar");
+            String comentario = request.getParameter("comment");
 
-            for (int i = 0; i < Arreglo.size(); i++) {
-                JSONObject json = new JSONObject();
-                productos = (ProductoVO) Arreglo.get(i);
+//            for (int i = 0; i < Arreglo.size(); i++) {
+//                JSONObject json = new JSONObject();
+//                productos = (ProductoVO) Arreglo.get(i);
+//
+//                json.put("nombre", productos.getNombre());
+//                json.put("cantidad", String.valueOf(productos.getCantidad()));
+//                json.put("precio", String.valueOf(productos.getPrecio()));
+//                array.put(json);
+//            }
+//            coment.put("Comentario", comentario);
+//            array.put(coment);
+//            fin.put("Productos", array);
+//            out.print(fin);
 
-                json.put("nombre", productos.getNombre());
-                json.put("cantidad", String.valueOf(productos.getCantidad()));
-                json.put("precio", String.valueOf(productos.getPrecio()));
-                array.put(json);
-            }
-            coment.put("Comentario", comentario);
-            array.put(coment);
-            fin.put("Productos", array);
-            out.print(fin);
-
-            if (opcion.equals("1")) {
+            if (opcion.equals("3")) {
                 for (int i = 0; i < Arreglo.size(); i++) {
                     String correo = "";
                     ArrayList<String> cadena = new ArrayList<>();
@@ -93,8 +93,10 @@ public class InfoCheckOutServlet extends HttpServlet {
                     for (int j = 0; j < prod.size(); j++) {
                         String orden = "" + prod.get(i).getNombre() + "" + Integer.toString(prod.get(i).getCantidad()) + "" + Integer.toString(prod.get(i).getPrecio());
                         cadena.add(orden);
+                        cadena.add(comentario);
                     }
 
+                    
                     correo = mail.CorreoTienda(prod.get(i).getTienda());
                     mail.sendCheckOut(correo, cadena);
                     session.setAttribute("carrito", null);

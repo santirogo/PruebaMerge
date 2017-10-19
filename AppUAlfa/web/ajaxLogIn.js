@@ -10,7 +10,7 @@ $(document).ready(function(){
         var correo = $('#correo').val();
         var password = $('#password').val();
         $.ajax({
-            url:'http://localhost:8080/AppuMart/LoginUsuarioServlet',
+            url:'http://localhost:44617/AppuMart/LoginUsuarioServlet',
             type:'post',
             data:{correo:correo,password:password},
             dataType: 'json',
