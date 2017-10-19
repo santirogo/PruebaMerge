@@ -50,81 +50,15 @@
         <servlet-name>ProductosBodegaServlet</servlet-name>
         <servlet-class>controlador.ProductosBodegaServlet</servlet-class>
     </servlet>
-</web-app>
-    
-    <servlet-name>CrearTiendaServlet</servlet-name>
-    <servlet-class>controlador.CrearTiendaServlet</servlet-class>
-</servlet>
-
-
-<servlet-mapping>
-    <servlet-name>LoginUsuarioServlet</servlet-name>
-    <url-pattern>/LoginUsuarioServlet</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-    <servlet-name>AgregarProductoServlet</servlet-name>
-    <url-pattern>/AgregarProductoServlet</url-pattern>
-</servlet-mapping>
-</servlet-mapping>
-<servlet-mapping>
-    <servlet-name>AgregarCarritoServlet</servlet-name>
-    <url-pattern>/AgregarCarritoServlet</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-    <servlet-name>RegistrarVendedorServlet</servlet-name>
-    <url-pattern>/RegistrarVendedorServlet</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-    <servlet-name>LoginVendedorServlet</servlet-name>
-    <url-pattern>/LoginVendedorServlet</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-    <servlet-name>ListarTiendasServlet</servlet-name>
-    <url-pattern>/ListarTiendasServlet</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-    <servlet-name>SeleccionTiendaServlet</servlet-name>
-    <url-pattern>/SeleccionTiendaServlet</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-    <servlet-name>RegistroUsuarioServlet</servlet-name>
-    <url-pattern>/RegistroUsuarioServlet</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-    <servlet-name>EditarCompradorServlet</servlet-name>
-    <url-pattern>/EditarCompradorServlet</url-pattern>
-</servlet-mapping>   
-<servlet-mapping>
-    <servlet-name>MainMenuServlet</servlet-name>
-    <url-pattern>/MainMenuServlet</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-    <servlet-name>MostrarTiendaServlet</servlet-name>
-    <url-pattern>/MostrarTiendaServlet</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-    <servlet-name>CrearTiendaServlet</servlet-name>
-    <url-pattern>/CrearTiendaServlet</url-pattern>
-        
-</servlet-mapping>
-
-<servlet-mapping>
-    <servlet-name>ProductosBodegaServlet</servlet-name>
-    <url-pattern>/ProductosBodegaServlet</url-pattern>
-</servlet-mapping>
-<session-config>
-    <session-timeout>
-        30
-    </session-timeout>
-</session-config>
+    <servlet>
+        <servlet-name>CrearTiendaServlet</servlet-name>
+        <servlet-class>controlador.CrearTiendaServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>EditarTiendaServlet</servlet-name>
         <servlet-class>controlador.EditarTiendaServlet</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>IndexServlet</servlet-name>
-        <url-pattern>/IndexServlet</url-pattern>
-    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>LoginUsuarioServlet</servlet-name>
         <url-pattern>/LoginUsuarioServlet</url-pattern>
@@ -133,22 +67,21 @@
         <servlet-name>AgregarProductoServlet</servlet-name>
         <url-pattern>/AgregarProductoServlet</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>AgregarCarritoServlet</servlet-name>
         <url-pattern>/AgregarCarritoServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RegistroUsuarioServlet</servlet-name>
-        <url-pattern>/RegistroUsuarioServlet</url-pattern>
+        <servlet-name>RegistrarVendedorServlet</servlet-name>
+        <url-pattern>/RegistrarVendedorServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SeleccionTiendaServlet</servlet-name>
-        <url-pattern>/SeleccionTiendaServlet</url-pattern>
+        <servlet-name>LoginVendedorServlet</servlet-name>
+        <url-pattern>/LoginVendedorServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EditarCompradorServlet</servlet-name>
-        <url-pattern>/EditarCompradorServlet</url-pattern>
+        <servlet-name>ListarTiendasServlet</servlet-name>
+        <url-pattern>/ListarTiendasServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SeleccionTiendaServlet</servlet-name>
@@ -173,15 +106,19 @@
     <servlet-mapping>
         <servlet-name>CrearTiendaServlet</servlet-name>
         <url-pattern>/CrearTiendaServlet</url-pattern>
-        
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>ProductosBodegaServlet</servlet-name>
         <url-pattern>/ProductosBodegaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarTiendaServlet</servlet-name>
+        <url-pattern>/EditarTiendaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+</web-app>
+    
