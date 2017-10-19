@@ -11,7 +11,7 @@ $(document).ready(function(){
         var nombre = $('#nombre').val();
         var celular = $('#celular').text();
         $.ajax({
-            url:'EditarCompradorServlet',
+            url:'EditarTiendaServlet',
             type:'post',
             data:{opcion:opcion,nombre:nombre,celular:celular},
             dataType: 'json',
@@ -26,7 +26,7 @@ $(document).ready(function(){
         var fondo = $('#fondo').val();
         var celular = $('#celular').text();
         $.ajax({
-            url:'EditarCompradorServlet',
+            url:'EditarTiendaServlet',
             type:'post',
             data:{opcion:opcion,fondo:fondo,celular:celular},
             dataType: 'json',
