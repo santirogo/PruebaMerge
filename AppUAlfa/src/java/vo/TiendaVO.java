@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class TiendaVO {
     
- private String categoria;
+ private int id;   
  private String nombre;
  private String vendedor;
  private ArrayList<String> producto;
@@ -23,13 +23,6 @@ public class TiendaVO {
         this.idFondo = idFondo;
     }
     
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
 
     public String getNombre() {
         return nombre;
@@ -64,11 +57,12 @@ public class TiendaVO {
         this.puntuacion = puntuacion;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
- 
- 
- 
- 
- 
- 
 }
