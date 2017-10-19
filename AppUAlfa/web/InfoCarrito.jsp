@@ -115,6 +115,7 @@
 
         <form>
             <center>
+                <input class="submit" type="text" id="opcion" value="3"  style="visibility:hidden"/><br>
                 <textarea rows="4" cols="50" name="comment" id="comment">Ingresa Los Comentarios Del Pedido Aqui...</textarea><br>
                 <input class="btn" type="submit" id="Confirmar" value="Confirmar"/>
             </center>
