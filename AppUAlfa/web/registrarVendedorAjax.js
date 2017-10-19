@@ -16,7 +16,7 @@ function mostrarBoton() {
     document.getElementById('oculto2').style.display = 'block';
     $('#oculto2').click(function () {
         console.log("click");
-        window.location.href = "CreacionTienda.jsp";
+        window.location.href= "CreacionTienda.jsp";
         console.log("click2222222222222222222222");
 
     });

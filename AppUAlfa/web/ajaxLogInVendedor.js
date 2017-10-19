@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 $(document).ready(function () {
     $('#login').click(function () {
 
@@ -29,7 +28,7 @@ $(document).ready(function () {
             },
 
             error: function () {
-                $('#ack').val("ERROR FATAL");
+                console.log("errooooooooor");
             }
         });
     });

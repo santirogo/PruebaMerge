@@ -23,18 +23,21 @@
             Confirmar contraseña: <input type="password" id="password2"><br>
 
             <input type="button" id="boton" value="Registrarme">
-            
+
             <h1 id="conf1"></h1>
             <div id="oculto">
-            Ingresa el código que enviamos a tu correo: <input type='text' id ='codigo'>
-            <input type='button' id ='confirmar' value ='confirmar'></div><br>
-            <div id="oculto2">
-                <a><button onclick='redirigir();' >¡Registrarme!</button></a>
-            </div>
-            
-            
+                Ingresa el código que enviamos a tu correo: <input type='text' id ='codigo'>
+                <input type='button' id ='confirmar' value ='confirmar'></div><br>
+
+
             <div id="div"></div>
-            
+
         </form>
+        <div id="oculto2">
+            <a href="CreacionTienda.jsp"><button>¡Registrarme!</button></a>
+        </div>
+
+
+
     </body>
 </html>

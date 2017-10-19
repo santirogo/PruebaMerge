@@ -45,6 +45,7 @@ public class LoginVendedorServlet extends HttpServlet {
 
             String correo = request.getParameter("correo");
             String password = request.getParameter("password");
+            String celular = dao.buscarCelVendedor(correo);
             vo.setCorreo(correo);
 
             vo.setPassword(password);
@@ -56,6 +57,8 @@ public class LoginVendedorServlet extends HttpServlet {
             } else {
                 json.put("confirmacion", "ACK");
                 session.setAttribute("correo", correo);
+                session.setAttribute("celular", celular);
+                
 
                 System.out.println("OOOOKKKKKKKKKKKK");
             }

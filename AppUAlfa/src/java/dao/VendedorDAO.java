@@ -132,7 +132,7 @@ public class VendedorDAO {
 
             stmt = this.conexion.prepareStatement(query);
             
-            stmt.setString(0, correo);
+            stmt.setString(1, correo);
             ResultSet res = stmt.executeQuery();
             
 

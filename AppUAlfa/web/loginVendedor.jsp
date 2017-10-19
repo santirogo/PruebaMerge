@@ -14,6 +14,7 @@
             <input type="submit" id="login" value="Entrar"/>
             ¿No tienes una cuenta? <a href="http://localhost:8080/AppuMart/registrarVendedor.jsp">Registrarme</a>
         </form>
+
         
     </body>
 </html>

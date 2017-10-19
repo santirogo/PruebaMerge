@@ -48,7 +48,7 @@ public class MostrarTiendaServlet extends HttpServlet {
             String correo = (String)mySession.getAttribute("correo");
             VendedorDAO vDAO = new VendedorDAO();
             String celular = vDAO.buscarCelVendedor(correo);
-            
+            System.out.println("ceeeelluuuullaaarr de vendeeedoorr"+celular);
             this.vo = t.mostrarPorVendedor(celular);
             
             json = new JSONObject();

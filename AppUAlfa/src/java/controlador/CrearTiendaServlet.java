@@ -118,6 +118,7 @@ public class CrearTiendaServlet extends HttpServlet {
             ArrayList<String> prod = new ArrayList<>();
             HttpSession mySession = request.getSession();
             String correo = (String) mySession.getAttribute("correo");
+            System.out.println("coorrrreeeeooooo eennn seeessiiiooonnn"+correo);
             String celular = this.tienda.buscarCelVendedor(correo);
             
             String nombre = request.getParameter("nombre");
