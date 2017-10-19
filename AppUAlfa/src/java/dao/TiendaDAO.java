@@ -225,7 +225,7 @@ public class TiendaDAO {
     public int obtenerId(String celular){
         try {
 
-            String query = "SELECT id FROM TIENDAS WHERE vendedor = ?";
+            String query = "SELECT id FROM TIENDAS WHERE vendedor = '"+celular+"'";
 
             Statement stmt = null;
 

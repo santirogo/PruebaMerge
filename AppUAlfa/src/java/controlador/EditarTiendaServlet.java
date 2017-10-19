@@ -35,6 +35,8 @@ public class EditarTiendaServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             this.tienda = new TiendaDAO();
             
+            System.out.println("HOLLAAAAA");
+            
             int opcion = Integer.parseInt(request.getParameter("opcion"));
             String celular = request.getParameter("celular");
             int id = this.tienda.obtenerId(celular);
