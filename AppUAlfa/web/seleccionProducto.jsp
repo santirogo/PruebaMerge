@@ -132,7 +132,7 @@
                 display:block; /* mostramos el layer */
 
             }
-            
+
             #encabezado{
                 text-align: center; 
                 left: 51%; 
@@ -143,7 +143,7 @@
                 font-size: 80px; 
                 color: white;
             }
-            
+
             .carro{
                 bottom: -4px;
                 left:0;
@@ -158,15 +158,18 @@
                 src: url('Pictures/carrito.ttf');
                 font-family: 'carrito.ttf';
             }
-            
+            .pass{
+                margin: 2px 2px 2px 2px;
+                width:12px;
+                border-radius:3px;
+                border:#CCC 1px solid;
+            }     
         </style>
 
         <script>
-
             jQuery(document).ready(function () {
                 jQuery("#loader").fadeOut("slow");
             });
-
         </script>
     </head>
 
@@ -175,13 +178,13 @@
         <!--<img src="dulces_bg.jpg" class="background">-->
         <img src="Pictures/barraInf.png"  class="background">
         <!--<button class="cart-icon" data-toggle="modal" data-target="#myModal"><img src="carrito_wh.png" class="carritoIcon"></button><br>-->
-        
+
         <!--<div id="encabezado" style="text-align: center; left: 4%; top: 26%; position: absolute;"></div>-->
-        <img src="Pictures/AppuMartTextoBorde.png"  class="background" style="filter:brightness(1); width: 20% ; height: 30%; top:80%; left:40%;">
+        <a href="listarTiendas.jsp"><img src="Pictures/AppuMartTextoBorde.png"  class="background" style="filter:brightness(1); width: 20% ; height: 30%; top:80%; left:40%;"></a>
 
         <header class="header">
             <div id="encabezado" style=" filter:brightness(1);" ></div><br><br>
-            <div id='Perfil' style="filter:brightness(1);"></div> 
+            <div id='Perfil' style="position: absolute; top: 2%; left: 5%; filter:brightness(1);"></div> 
         </header>
 
 
@@ -207,11 +210,11 @@
                         <div class="modal-body">
                             <p style="font-family: 'carrito.ttf'; font-size: 20px">Productos en el Carrito:</p>
                             <center><iframe src="InfoCarrito.jsp" width="500px" height="200px" scrolling="no" frameborder="0"></iframe></center>
-                            
+
                         </div>
                         <img src="Pictures/CarroMedio.png" class="carro">
                         <div class="modal-footer">
-                            <center><button type="button" class="btn btn-default" data-dismiss="modal">Check-out</button></center>
+                            <center><button type="button" class="btn btn-default" data-dismiss="modal" onclick = "location = 'InfoCarrito.jsp'">Check-out</button></center>
                         </div>
                     </div>
                 </div>
