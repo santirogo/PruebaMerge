@@ -15,10 +15,8 @@
     </head>
     <body>
         <% HttpSession mySession = request.getSession();
-//            String correo = (String) mySession.getAttribute("correo");
-//            String celular = (String) mySession.getAttribute("celular");
-            String correo = "diego@correo.usa.edu.co";
-            String celular = "312 2231312";
+            String correo = (String) mySession.getAttribute("correo");
+            String celular = (String) mySession.getAttribute("celular");
         %>
         
         <%if(correo==null){%>
