@@ -8,21 +8,26 @@ function cli (id){
     nombre = $("#n"+id).text();
     tienda = $("#encabezado").text();
     cantidad = $("#c"+id).val();
-    if(cantidad===""){
-        alert("Debe escribir una cantidad");
-        
-    }else{
-        console.log("cantidad: "+cantidad);
-        $.ajax({
-                url: 'AgregarCarritoServlet',
-                type: 'POST',
-                data: {nombre:nombre,tienda:tienda,cantidad:cantidad},
-                dataType: 'json',
-                success: function(data){
-                    $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
-                }
-            });
-    }
+    //if(cantidad !== ""){
+        if(cantidad===""){
+            alert("Debe escribir una cantidad");
+        }else{
+            if(isNaN(cantidad)){
+                alert("La cantidad tiene que ser un número");
+            }else{
+                console.log("cantidad: "+cantidad);
+                $.ajax({
+                        url: 'MainMenuServlet',
+                        type: 'POST',
+                        data: {nombre:nombre,tienda:tienda,cantidad:cantidad},
+                        dataType: 'json',
+                        success: function(data){
+                            $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
+                        }
+                    });
+            }
+        }
+    //}
 }
 
 $(document).ready(function (){

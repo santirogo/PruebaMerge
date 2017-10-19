@@ -181,5 +181,67 @@ public class TiendaDAO {
 
         return t;
     }
+    
+    public boolean editarNombre(TiendaVO tienda) {
+        boolean result = false;
+        String query = "update Tiendas set Nombre = ? where id = ?";
+        PreparedStatement preparedStmt = null;
+        try {
+            preparedStmt = this.conexion.prepareStatement(query);
+            preparedStmt.setString(1, tienda.getNombre());
+            preparedStmt.setInt(2, tienda.getId());
+            
+            if (preparedStmt.executeUpdate() > 0) {
+                result = true;
+            }
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+    
+    public boolean editarFondo(TiendaVO tienda) {
+        boolean result = false;
+        String query = "update Tiendas set idfondo = ? where id = ?";
+        PreparedStatement preparedStmt = null;
+        try {
+            preparedStmt = this.conexion.prepareStatement(query);
+            preparedStmt.setString(1, tienda.getIdFondo());
+            preparedStmt.setInt(2, tienda.getId());
+            
+            if (preparedStmt.executeUpdate() > 0) {
+                result = true;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+    
+    public int obtenerId(String celular){
+        try {
+
+            String query = "SELECT id FROM TIENDAS WHERE vendedor = ?";
+
+            Statement stmt = null;
+
+            stmt = this.conexion.createStatement();
+            ResultSet res = stmt.executeQuery(query);
+            if(res.next()){
+                return res.getInt("id");
+            }else{
+                return 0;
+            }
+ 
+
+        } catch (SQLException e) {
+            System.out.println("Failed to make insertion!");
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }
