@@ -1,23 +1,24 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="CreacionTiendaAjax.js"></script>
-        <link href="styles.css" rel='stylesheet' type='text/css'>
+        <!--<link href="styles.css" rel='stylesheet' type='text/css'>-->
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
         <title>Crear Tienda</title>
     </head>
     <body>
-        <img src="crearTienda_bg.jpg" class="background">
+        <!--<img src="crearTienda_bg.jpg" class="background">-->
     <center>
         <p>Configura Tu Tienda</p>
     </center>
     <form>
         Nombre: <input type="text" id="nombre"/><br>
-        Ruta de la imagen:<input type="text" id="imagen"/><br>
+        Ruta de la imagen:<input type="text" id="Fond"/><br>
         <br><br>
-        <!-- Ingresa el número del fondo que deseas en tu tienda: <input type="text" id="Fond"/><br><br>
+        <!-- Ingresa el nÃºmero del fondo que deseas en tu tienda: <input type="text" id="Fond"/><br><br>
        <center>
         <table>
             <tr>
@@ -65,10 +66,8 @@
         </table>
         </center>-->
 
-        <input href="http://localhost:8080/AppuMart/mostrarTiendaVendedor.jsp" class="btn" type="submit" id="login" value="Crear"/>
 
-        <p id="ack"> . </p>
     </form>
-
+    <a href ="mostrarTiendaVendedor.jsp" class="btn" type="submit" id="login" value="Crear"><button>Crear</button></a>
 </body>
 </html>

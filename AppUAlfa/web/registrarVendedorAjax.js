@@ -14,12 +14,12 @@ function ocultar() {
 function mostrarBoton() {
     console.log("jejej");
     document.getElementById('oculto2').style.display = 'block';
-//    $('#oculto2').click(function () {
-//        console.log("click");
-//        window.locatkhkhion.href = "CreacionTienda.jsp";
-//        console.log("click2222222222222222222222");
-//
-//    });
+    $('#oculto2').click(function () {
+        console.log("click");
+        window.location.href= "CreacionTienda.jsp";
+        console.log("click2222222222222222222222");
+
+    });
 
 }
 
@@ -95,11 +95,11 @@ $(document).ready(function () {
 
     });
 });
-function redirigir() {
-    
-    console.log("funcion");
-    window.locatkhkhion.href = "CreacionTienda.jsp";
-
-};
+//function redirigir() {
+//    
+//    console.log("funcion");
+//    window.location.href = "CreacionTienda.jsp";
+//
+//};
 
 

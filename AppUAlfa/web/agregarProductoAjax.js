@@ -11,21 +11,20 @@ $(document).ready(function () {
         var categoria = $("#categoria").val();
         var precio = $("#precio").val();
         var cantidad = $("#cantidad").val();
-        var tienda = $('#tienda').val();
+        var imagen = $('#imagen').val();
 
         $.ajax({
             url: 'AgregarProductoServlet',
             type: 'POST',
-            data: {nombre: nombre, categoria: categoria, precio: precio, cantidad: cantidad},
+            data: {nombre: nombre, categoria: categoria, precio: precio, cantidad: cantidad, imagen: imagen},
             dataType: 'json',
             success: function (data) {
                 if (data.confirmacion === "ACK") {
                     console.log("DATOS CORRECTOS");
-                    document.getElementById("ack").innerHTML = "Se agregó el producto " + nombre + " satisfactoriamente";
-
+                    alert("Se agregó el producto " + nombre + " a tu tienda.");
                 } else {
                     console.log("DATOS INCORRECTOS");
-                    document.getElementById("ack").innerHTML = "Datos incorrecto";
+                    alert("No se pudo agregar este producto a tu tienda.");
                 }
             }
 

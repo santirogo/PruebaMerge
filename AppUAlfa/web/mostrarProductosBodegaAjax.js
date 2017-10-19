@@ -11,10 +11,10 @@ $(document).ready(function () {
                 
                 $('#div').append(
                         "<a><img src=" + data.productos[i].imagen + " width='100' height='100'></button></a><br>",
-                        "<a>" + data.productos[i].nombre + "</a><br>",
-                        "<a>Vendedor: " + data.productos[i].categoria + "</a><br>",
-                        "<a>Puntuación: " + data.productos[i].precio + "</a><br>",
-                        "<a>Puntuación: " + data.productos[i].cantidad + "</a><br>"
+                        "<a>Producto: " + data.productos[i].nombre + "</a><br>",
+                        "<a>Categoría: " + data.productos[i].categoria + "</a><br>",
+                        "<a>Precio Unitario: " + data.productos[i].precio + "</a><br>",
+                        "<a>Cantidad: " + data.productos[i].cantidad + "</a><br>"
 
                         );
             }

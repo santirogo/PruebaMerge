@@ -133,6 +133,11 @@
         <servlet-name>AgregarProductoServlet</servlet-name>
         <url-pattern>/AgregarProductoServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AgregarCarritoServlet</servlet-name>
+        <url-pattern>/AgregarCarritoServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RegistroUsuarioServlet</servlet-name>
         <url-pattern>/RegistroUsuarioServlet</url-pattern>
@@ -146,8 +151,34 @@
         <url-pattern>/EditarCompradorServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EditarTiendaServlet</servlet-name>
-        <url-pattern>/EditarTiendaServlet</url-pattern>
+        <servlet-name>SeleccionTiendaServlet</servlet-name>
+        <url-pattern>/SeleccionTiendaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistroUsuarioServlet</servlet-name>
+        <url-pattern>/RegistroUsuarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarCompradorServlet</servlet-name>
+        <url-pattern>/EditarCompradorServlet</url-pattern>
+    </servlet-mapping>   
+    <servlet-mapping>
+        <servlet-name>MainMenuServlet</servlet-name>
+        <url-pattern>/MainMenuServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MostrarTiendaServlet</servlet-name>
+        <url-pattern>/MostrarTiendaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearTiendaServlet</servlet-name>
+        <url-pattern>/CrearTiendaServlet</url-pattern>
+        
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ProductosBodegaServlet</servlet-name>
+        <url-pattern>/ProductosBodegaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
