@@ -84,6 +84,7 @@ public class MainMenuServlet extends HttpServlet {
                 //Arreglo= Mateo.infoCheckOut();
                 Arreglo = CarroSesion;
                 if (Arreglo == null) {
+                    System.out.println("paila, esta nulo");
 
                 } else if (Arreglo != null) {
                     for (int i = 0; i < Arreglo.size(); i++) {

@@ -214,6 +214,7 @@
         <form>
             <div id="prueba" style='position: absolute; top:20%; left: 43%'></div><br>
             <div id="respuesta"></div>
+            <div id="c"></div>
         </form>
     </body>
 </html>
