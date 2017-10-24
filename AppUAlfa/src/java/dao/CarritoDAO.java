@@ -36,7 +36,7 @@ public class CarritoDAO {
 
         for (int i = 0; i < sesion.size(); i++) {
             this.carritoVO.agregarProducto(sesion.get(i));
-        }
+        } 
 
         String query = "select * from productos where nombre='" + producto.get(0) + "' and tienda=" + producto.get(1) + "";
 
