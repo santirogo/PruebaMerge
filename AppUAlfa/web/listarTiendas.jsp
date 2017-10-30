@@ -25,30 +25,24 @@
         <%if (correo == null) {%>
         <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
         <%}%>
-        <!--<img src="tiendas_bg.jpg" class="background">-->
+            <!--<img src="tiendas_bg.jpg" class="background">-->
         <img src="Pictures/barraInf.png"  class="background">
     <center>
-        <img src="Pictures/Tiendas.png"  class="background" style="filter:brightness(1); width: 25% ; height: 30%; left: 37%; top: -8%;">
+         <img src="Pictures/Tiendas.png"  class="background" style="filter:brightness(1); width: 25% ; height: 30%; left: 37%; top: -8%;">
     </center>
-    <img src="Pictures/AppuMartLogo.png"  class="background" style="filter:brightness(1); width: 8% ; height: 15%; top:87%; left:10%;">
-    <img src="Pictures/AppuMartTextoBorde.png"  class="background" style="filter:brightness(1); width: 20% ; height: 30%; top:80%; left:75%;">
-
-    <div style="  
-         margin:auto;
-         margin-top:10px;
-         width:350px;
-         height:150px;">
-    </div>
-
-
+         <img src="Pictures/AppuMartLogo.png"  class="background" style="filter:brightness(1); width: 8% ; height: 15%; top:87%; left:10%;">
+        <img src="Pictures/AppuMartTextoBorde.png"  class="background" style="filter:brightness(1); width: 20% ; height: 30%; top:80%; left:75%;">
+        
+            <div style="  
+    margin:auto;
+    margin-top:10px;
+    width:350px;
+    height:150px;">
+            </div>
 
 
-    <div id="div"></div>
-    
-    
-    
-    
-        <img src="tiendas_bg.jpg" class="background">
-        <div id="div" class="container-fluid"></div>
+        
+        
+        <div id="div"></div>
     </body>
 </html>

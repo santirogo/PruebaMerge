@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script type="text/javascript" src="ajaxLogIn.js"></script>
+        <script type="text/javascript" src="ajaxLogInVendedor.js"></script>
         <!--<link href="styles.css" rel='stylesheet' type='text/css'>-->
         <link href="StyleLogin.css" rel='stylesheet' type='text/css'>
         <!--<link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">-->
