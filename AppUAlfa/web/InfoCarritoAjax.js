@@ -28,9 +28,9 @@ $(document).ready(function () {
 
             }
 
-            $('#carlos').append(
-                    "<p>" + data.Productos[data.Productos.length].Total + "</p><br>"
-                    );
+//            $('#carlos').append(
+//                    "<p>" + data.Productos[data.Productos.length].Total + "</p><br>"
+//                    );
 
         },
         error: function () {

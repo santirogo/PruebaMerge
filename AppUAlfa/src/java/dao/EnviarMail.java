@@ -94,10 +94,10 @@ public class EnviarMail {
                     Message.RecipientType.TO,
                     new InternetAddress(toAdd));
             message.setSubject("Orden");
-            message.setText("Tu orden: ");
-            for (int i = 0; i < orden.size(); i++) {
-                message.setText(orden.get(i));
-            }
+            message.setText("Tu orden: "+orden.get(0)+"\n"+orden.get(1));
+//            for (int i = 0; i < orden.size(); i++) {
+//                message.setText(orden.get(i));
+//            }
 
             // Lo enviamos.
             Transport t = session.getTransport("smtp");
@@ -117,7 +117,7 @@ public class EnviarMail {
     
     public String CorreoTienda(int id){
         
-        String query="select vendedor from Tienda where id="+id;
+        String query="select vendedor from Tiendas where id="+id;
         String Correo="";
         String vendedor="";
         
@@ -129,16 +129,19 @@ public class EnviarMail {
             
             while(rs.next()){
             vendedor=rs.getString(1);
-            }
-            
-            if (vendedor!=null) {
-                query="select correo from vendedores where celular='"+vendedor+"'";
-                rs=st.executeQuery(query);
-                 while(rs.next()){
-                Correo=rs.getString(1);
+                System.out.println("vendedor"+vendedor);
+           if (vendedor!=null) {
+               query="select correo from vendedores where celular='"+vendedor+"'";
+               ResultSet rs2 = st.executeQuery(query);
+                 while(rs2.next()){
+                Correo=rs2.getString(1);
+                     System.out.println(Correo);
             }
                  return Correo;
+            } 
             }
+            
+            
             
             
             

@@ -41,6 +41,8 @@ public class CarritoDAO {
         String query = "select * from productos where nombre='" + producto.get(0) + "' and tienda=" + producto.get(1) + "";
 
         try {
+            
+            
             PreparedStatement preparedStmt = null;
             Statement st = this.conexion.createStatement();
             ResultSet rs = st.executeQuery(query);
@@ -50,7 +52,7 @@ public class CarritoDAO {
 
             if (rs != null) {
 
-                if (this.carritoVO.getProductos() == null) { //Revisa si esta vacio para agregar
+                if (this.carritoVO.getProductos().get(0) == null) { //Revisa si esta vacio para agregar
                     while (rs.next()) {
 
                         prod.setID(rs.getString(1));

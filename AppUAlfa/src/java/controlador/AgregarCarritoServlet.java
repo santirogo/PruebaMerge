@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import com.google.gson.Gson;
 import dao.CarritoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -80,8 +81,7 @@ public class AgregarCarritoServlet extends HttpServlet {
             ArrayList CarroSesion = (ArrayList) sesion.getAttribute("carrito");
             
 
-            
-            
+           
             
             String nombre= request.getParameter("nombre");
             String tienda= request.getParameter("tienda");
@@ -94,7 +94,8 @@ public class AgregarCarritoServlet extends HttpServlet {
             
             ArrayList<ProductoVO> Carro= new ArrayList();
             Carro=carritoDAO.Agregar(arregloCarro, CarroSesion);
-            sesion.setAttribute("carrito", Carro);
+            sesion = request.getSession();
+            sesion.setAttribute("carrito", new Gson().toJson(Carro));
 
         }
         
