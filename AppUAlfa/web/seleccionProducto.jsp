@@ -26,6 +26,8 @@
             <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
         <%}%>
         
+        <a href="http://localhost:8080/AppuMart/editarComprador.jsp"><button>Editar comprador</button></a>
+        
         <form>
             <div id="encabezado"></div><br><br>
             <div id="prueba"></div><br>
