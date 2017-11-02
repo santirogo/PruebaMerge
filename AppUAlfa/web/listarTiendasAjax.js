@@ -57,20 +57,8 @@ $(document).ready(function () {
                 console.log(data.tiendas[i].idfondo);
                 console.log(data.tiendas[i].nombre);
                 $('#div').append(
-//                        "<div class='col-md-4'><a href = 'seleccionProducto.jsp'><button class='btn' onclick='sendName(" + data.tiendas[i].id + ")'>\n\
-//                         <img src=" + data.tiendas[i].idfondo + " width='100' height='100'></button></a><br>\n\
-//                        <a>" + data.tiendas[i].nombre + "</a><br>\n\
-//                        <a>Vendedor: " + data.tiendas[i].vendedor + "</a><br>\n\
-//                        <a>Puntuación: " + data.tiendas[i].puntuacion + "</a><br></div>"
 
-                /*$('#div').append(
-                 "<a href = 'seleccionProducto.jsp'><button class='btn' onclick='sendName(" + data.tiendas[i].id + ")'>\n\
-                 <img src=" + data.tiendas[i].idfondo + " width='100' height='100'></button></a><br>",
-                 "<a>" + data.tiendas[i].nombre + "</a><br>",
-                 "<a>Vendedor: " + data.tiendas[i].vendedor + "</a><br>",
-                 "<a>Puntuación: " + data.tiendas[i].puntuacion + "</a><br>"*/
-
-                            "<a href ='seleccionProducto.jsp'><div class='col-md-4' id='item' style='cursor:pointer' onclick='sendName(" + data.tiendas[i].id + ")'><img id='perfil' src=Pictures/" + data.tiendas[i].idfondo + "><p id='titulo_uno'>" + data.tiendas[i].nombre + "</p><p id='descripcion'>Vendedor: " + data.tiendas[i].vendedor + "</p><p id='descripcion2'>Puntuación: " + data.tiendas[i].puntuacion + "</p></div></a>",
+                            "<div class='col-md-4' id='item' style='cursor:pointer' onclick='sendName(" + data.tiendas[i].id + ")'><a href ='seleccionProducto.jsp'><img id='perfil' src=Pictures/" + data.tiendas[i].idfondo + "><p id='titulo_uno'>" + data.tiendas[i].nombre + "</p><p id='descripcion'>Vendedor: " + data.tiendas[i].vendedor + "</p><p id='descripcion2'>Puntuación: " + data.tiendas[i].puntuacion + "</p></a></div>",
                             );
             }
         },
