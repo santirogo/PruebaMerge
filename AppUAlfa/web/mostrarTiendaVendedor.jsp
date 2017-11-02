@@ -28,7 +28,7 @@
         <div id="div"></div>
         <a href="mostrarProductosBodega.jsp"><button>Ver mis productos</button></a>
         <a href="editarTienda.jsp"><button>Editar mi tienda</button></a>
-        <button onclick="cerrarSesion()">Cerrar Sesión</button>
+        <button id="out" onclick='cerrarSesion()'>Cerrar Sesión</button>
 
     </body>
 </html>

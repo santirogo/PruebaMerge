@@ -33,6 +33,7 @@ public class CerrarSesionServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
             
+        System.out.println("Entre al servlet de cerrar sesiooooon");
           HttpSession mySession = request.getSession();  
           mySession.invalidate();
     }

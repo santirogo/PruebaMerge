@@ -24,11 +24,13 @@
         <%if (vo == null) {%>
         <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
         <%}%>
-        
-    <div id="div"></div>
-    
-    
-    
-    
+
+        <div id="div"></div>
+        <button id="out" onclick='cerrarSesion()'>Cerrar Sesión</button>
+
+
+
+
+
     </body>
 </html>

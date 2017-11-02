@@ -13,12 +13,17 @@ $(document).ready(function () {
                     "<a>Puntuación: " + data.puntuacion + "</a><br>"
 
                     );
+            console.log("waaaaa");
 
         },
         error: function () {
         }
     });
+
+
+
 });
+
 
 function cerrarSesion() {
     $.ajax({
