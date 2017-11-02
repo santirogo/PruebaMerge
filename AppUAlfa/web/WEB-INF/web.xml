@@ -32,7 +32,6 @@
         <servlet-name>RegistroUsuarioServlet</servlet-name>
         <servlet-class>controlador.RegistroUsuarioServlet</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>RegistrarVendedorServlet</servlet-name>
         <servlet-class>controlador.RegistrarVendedorServlet</servlet-class>
@@ -41,7 +40,6 @@
         <servlet-name>LoginVendedorServlet</servlet-name>
         <servlet-class>controlador.LoginVendedorServlet</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>MostrarTiendaServlet</servlet-name>
         <servlet-class>controlador.MostrarTiendaServlet</servlet-class>
@@ -54,9 +52,10 @@
         <servlet-name>CrearTiendaServlet</servlet-name>
         <servlet-class>controlador.CrearTiendaServlet</servlet-class>
     </servlet>
-
-
-
+    <servlet>
+        <servlet-name>CerrarSesionServlet</servlet-name>
+        <servlet-class>controlador.CerrarSesionServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginUsuarioServlet</servlet-name>
         <url-pattern>/LoginUsuarioServlet</url-pattern>
@@ -65,7 +64,6 @@
         <servlet-name>AgregarProductoServlet</servlet-name>
         <url-pattern>/AgregarProductoServlet</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>AgregarCarritoServlet</servlet-name>
         <url-pattern>/AgregarCarritoServlet</url-pattern>
@@ -93,7 +91,7 @@
     <servlet-mapping>
         <servlet-name>EditarCompradorServlet</servlet-name>
         <url-pattern>/EditarCompradorServlet</url-pattern>
-    </servlet-mapping>   
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MainMenuServlet</servlet-name>
         <url-pattern>/MainMenuServlet</url-pattern>
@@ -105,12 +103,14 @@
     <servlet-mapping>
         <servlet-name>CrearTiendaServlet</servlet-name>
         <url-pattern>/CrearTiendaServlet</url-pattern>
-        
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>ProductosBodegaServlet</servlet-name>
         <url-pattern>/ProductosBodegaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CerrarSesionServlet</servlet-name>
+        <url-pattern>/CerrarSesionServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

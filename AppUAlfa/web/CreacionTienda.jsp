@@ -20,9 +20,8 @@
         <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
         <%}%>
       
-        <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
         
-        <%}%>
+        
         <!--<img src="crearTienda_bg.jpg" class="background">-->
     <center>
         <p>Configura Tu Tienda</p>
