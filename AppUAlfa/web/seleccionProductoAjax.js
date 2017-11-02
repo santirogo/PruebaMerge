@@ -3,14 +3,43 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-function cli(id) {
-     
-    console.log("Holaaaaaa " + id);
-    var nombre = $("#n" + id).text();
-    var tienda = $("#encabezado").text();
-    var cantidad = $("#c").val();
+
+//window.onbeforeunload=mylogic_function();
+//
+//function mylogic_function() {
+//    //window.location.href = "Prueba"; 
+//    alert("Quiere salir?");
+//} 
+
+//window.addEventListener("beforeunload", function (e) {
+//  var confirmationMessage = "\o/";
+//  
+////  (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+//  
+////  window.location.href = "Prueba";                            //Webkit, Safari, Chrome
+//    redirect;
+//});
+
+window.onbeforeunload = cierraSesion;
+
+function cierraSesion(){
+    $.ajax({
+        url: 'CerrarSesionServlet',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data){
+                
+            
+        }
+    });
+}
+
+function cli (id){
+    console.log("Holaaaaaa "+id);
+    nombre = $("#n"+id).text();
+    tienda = $("#encabezado").text();
+    cantidad = $("#c"+id).val();
     var opcion = "1";
-    
     //if(cantidad !== ""){
         if(cantidad===""){
             alert("Debe escribir una cantidad");
@@ -43,6 +72,7 @@ function cli(id) {
 function main(){
     var opcion = "1";
     console.log("Entro a funcion main");
+    
     
     $.ajax({
                         url: 'MainMenuServlet',

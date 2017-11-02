@@ -58,7 +58,14 @@
         <servlet-name>EditarTiendaServlet</servlet-name>
         <servlet-class>controlador.EditarTiendaServlet</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>CerrarSesionServlet</servlet-name>
+        <servlet-class>controlador.CerrarSesionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/IndexServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginUsuarioServlet</servlet-name>
         <url-pattern>/LoginUsuarioServlet</url-pattern>
@@ -114,6 +121,10 @@
     <servlet-mapping>
         <servlet-name>EditarTiendaServlet</servlet-name>
         <url-pattern>/EditarTiendaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CerrarSesionServlet</servlet-name>
+        <url-pattern>/CerrarSesionServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

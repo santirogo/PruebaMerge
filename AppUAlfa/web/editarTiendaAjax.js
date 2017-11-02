@@ -3,6 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+window.onbeforeunload = cierraSesion;
+
+function cierraSesion(){
+    $.ajax({
+        url: 'CerrarSesionServlet',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data){
+                
+            
+        }
+    });
+}
+
 $(document).ready(function(){
     
     

@@ -158,9 +158,9 @@
             String correo = (String) mySession.getAttribute("correo");
 //            String correo = "diego@correo.usa.edu.co";
         %>
-
-        <%if (correo == null) {%>
-        <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
+        
+        <% if(correo==null){%>
+            <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
         <%}%>
 
         <div id="loader"><img src="Pictures/AppuMartLogo.png" style="position: absolute; top:50%; left: 50%; margin-top: -150px; margin-left: -150px;"></div>
