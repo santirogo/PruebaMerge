@@ -5,6 +5,8 @@
  */
 package controlador;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import dao.CarritoDAO;
 import dao.ProductoDAO;
 import java.io.IOException;
@@ -66,45 +68,60 @@ public class MainMenuServlet extends HttpServlet {
             response.setContentType("application/json");
 
             CarritoDAO Mateo = new CarritoDAO();
+            
             HttpSession sesion = request.getSession();
             ArrayList<ProductoVO> CarroSesion = (ArrayList) sesion.getAttribute("carrito");
+//            String CarroSesion = (String) sesion.getAttribute("carrito");
+//             ArrayList<ProductoVO> Carro = new Gson().fromJson(CarroSesion, ArrayList.class);
+            
 
             String P = "";
 
             P = request.getParameter("opcion");
 
+            System.out.println("InfoCarro:"+P);
+            
             if (P.equals("1")) {
 
-                ProductoVO productos = new ProductoVO();
+                
                 ArrayList<ProductoVO> Arreglo = new ArrayList();
 
                 JSONArray array = new JSONArray();
                 
 
                 //Arreglo= Mateo.infoCheckOut();
-                Arreglo = CarroSesion;
-                if (Arreglo == null) {
+                
+                if (CarroSesion == null) {
                     System.out.println("paila, esta nulo");
+                    JSONObject json = new JSONObject();
+//                        json.put("ID", "Papitas2");
+//                        json.put("nombre", "Papitas");
+//                        json.put("cantidad", "2");
+//                        json.put("precio", "100");
+//                        array.put(json);
 
-                } else if (Arreglo != null) {
-                    for (int i = 0; i < Arreglo.size(); i++) {
+                } else if (CarroSesion != null) {
+                    ProductoVO productos = new ProductoVO();
+                        System.out.println("No esta nulo");
+                    for (int i = 0; i < CarroSesion.size(); i++) {
+                        System.out.println(CarroSesion.get(i));
                         JSONObject json = new JSONObject();
-                        productos = (ProductoVO) Arreglo.get(i);
-                        json.put("ID", productos.getID());
-                        json.put("nombre", productos.getNombre());
-                        json.put("cantidad", String.valueOf(productos.getCantidad()));
-                        json.put("precio", String.valueOf(productos.getPrecio()));
+                        //productos = Carro.get(i);
+                        json.put("ID", CarroSesion.get(i).getID());
+                        json.put("nombre", CarroSesion.get(i).getNombre());
+                        json.put("cantidad", String.valueOf(CarroSesion.get(i).getCantidad()));
+                        json.put("precio", String.valueOf(CarroSesion.get(i).getPrecio()));
                         array.put(json);
 
                     }
 
                     //Envia Precio y cantidad
-                    String x = Mateo.PrecioTotal(CarroSesion);
-                    JSONObject total = new JSONObject();
-
-                    total.put("Total", x);
-
-                    array.put(total);
+//                    String x = Mateo.PrecioTotal(CarroSesion);
+//                    JSONObject total = new JSONObject();
+//
+//                    total.put("Total", x);
+//
+//                    array.put(total);
 
                     JSONObject fin = new JSONObject();
                     fin.put("Productos", array);
@@ -116,10 +133,10 @@ public class MainMenuServlet extends HttpServlet {
             if (P.equals("2")) {
                 ArrayList<ProductoVO> Arreglo = new ArrayList();
 
-                Arreglo = CarroSesion;
+                //Arreglo = CarroSesion;
                 String ID = request.getParameter("idprod");
 
-                Mateo.borrar(ID, Arreglo);
+                Mateo.borrar(ID, CarroSesion);
 
             }
 

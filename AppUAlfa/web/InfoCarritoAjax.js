@@ -1,12 +1,12 @@
 $(document).ready(function () {
 
 
-    var opcion = $('#opcion').val();
+    //var opcion = $('#opcion').val();
 
     $.ajax({
         url: 'MainMenuServlet',
         type: 'GET',
-        data: {opcion: opcion},
+        data: {},
         dataType: 'json',
         success: function (data) {
 
@@ -28,9 +28,9 @@ $(document).ready(function () {
 
             }
 
-            $('#carlos').append(
-                    "<p>" + data.Productos[data.Productos.length].Total + "</p><br>"
-                    );
+//            $('#carlos').append(
+//                    "<p>" + data.Productos[data.Productos.length].Total + "</p><br>"
+//                    );
 
         },
         error: function () {

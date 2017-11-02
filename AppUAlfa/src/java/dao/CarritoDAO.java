@@ -33,20 +33,32 @@ public class CarritoDAO {
         boolean b = false;
 
         int x = 0;
-
+        if(sesion!=null){
         for (int i = 0; i < sesion.size(); i++) {
             this.carritoVO.agregarProducto(sesion.get(i));
-        } 
+        }
+        }
+        System.out.println(producto.get(1));
+        String query = "select id from Tiendas where nombre='"+producto.get(1)+"'";
 
-        String query = "select * from productos where nombre='" + producto.get(0) + "' and tienda=" + producto.get(1) + "";
 
         try {
-            PreparedStatement preparedStmt = null;
+            int id=0;
+            
+            //PreparedStatement preparedStmt = null;
             Statement st = this.conexion.createStatement();
             ResultSet rs = st.executeQuery(query);
 
             ArrayList carro = new ArrayList();
             ProductoVO prod = new ProductoVO();
+            
+            while (rs.next()){
+            id=rs.getInt(1);
+            }
+            
+            query = "select * from productos where nombre='" + producto.get(0) + "' and tienda=" + id;
+            
+            rs =st.executeQuery(query);
 
             if (rs != null) {
 
@@ -58,7 +70,8 @@ public class CarritoDAO {
                         prod.setCategoria(rs.getString(3));
                         prod.setPrecio(rs.getInt(4));
                         prod.setCantidad((int) producto.get(2));
-                        prod.setTienda(rs.getInt(6));
+                        prod.setTienda(rs.getInt(7));
+                        System.out.println("AIDI:"+rs.getInt(7));
 
                     }
                     carritoVO.agregarProducto(prod);
@@ -86,7 +99,7 @@ public class CarritoDAO {
                         prod.setCategoria(rs.getString(3));
                         prod.setPrecio(rs.getInt(4));
                         prod.setCantidad((int) producto.get(2));
-                        prod.setTienda(rs.getInt(6));
+                        prod.setTienda(rs.getInt(7));
 
                     }
                     carritoVO.agregarProducto(prod);

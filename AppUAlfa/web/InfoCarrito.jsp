@@ -1,10 +1,12 @@
-
+<%@page import="vo.ProductoVO"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script type="text/javascript" src="InfoCarritoAjax.js"></script>
+        <!--<script type="text/javascript" src="InfoCarritoAjax.js"></script>-->
+        <script type="text/javascript" src="InfoCheckOut.js"></script>
+        <script type="text/javascript" src="seleccionProductoAjax.js"></script>
         <link href="StyleLogin.css" rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
         <title>Tú Carrito</title>
@@ -96,12 +98,20 @@
         </script>
     </head>
     <body>
+        <% HttpSession mySession = request.getSession();
+            String correo = (String) mySession.getAttribute("correo");
+//            String correo = "diego@correo.usa.edu.co";
+        %>
+
+        <%if (correo == null) {%>
+        <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
+        <%}%>
         <!--<img src="carrito_bg.jpg" class="background">-->
-        <form>
+        <form name="form1">
             <center>
                 <br><br><br>
-                <input class="submit" type="text" id="opcion" value="1"  style="visibility:hidden"/><br>
-
+                <input class="submit" type="text" id="opcion" value="1" onclick="form1.submit()"  style="visibility:hidden"/><br>
+                
                 <p id="ack"></p>
                 <p id="ackk"></p>
                 <br><br>
@@ -110,14 +120,42 @@
                 <!--<textarea rows="4" cols="50" name="comment" id="comment">Ingresa Los Comentarios Del Pedido Aqui...</textarea><br>
                 <input class="btn" type="submit" id="Confirmar" value="Confirmar"/>-->
             </center>
+            
+             <center><div id="carlos"></div></center>
 
         </form>
 
-        <form>
+        <form name="form2">
             <center>
-                <input class="submit" type="text" id="opcion" value="3"  style="visibility:hidden"/><br>
+                
                 <textarea rows="4" cols="50" name="comment" id="comment">Ingresa Los Comentarios Del Pedido Aqui...</textarea><br>
-                <input class="btn" type="submit" id="Confirmar" value="Confirmar"/>
+                <!--<input class="submit" type="text" id="opcion1" value="3" onclick="form2.submit()" style="visibility:hidden"/><br>
+                <input class="btn" type="submit" id="Confirmar" value="Confirmar"/>-->
+                <button onclick="mifuncion()">Confirmar</button>
+                <script>
+                    
+    
+    function mifuncion(){
+        
+        var opcion1 = "3";
+        var comment =$('#comment').val();
+        
+  
+        $.ajax({
+            url:'InfoCheckOutServlet',
+            type:'GET',
+            data:{opcion1:opcion1, comment:comment},
+            dataType: 'json',
+            success: function(data) {
+                console.log("Info enviada");
+
+            },
+            error: function(){
+                $('#ack').val("ERROR FATAL");
+            }
+        });
+        }
+        </script>
             </center>
 
         </form>
@@ -125,7 +163,8 @@
         <!--<div class="carro"><img src="Pictures/CarroMedio.png"></div>-->
     <center><div id="llegada"></div></center>
     <center><div id="llegada2"></div></center>
-    <center><div id="carlos"></div></center>
+    
+   
     <!--<img src="Pictures/AppuMartTextoBorde.png">-->
 </body>
 </html>
