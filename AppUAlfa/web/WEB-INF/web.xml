@@ -32,7 +32,6 @@
         <servlet-name>RegistroUsuarioServlet</servlet-name>
         <servlet-class>controlador.RegistroUsuarioServlet</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>RegistrarVendedorServlet</servlet-name>
         <servlet-class>controlador.RegistrarVendedorServlet</servlet-class>
@@ -41,7 +40,6 @@
         <servlet-name>LoginVendedorServlet</servlet-name>
         <servlet-class>controlador.LoginVendedorServlet</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>MostrarTiendaServlet</servlet-name>
         <servlet-class>controlador.MostrarTiendaServlet</servlet-class>
@@ -101,7 +99,7 @@
     <servlet-mapping>
         <servlet-name>EditarCompradorServlet</servlet-name>
         <url-pattern>/EditarCompradorServlet</url-pattern>
-    </servlet-mapping>   
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MainMenuServlet</servlet-name>
         <url-pattern>/MainMenuServlet</url-pattern>
@@ -121,6 +119,10 @@
     <servlet-mapping>
         <servlet-name>EditarTiendaServlet</servlet-name>
         <url-pattern>/EditarTiendaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CerrarSesionServlet</servlet-name>
+        <url-pattern>/CerrarSesionServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CerrarSesionServlet</servlet-name>

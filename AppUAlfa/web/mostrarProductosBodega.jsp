@@ -24,12 +24,14 @@
         <%if (vo == null) {%>
         <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
         <%}%>
-    <div id="div"></div>
-    <a href="agregarProducto.jsp"><button>Agregar un producto</button></a>
+        <div id="div"></div>
+        <a href="agregarProducto.jsp"><button>Agregar un producto</button></a>
+        <button id="out" onclick='cerrarSesion()'>Cerrar Sesión</button>
 
-    
-    
-    
-    
+
+
+
+
+
     </body>
 </html>

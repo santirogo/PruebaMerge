@@ -25,6 +25,14 @@
         <%if (correo == null) {%>
         <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
         <%}%>
+
+        <div id="div"></div>
+        <button id="out" onclick='cerrarSesion()'>Cerrar Sesión</button>
+
+
+
+
+
             <!--<img src="tiendas_bg.jpg" class="background">-->
         <img src="Pictures/barraInf.png"  class="background">
     <center>
