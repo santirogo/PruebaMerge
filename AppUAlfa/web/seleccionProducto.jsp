@@ -26,6 +26,8 @@
             <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
         <%}%>
         
+        <button id="out" onclick='cerrarSesion()'>Cerrar Sesión</button>
+        
         <a href="http://localhost:8080/AppuMart/editarComprador.jsp"><button>Editar comprador</button></a>
         
         <form>
