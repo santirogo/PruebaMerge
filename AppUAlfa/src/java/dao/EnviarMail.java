@@ -125,6 +125,7 @@ public class EnviarMail {
         
         try {
             
+            
             Statement st = this.conexion.createStatement();
             ResultSet rs = st.executeQuery(query);
             
