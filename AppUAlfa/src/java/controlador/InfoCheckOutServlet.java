@@ -135,6 +135,7 @@ public class InfoCheckOutServlet extends HttpServlet {
                         
                     }
                     
+                    
                     System.out.println("idtienda:"+prod.get(i).getTienda());
                     correo = mail.CorreoTienda(prod.get(i).getTienda());
                     //correo = mail.CorreoTienda(1);
