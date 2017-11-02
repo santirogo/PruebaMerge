@@ -73,7 +73,7 @@ public class EnviarMail {
     }
     
     
-    public void sendCheckOut(String toAdd, ArrayList<String> orden){
+    public void sendCheckOut(String toAdd, ArrayList<String> orden, String map){
     
         try {
             // Propiedades de la conexión
@@ -95,6 +95,7 @@ public class EnviarMail {
                     new InternetAddress(toAdd));
             message.setSubject("Orden");
             message.setText("Tu orden: "+orden.get(0)+"\n"+orden.get(1));
+            message.setContent(map,"text/html");
 //            for (int i = 0; i < orden.size(); i++) {
 //                message.setText(orden.get(i));
 //            }

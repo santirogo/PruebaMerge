@@ -79,7 +79,7 @@
         </script>
         <style>
             #map {
-             height: 400px;
+             height: 200px;
              width: 400px;
             }
         </style>
@@ -134,11 +134,36 @@
              <center><div id="carlos"></div></center>
 
         </form>
-        <div id="map"></div>
+        
+        <form name="form2">
+            <center>
+                
+                <textarea rows="4" cols="50" name="comment" id="comment">Ingresa Los Comentarios Del Pedido Aqui...</textarea><br>
+                <!--<input class="submit" type="text" id="opcion1" value="3" onclick="form2.submit()" style="visibility:hidden"/><br>
+                <input class="btn" type="submit" id="Confirmar" value="Confirmar"/>-->
+                <button onclick="mifuncion()">Confirmar</button>
+                <div id="map"></div>
+    <script>
+        
+        
+        
+        
+        
+        
+    </script>
+            </center>
+
+        </form>
+
+        <!--<div class="carro"><img src="Pictures/CarroMedio.png"></div>-->
+    <center><div id="llegada"></div></center>
+    <center><div id="llegada2"></div></center>
+        
+        
+        
         
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB78-OGRg5rcLtUs9caqE4lQVIlw-D7zA4&callback=initMap"></script>
-    </body>
-</html>
+    
    
     <!--<img src="Pictures/AppuMartTextoBorde.png">-->
 </body>

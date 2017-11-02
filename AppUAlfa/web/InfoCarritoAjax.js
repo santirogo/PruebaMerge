@@ -58,17 +58,17 @@ $(document).ready(function () {
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
-
+var map;
       function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
+        map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 4.714666, lng: -74.072115},
           streetViewControl: false,
           mapTypeControl: false,
           fullscreenControl: false,
-          zoom: 18
+          zoom: 15
         });
         var infoWindow = new google.maps.InfoWindow({map: map});
-
+        
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -95,3 +95,24 @@ $(document).ready(function () {
                               'Error: El servicio de geolocalización falló.' :
                               'Error: Tu explorador no soporta la geolocalización.');
       }
+      
+      function mifuncion(){
+
+            var opcion1 = "3";
+            var comment =$('#comment').val();
+            var pos = map.getCenter();
+
+            $.ajax({
+                url:'InfoCheckOutServlet',
+                type:'GET',
+                data:{opcion1:opcion1, comment:comment, pos:pos},
+                dataType: 'json',
+                success: function(data) {
+                    console.log("Info enviada");
+
+                },
+                error: function(){
+                    $('#ack').val("ERROR FATAL");
+                }
+            });
+       }

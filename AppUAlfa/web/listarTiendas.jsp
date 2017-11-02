@@ -13,7 +13,6 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="listarTiendasAjax.js"></script>
         <link href="StyleBody.css" rel='stylesheet' type='text/css'>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
         <title>Nuestras Tiendas</title>
     </head>
