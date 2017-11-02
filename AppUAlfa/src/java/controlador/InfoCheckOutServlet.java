@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import com.google.gson.Gson;
 import dao.CarritoDAO;
 import dao.EnviarMail;
 import dao.ProductoDAO;
@@ -66,8 +67,11 @@ public class InfoCheckOutServlet extends HttpServlet {
             JSONObject fin = new JSONObject();
             EnviarMail mail = new EnviarMail();
             HttpSession session = request.getSession();
+            
+            ArrayList<ProductoVO> CarroSesion = (ArrayList) session.getAttribute("carrito");
+            // ArrayList<ProductoVO> Carro = new Gson().fromJson(CarroSesion, ArrayList.class);
 
-            //Arreglo = carrito.infoCheckOut();
+            Arreglo = CarroSesion;
             //Arreglo =(ArrayList<ProductoVO>) session.getAttribute("carrito");
             
             
@@ -92,15 +96,16 @@ public class InfoCheckOutServlet extends HttpServlet {
 //            array.put(coment);
 //            fin.put("Productos", array);
 //            out.print(fin);
+            System.out.println(CarroSesion.get(0).getNombre());
             System.out.println("opcion1:"+opcion);
             if (opcion.equals("3")) {
-                productos.setNombre("Papitas");
-            productos.setCantidad(2);
-            productos.setPrecio(100);
-            productos.setID("Papitas1");
-            productos.setTienda(1);
-                
-                Arreglo.add(productos);
+//                productos.setNombre("Papitas");
+//            productos.setCantidad(2);
+//            productos.setPrecio(100);
+//            productos.setID("Papitas1");
+//            productos.setTienda(1);
+//                
+//                Arreglo.add(productos);
                 for (int i = 0; i < Arreglo.size(); i++) {
                     String correo = "";
                     ArrayList<String> cadena = new ArrayList<>();
@@ -125,11 +130,15 @@ public class InfoCheckOutServlet extends HttpServlet {
                         cadena.add(orden);
                         cadena.add(comentario);
                     }
-
                     
+                    for (int j = 0; j < prod.size(); j++) {
+                        
+                    }
+                    
+                    System.out.println("idtienda:"+prod.get(i).getTienda());
                     correo = mail.CorreoTienda(prod.get(i).getTienda());
                     //correo = mail.CorreoTienda(1);
-                    System.out.println(correo);
+                    System.out.println("Correo:"+correo);
                     
                     mail.sendCheckOut(correo, cadena);
                     

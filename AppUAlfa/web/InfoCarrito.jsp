@@ -4,8 +4,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script type="text/javascript" src="InfoCarritoAjax.js"></script>
+        <!--<script type="text/javascript" src="InfoCarritoAjax.js"></script>-->
         <script type="text/javascript" src="InfoCheckOut.js"></script>
+        <script type="text/javascript" src="seleccionProductoAjax.js"></script>
         <link href="StyleLogin.css" rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
         <title>Tú Carrito</title>
@@ -147,26 +148,7 @@
             dataType: 'json',
             success: function(data) {
                 console.log("Info enviada");
-//                var i=0;
-//               for ( i = 0; i < data.Productos.length; i++) {
-//                console.log(data.Productos[i].nombre);
-//                console.log(data.Productos[i].precio);
-//                $('#carlos').append(
-//                        //"<a href = 'seleccionProducto.jsp'><button class='btn' onclick='sendName(" + data.Productos[i].nombre + ")'>\n\"",
-//                        "<p>" + data.Productos[i].nombre + "</p>",
-//                        "<p>" + data.Productos[i].cantidad + "</p>",
-//                        "<p>" + data.Productos[i].precio + "</p><br>",
-//                        
-//                                
-//                        );
-//               
-//            }
-//            
-//                $('$carlos').append(
-//                    
-//                         "<p>"+ data.Productos[i].precio +"</p><br>",
-//                        );
-//                
+
             },
             error: function(){
                 $('#ack').val("ERROR FATAL");

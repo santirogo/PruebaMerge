@@ -203,7 +203,8 @@
                         </div>
                         <img src="Pictures/CarroMedio.png" class="carro">
                         <div class="modal-footer">
-                            <center><button type="button" class="btn btn-default" data-dismiss="modal" onclick = "location = 'InfoCarrito.jsp'">Check-out</button></center>
+                            <!--<center><button type="button" class="btn btn-default" data-dismiss="modal" onclick = "location = 'InfoCarrito.jsp'">Check-out</button></center>-->
+                            <center><button type="button" class="btn btn-default" data-dismiss="modal" onclick = "main()">Check-out</button></center>
                         </div>
                     </div>
                 </div>
