@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 $(document).ready(function () {
-    $('#login').click(function () {
+    $('#loginboton').click(function () {
 
         $(document).ready(function () {
-            $('#login').click(function () {
+            $('#loginboton').click(function () {
 
                 var correo = $('#correo').val();
                 var password = $('#password').val();

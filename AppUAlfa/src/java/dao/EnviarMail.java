@@ -95,7 +95,8 @@ public class EnviarMail {
                     new InternetAddress(toAdd));
             message.setSubject("Orden");
             message.setText("Tu orden: "+orden.get(0)+"\n"+orden.get(1));
-            message.setContent(map,"text/html");
+           message.setContent(map,"text/html");
+           
 //            for (int i = 0; i < orden.size(); i++) {
 //                message.setText(orden.get(i));
 //            }
