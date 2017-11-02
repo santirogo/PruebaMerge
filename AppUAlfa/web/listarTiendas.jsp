@@ -14,7 +14,6 @@
         <script type="text/javascript" src="listarTiendasAjax.js"></script>
         <link href="StyleBody.css" rel='stylesheet' type='text/css'>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
         <title>Nuestras Tiendas</title>
     </head>
