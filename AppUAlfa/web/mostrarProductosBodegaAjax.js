@@ -23,3 +23,19 @@ $(document).ready(function () {
         }
     });
 });
+function cerrarSesion() {
+    $.ajax({
+        url: 'CerrarSesionServlet',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            console.log("holaaa");
+            window.location.href = "index.jsp";
+            
+        },
+        error: function () {
+        }
+    });
+
+
+};

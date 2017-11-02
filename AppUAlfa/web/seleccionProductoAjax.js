@@ -3,14 +3,60 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-function cli(id) {
-     
-    console.log("Holaaaaaa " + id);
-    var nombre = $("#n" + id).text();
-    var tienda = $("#encabezado").text();
-    var cantidad = $("#c").val();
+
+//window.onbeforeunload=mylogic_function();
+//
+//function mylogic_function() {
+//    //window.location.href = "Prueba"; 
+//    alert("Quiere salir?");
+//} 
+
+//window.addEventListener("beforeunload", function (e) {
+//  var confirmationMessage = "\o/";
+//  
+////  (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+//  
+////  window.location.href = "Prueba";                            //Webkit, Safari, Chrome
+//    redirect;
+//});
+
+window.onbeforeunload = cierraSesion;
+
+function cierraSesion(){
+    $.ajax({
+        url: 'CerrarSesionServlet',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data){
+                
+            
+        }
+    });
+}
+
+function cerrarSesion() {
+    $.ajax({
+        url: 'CerrarSesionServlet',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            console.log("holaaa");
+            window.location.href = "index.jsp";
+            
+        },
+        error: function () {
+        }
+    });
+
+
+};
+
+function cli (id){
+    console.log("Holaaaaaa "+id);
+    nombre = $("#n"+id).text();
+    tienda = $("#encabezado").text();
+    cantidad = $("#c"+id).val();
     var opcion = "1";
-    
     //if(cantidad !== ""){
         if(cantidad===""){
             alert("Debe escribir una cantidad");
@@ -40,6 +86,42 @@ function cli(id) {
     //}
 }
 
+function main(){
+    var opcion = "1";
+    console.log("Entro a funcion main");
+    
+    
+    $.ajax({
+                        url: 'MainMenuServlet',
+                        type: 'GET',
+                        data: {opcion:opcion},
+                        dataType: 'json',
+                        success: function(data){
+                            
+                            var i = 0;
+            for (i = 0; i < data.Productos.length; i++) {
+                console.log(data.Productos[i].nombre);
+                console.log(data.Productos[i].precio);
+                $('#carlos').append(
+                        
+                        
+                        //"<a href = 'seleccionProducto.jsp'><button class='btn' onclick='sendName(" + data.Productos[i].nombre + ")'>\n\"",
+                        "<p>" + data.Productos[i].nombre + "</p><p>" + data.Productos[i].cantidad + "</p><p>" + data.Productos[i].precio + "</p><br>",
+                        "<form>",
+                        "<input type='text' id='opcion' value='2' style='display: none'>",
+                        "<input type='text' id='idprod' value='" + data.Productos[i].ID + "' style='display: none'>",
+                        "<input type='submit'>",
+                        "</form>"
+                        
+                        );
+
+            }
+                           // $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
+                        }
+                    });
+                    
+                    location = 'InfoCarrito.jsp';
+}
 
 
 

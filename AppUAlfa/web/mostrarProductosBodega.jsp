@@ -43,6 +43,9 @@
         <%if (vo == null) {%>
         <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
         <%}%>
+        <div id="div"></div>
+        <a href="agregarProducto.jsp"><button>Agregar un producto</button></a>
+        <button id="out" onclick='cerrarSesion()'>Cerrar Sesión</button>
         
         
         <div id="div"></div>
@@ -52,6 +55,9 @@
 
 
     <a href="mostrarTiendaVendedor.jsp"><img src="Pictures/AppuMartTextoBorde.png" style="position: absolute; bottom: -10%; left: 39%; width: 300px; height: 200px"></a>
+
+
+
 
     </body>
 </html>
