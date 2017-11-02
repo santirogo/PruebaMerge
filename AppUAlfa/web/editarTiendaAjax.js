@@ -16,7 +16,7 @@ $(document).ready(function(){
             data:{opcion:opcion,nombre:nombre,celular:celular},
             dataType: 'json',
             success: function(data) {
-               $("#mensaje").append("<p>Enviadooo</p>");
+               $("#mensaje").append("<p>Enviadooo Nombre</p>");
             }
         });
     });
@@ -31,7 +31,7 @@ $(document).ready(function(){
             data:{opcion:opcion,fondo:fondo,celular:celular},
             dataType: 'json',
             success: function(data) {
-                $("#mensaje").append("<p>Enviadooo</p>");
+                $("#mensaje").append("<p>Enviadooo Fondo</p>");
             }
         });
     });

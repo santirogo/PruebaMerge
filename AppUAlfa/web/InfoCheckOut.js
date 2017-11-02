@@ -1,17 +1,17 @@
-$(document).ready(function(){
-    
-    function mifuncion(){
-        
+$(document).ready(function () {
+
+    function mifuncion() {
+
         var opcion1 = "3";
-        var comment =$('#comment').val();
-        
-  
+        var comment = $('#comment').val();
+
+
         $.ajax({
-            url:'InfoCheckOutServlet1',
-            type:'GET',
-            data:{opcion1:opcion1, comment:comment},
+            url: 'InfoCheckOutServlet1',
+            type: 'GET',
+            data: {opcion1: opcion1, comment: comment},
             dataType: 'json',
-            success: function(data) {
+            success: function (data) {
                 console.log("Info enviada");
 //                var i=0;
 //               for ( i = 0; i < data.Productos.length; i++) {
@@ -34,9 +34,30 @@ $(document).ready(function(){
 //                        );
 //                
             },
-            error: function(){
+            error: function () {
                 $('#ack').val("ERROR FATAL");
             }
         });
+    }
+});
+
+function mifuncion() {
+
+    var opcion1 = "3";
+    var comment = $('#comment').val();
+
+
+    $.ajax({
+        url: 'InfoCheckOutServlet',
+        type: 'GET',
+        data: {opcion1: opcion1, comment: comment},
+        dataType: 'json',
+        success: function (data) {
+            console.log("Info enviada");
+            mostrarNotificacion();
+        },
+        error: function () {
+            $('#ack').val("ERROR FATAL");
         }
-        });
+    });
+};

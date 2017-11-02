@@ -22,30 +22,28 @@ public class Conexion {
         
     private Conexion(){
        try {
- //1. Cargar el Driver
-  Class.forName("com.mysql.jdbc.Driver");
- } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
- }
+        //1. Cargar el Driver
+        Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+                   Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
        
-    try {
- //2. Obtener la conexion
- this.connection =
- //DriverManager.getConnection("jdbc:mysql://localhost:3306/AppuAlfa","root","mfc96050505666da");
-         DriverManager.getConnection("jdbc:mysql://localhost:3306/AppuAlfa","root","root");
- } 
-    catch (SQLException ex) {
-     Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
- }
+        try {
+            //2. Obtener la conexion
+            this.connection =
+            DriverManager.getConnection("jdbc:mysql://localhost:3306/AppuAlfa","root","root");
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
   
-}
+    }
     
-  public static Conexion getConexion(){
-       if(conexion == null){
-         conexion = new Conexion();
-       }
-       return conexion;
-   }
+    public static Conexion getConexion(){
+         if(conexion == null){
+           conexion = new Conexion();
+         }
+         return conexion;
+     }
 
     public Connection getConnection() {
         return connection;

@@ -83,7 +83,55 @@
 
             jQuery(document).ready(function () {
                 jQuery("#loader").fadeOut("slow");
+                check();
             });
+
+            var btnNotificacion = document.getElementById("buttonN"),
+                    btnPermiso = document.getElementById("buttonP")
+            titulo = "AppU-Mart",
+                    opciones = {
+                        icon: "Pictures/AppuMartLogo.png",
+                        body: "Notificaciones Activas"
+                    };
+
+            function permiso() {
+                Notification.requestPermission();
+                alert("Cheking...");
+                check();
+            }
+            ;
+
+            function mostrarNotificacion() {
+                if (Notification) {
+                    if (Notification.permission == "granted") {
+                        var n = new Notification(titulo, opciones);
+                        setTimeout( function() { n.close() }, 10000)
+                    } else if (Notification.permission == "default") {
+                        alert("Primero da los permisos de notificación");
+                    } else {
+                        alert("Bloqueaste los permisos de notificación");
+                    }
+                }
+            }
+            ;
+
+            function check() {
+                if (Notification.permission == "granted") {
+                    alert("Notificaciones Activas");
+                    mostrarNotificacion();
+                }
+                if (Notification.permission == "default") {
+                    alert("Notificaciones Sin Responder");
+                    permiso();
+                }
+                if (Notification.permission == "denied") {
+                    alert("Notificicaciones Denegadas");
+                }
+            }
+
+
+
+
 
         </script>
     </head>
@@ -94,12 +142,19 @@
         <!--<div id="boton" style="vertical-align:middle;">Usuario</div>
         <div id="boton">Vendedor</div>    width:487px ; height: 121;  -->
         <div style="position: absolute; left: 10%; top: 12%;"><img src="Pictures/Usuario.png"  width="487px" height="121"></div>
-        
+
         <div style="margin-top: 17%;">
             <a href="http://localhost:8080/AppuMart/loginUsuario.jsp"><div class="avatar" style="left: 15%; vertical-align: middle;"></div></a>
             <a href="http://localhost:8080/AppuMart/loginVendedor.jsp"><div class="avatar2" style="right: 15%; vertical-align: middle;"></div></a>
             <center><div style="position: relative; top: -50px"><img src="Pictures/AppuMartLogo.png"></div></center>
         </div>
         <div style="position: absolute; right: 10%; bottom: 12%"><img src="Pictures/Vendedor.png" width="487px" height="121"></div>
+
+
+        <!--<button id="buttonP" onclick="permiso()">Dar Permisos</button>  
+        <button id="buttonN"  onclick="mostrarNotificacion()()">Lanzar notificación</button>-->  
+
+
+
     </body>
 </html>
