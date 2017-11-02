@@ -3,6 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+//window.onbeforeunload=mylogic_function();
+//
+//function mylogic_function() {
+//    //window.location.href = "Prueba"; 
+//    alert("Quiere salir?");
+//} 
+
+//window.addEventListener("beforeunload", function (e) {
+//  var confirmationMessage = "\o/";
+//  
+////  (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+//  
+////  window.location.href = "Prueba";                            //Webkit, Safari, Chrome
+//    redirect;
+//});
+
+window.onbeforeunload = cierraSesion;
+
+function cierraSesion(){
+    $.ajax({
+        url: 'CerrarSesionServlet',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data){
+                
+            
+        }
+    });
+}
+
 function cli (id){
     console.log("Holaaaaaa "+id);
     nombre = $("#n"+id).text();
@@ -31,6 +62,7 @@ function cli (id){
 }
 
 $(document).ready(function (){
+    
     
     $.ajax({
         url: 'SeleccionTiendaServlet',

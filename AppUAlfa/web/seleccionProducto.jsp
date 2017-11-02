@@ -22,7 +22,7 @@
 //            String correo = "diego@correo.usa.edu.co";
         %>
         
-        <%if(correo==null){%>
+        <% if(correo==null){%>
             <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
         <%}%>
         
