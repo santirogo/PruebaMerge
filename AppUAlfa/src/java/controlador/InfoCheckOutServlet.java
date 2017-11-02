@@ -80,6 +80,7 @@ public class InfoCheckOutServlet extends HttpServlet {
 
             opcion = request.getParameter("opcion1");
             String comentario = request.getParameter("comment");
+            String pos = (String) request.getParameter("pos");
 
 //            for (int i = 0; i < Arreglo.size(); i++) {
 //                JSONObject json = new JSONObject();
@@ -140,8 +141,20 @@ public class InfoCheckOutServlet extends HttpServlet {
                     correo = mail.CorreoTienda(prod.get(i).getTienda());
                     //correo = mail.CorreoTienda(1);
                     System.out.println("Correo:"+correo);
-                    
-                    mail.sendCheckOut(correo, cadena);
+                    String map = "<div id=\"map\" style=\"width:400px;height:200px;\"></div>\n" +
+                        "\n" +
+                        "<script>\n" +
+                        "function myMap() {\n" +
+                        "var mapOptions = {\n" +
+                        "    center: new google.maps.LatLng("+pos+"),\n" +
+                        "    zoom: 15,\n" +
+                        "}\n" +
+                        "var map = new google.maps.Map(document.getElementById(\"map\"), mapOptions);\n" +
+                        "}\n" +
+                        "</script>\n" +
+                        "\n" +
+                        "<script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAJOwdex9jqp6DZ-klv-NlBxoAmwaCyKt8&callback=myMap\"></script>";
+                    mail.sendCheckOut(correo, cadena, map);
                     
                     session.setAttribute("carrito", null);
 
