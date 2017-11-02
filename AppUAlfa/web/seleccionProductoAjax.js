@@ -3,62 +3,111 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-function cli (id){
-    console.log("Holaaaaaa "+id);
-    nombre = $("#n"+id).text();
-    tienda = $("#encabezado").text();
-    $.ajax({
-            url: 'AgregarCarritoServlet',
-            type: 'POST',
-            data: {nombre:nombre,tienda:tienda},
-            dataType: 'json',
-            success: function(data){
-                $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
-            }
-        });
+function cli(id) {
+     
+    console.log("Holaaaaaa " + id);
+    var nombre = $("#n" + id).text();
+    var tienda = $("#encabezado").text();
+    var cantidad = $("#c").val();
+    var opcion = "1";
+    
+    //if(cantidad !== ""){
+        if(cantidad===""){
+            alert("Debe escribir una cantidad");
+        }else{
+            //if(isNaN(cantidad)){
+               // alert("La cantidad tiene que ser un número");
+            //}else{
+                console.log("cantidad: "+cantidad);
+                $.ajax({
+                        url: 'AgregarCarritoServlet',
+                        type: 'POST',
+                        data: {nombre:nombre,tienda:tienda,cantidad:cantidad, opcion:opcion},
+                        dataType: 'json',
+                        success: function(data){
+                            
+                            $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
+                        
+                        /////////////////////////
+                        
+                        
+                        }
+                    });
+                    
+                     
+            //}
+        }
+    //}
 }
 
-$(document).ready(function (){
+function main(){
+    var opcion = "1";
+    console.log("Entro a funcion main");
     
+    $.ajax({
+                        url: 'MainMenuServlet',
+                        type: 'GET',
+                        data: {opcion:opcion},
+                        dataType: 'json',
+                        success: function(data){
+                            
+                            var i = 0;
+            for (i = 0; i < data.Productos.length; i++) {
+                console.log(data.Productos[i].nombre);
+                console.log(data.Productos[i].precio);
+                $('#carlos').append(
+                        
+                        
+                        //"<a href = 'seleccionProducto.jsp'><button class='btn' onclick='sendName(" + data.Productos[i].nombre + ")'>\n\"",
+                        "<p>" + data.Productos[i].nombre + "</p><p>" + data.Productos[i].cantidad + "</p><p>" + data.Productos[i].precio + "</p><br>",
+                        "<form>",
+                        "<input type='text' id='opcion' value='2' style='display: none'>",
+                        "<input type='text' id='idprod' value='" + data.Productos[i].ID + "' style='display: none'>",
+                        "<input type='submit'>",
+                        "</form>"
+                        
+                        );
+
+            }
+                           // $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
+                        }
+                    });
+                    
+                    location = 'InfoCarrito.jsp';
+}
+
+
+
+
+$(document).ready(function () {
+
     $.ajax({
         url: 'SeleccionTiendaServlet',
         type: 'POST',
         dataType: 'json',
-        success: function(data){
-            $("#encabezado").append("<h1>"+data.tienda+"</h1>");
+        success: function (data) {
+            /*$("#encabezado").append("<h1 style='color: black;'>" + data.empresa + "</h1>");*/
+            $("#encabezado").append(data.empresa);
+            $("#Perfil").append("<div class='perfil' style='background-image:-webkit-linear-gradient(top left, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 50%),url(Pictures/"+data.logo+"); background-image:-moz-linear-gradient(top left, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 50%),url(Pictures/"+data.logo+"); background-image:linear-gradient(top left, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 50%),url(Pictures/"+data.logo+"); background-size: auto, 100%;'></div>");
             for (var i = 0; i < data.arreglo.length; i++) {
                 console.log(data.arreglo[i].nombre);
                 console.log(data.arreglo[i].precio);
                 $("#prueba").append(
-                        "<div class='col-md-4'><b id='n"+i+"'>"+data.arreglo[i].nombre+"</b>\n\
-                        <b id='p"+i+"'>Precio: $"+data.arreglo[i].precio+"</b><br>\n\
-                        <img src='"+data.arreglo[i].ruta+"' alt='foto' width='100' height='100'>\n\
-                        <button class='btn' onclick='cli("+i+")' id="+i+">Añadir</button><br><br></div>"
+                        /*"<b id='n" + i + "'>" + data.arreglo[i].nombre + "</b>",
+                        "<b id='p" + i + "'>Precio: $" + data.arreglo[i].precio + "</b><br>",
+                        "<img src='" + data.arreglo[i].ruta + "' alt='foto' width='100' height='100'>",
+                        "<button class='btn' onclick='cli(" + i + ")' id=" + i + ">Añadir</button><br><br>"    overflow: hidden;        */
+                    
+        "<div class='col-md-4' id='item' style='cursor:pointer; width:300px; overflow: hidden;'> <img style='padding:0px; margin-right: 10px; width: 150px; height: 200px' id='perfil' src=Pictures/" + data.arreglo[i].ruta + "><p class='titulo_uno' id='n"+ i +"'>"+ data.arreglo[i].nombre +"</p><p style='float: right; margin: 0px 20px 0px 0px;' class='descripcion2' id='p"+ i +"'>" +"$ "+ data.arreglo[i].precio + "<input id='c' type='text' class='pass' value='1'/><button style='border-radius:100%;  margin: 0px 0px 5px 5px; ' class='btn' onclick='cli(" + i + ")' id=" + i + ">+</button><br>" +"</div>"
+    
+//                        );
+//                        "<div class='col-md-4'><b id='n"+i+"'>"+data.arreglo[i].nombre+"</b>\n\
+//                        <b id='p"+i+"'>Precio: $"+data.arreglo[i].precio+"</b><br>\n\
+//                        <img src='"+data.arreglo[i].ruta+"' alt='foto' width='100' height='100'>\n\
+//                        <button class='btn' onclick='cli("+i+")' id="+i+">Añadir</button><br><br></div>"
                 );
             }
-            
+
         }
     });
-    
-//    $('.boton').click(function() {
-//        var id = this.id;
-//        console.log(id)
-//        console.log("id: "+this.id);
-//        a = "#n"+this.id; 
-//        console.log("a: "+a);
-//        nombre = $("#n"+this.id).text();
-//        precio = $("#p"+this.id).text();
-//        
-//        console.log("n:"+nombre);
-//        console.log("p:"+precio);
-//        $.ajax({
-//            url: 'MainMenuServlet',
-//            type: 'POST',
-//            data: {nombre:nombre, precio:precio},
-//            dataType: 'json',
-//            success: function(data){
-//                $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
-//            }
-//        });
-//    });
 });

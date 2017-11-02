@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
 import vo.VendedorVO;
 
@@ -20,6 +21,7 @@ import vo.VendedorVO;
  * @author Nicolas
  */
 public class LoginVendedorServlet extends HttpServlet {
+
     JSONObject json;
     VendedorDAO dao;
     VendedorVO vo;
@@ -31,9 +33,21 @@ public class LoginVendedorServlet extends HttpServlet {
             json = new JSONObject();
             dao = new VendedorDAO();
             vo = new VendedorVO();
+            HttpSession session = request.getSession();
+            vo = (VendedorVO) session.getAttribute("vendedor");
+
+            if (vo == null) {
+
+                vo = new VendedorVO();
+                session.setAttribute("vendedor", vo);
+
+            }
+
             String correo = request.getParameter("correo");
             String password = request.getParameter("password");
+            String celular = dao.buscarCelVendedor(correo);
             vo.setCorreo(correo);
+
             vo.setPassword(password);
             System.out.println("-------------------------" + correo + "---" + password);
 
@@ -42,6 +56,10 @@ public class LoginVendedorServlet extends HttpServlet {
                 System.out.println("No se pudo loggear");
             } else {
                 json.put("confirmacion", "ACK");
+                session.setAttribute("correo", correo);
+                session.setAttribute("celular", celular);
+                
+
                 System.out.println("OOOOKKKKKKKKKKKK");
             }
 

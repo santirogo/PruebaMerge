@@ -108,7 +108,7 @@ public class VendedorDAO {
     
     public boolean buscar(VendedorVO vendedor){
         try {
-            String consulta = "SELECT * FROM Vendedores WHERE Correo = ?";
+            String consulta = "SELECT celular FROM Vendedores WHERE Correo = ?";
             PreparedStatement statement
                     = this.conexion.prepareStatement(consulta);
 
@@ -122,13 +122,33 @@ public class VendedorDAO {
         
         return false;
     }
-    
-    
-    
-    
-    
-    
-    
-    
+    public String buscarCelVendedor(String correo) {
+
+        try {
+
+            String query = "SELECT celular from Vendedores where correo=?";
+
+             PreparedStatement stmt = null;
+
+            stmt = this.conexion.prepareStatement(query);
+            
+            stmt.setString(1, correo);
+            ResultSet res = stmt.executeQuery();
+            
+
+            if(res.next()){
+                return res.getString("celular");
+            }else{
+                return null;
+            }
+            
+
+
+        } catch (SQLException e) {
+            System.out.println("Failed to make insertion!");
+            e.printStackTrace();
+        }
+        return null;
+    }
     
 }

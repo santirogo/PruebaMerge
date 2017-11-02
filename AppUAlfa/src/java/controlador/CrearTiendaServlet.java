@@ -8,6 +8,7 @@ package controlador;
 
 import dao.ProductoDAO;
 import dao.TiendaDAO;
+import dao.VendedorDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
 import vo.PersonaVO;
 import vo.ProductoVO;
@@ -29,6 +31,8 @@ import vo.VendedorVO;
 //@WebServlet(urlPatterns = {"/CrearTiendaServlet"})
 public class CrearTiendaServlet extends HttpServlet {
     private TiendaDAO tienda;
+    private VendedorDAO vendedor;
+   
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -108,19 +112,26 @@ public class CrearTiendaServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             this.tienda= new TiendaDAO();
+            this.vendedor=new VendedorDAO();
             /* TODO output your page here. You may use following sample code. */
             
             ArrayList<String> prod = new ArrayList<>();
+            HttpSession mySession = request.getSession();
+            String correo = (String) mySession.getAttribute("correo");
+            System.out.println("coorrrreeeeooooo eennn seeessiiiooonnn"+correo);
+            String celular = this.tienda.buscarCelVendedor(correo);
             
             String nombre = request.getParameter("nombre");
-            String celularV = request.getParameter("celular");
             String IDFondo = request.getParameter("fondo");
             
             
             TiendaVO tiendaVO = new TiendaVO();
+            tiendaVO.setId(tienda.calcularId());
             tiendaVO.setNombre(nombre);
-            tiendaVO.setVendedor(celularV);
+            tiendaVO.setPuntuacion(5);
+            tiendaVO.setVendedor(celular);
             tiendaVO.setIdFondo(IDFondo);
+            System.out.println("Id calculadooooooooo: "+tiendaVO.getId());
                   
             
             JSONObject json = new JSONObject();

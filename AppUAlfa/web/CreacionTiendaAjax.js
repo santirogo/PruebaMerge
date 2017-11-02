@@ -4,26 +4,27 @@ $(document).ready(function () {
 
         var nombre = $('#nombre').val();
         var fondo = $('#Fond').val();
-        var celular = $('#celular').val();
         $.ajax({ 
             url: 'CrearTiendaServlet',
             type: 'POST',
-            data: {nombre:nombre,celular:celular,fondo:fondo},
+            data: {nombre:nombre,fondo:fondo},
             dataType: 'json',
             success: function (data) {
                 
                 if (data.confirmacion === "ACK") {
                     console.log("DATOS CORRECTOS");
-                    document.getElementById("ack").innerHTML = "DATOS CORRECTOS";
+                    alert("Tienda creada exitosamente");
+                    
                 } else {
                     console.log("DATOS INCORRECTOS");
-                    document.getElementById("ack").innerHTML = "NO SE CONFIGURO NADA";
+                    alert("Hubo un error al crear la tienda");
                 }
             },
 
             error: function () {
-                $('#ack').val("ERROR");
             }
         });
     });
 });
+
+

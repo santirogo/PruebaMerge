@@ -6,6 +6,7 @@
 package controlador;
 
 import dao.ProductoDAO;
+import dao.TiendaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import vo.ProductoVO;
+import vo.TiendaVO;
 
 /**
  *
@@ -23,6 +25,7 @@ import vo.ProductoVO;
  */
 public class SeleccionTiendaServlet extends HttpServlet {
     private ProductoDAO producto;
+    private TiendaDAO tienda;
     private int idT;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -73,11 +76,16 @@ public class SeleccionTiendaServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             this.producto = new ProductoDAO();
+            this.tienda = new TiendaDAO();
             System.out.println("POSTTTTTTTT");
             
 //            String nombreTienda = request.getParameter("nombre");
 //            int idTienda = 1;
             ArrayList <ProductoVO> productos = this.producto.productosPorTienda(this.idT);
+            String Infotienda = this.tienda.NombreTienda(this.idT);
+            String Logotienda = this.tienda.LogoTienda(this.idT);
+            System.out.println(Infotienda);
+            System.out.println(Logotienda);
             JSONArray jArray = new JSONArray();
             
             for (int i = 0; i < productos.size(); i++) {
@@ -93,6 +101,8 @@ public class SeleccionTiendaServlet extends HttpServlet {
             JSONObject fin = new JSONObject();
             fin.put("arreglo", jArray);
             fin.put("tienda", this.idT);
+            fin.put("empresa", Infotienda);
+            fin.put("logo", Logotienda);
             
             out.print(fin);
         }

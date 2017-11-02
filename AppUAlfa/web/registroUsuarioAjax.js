@@ -53,6 +53,7 @@ $(document).ready(function (){
                     console.log("Entroooooo al 2 success");
                     if (data.confirmacion === "ok") {
                         alert("Se agregó correctamente :)");
+                        window.location.href = "listarTiendas.jsp";
                     } else {
                         alert("No se pudo agregar");
                     }

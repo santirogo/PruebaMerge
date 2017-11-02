@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
 import vo.UsuarioVO;
 
@@ -102,6 +103,9 @@ public class RegistroUsuarioServlet extends HttpServlet {
                 user.setPassword(pass);
                 user.setCelular(celular);
                 user.setPuntuacion(5);
+                
+                HttpSession session = request.getSession();
+                session.setAttribute("correo", correo);
 
                 boolean inserto = this.usuario.insertar(user);
                 

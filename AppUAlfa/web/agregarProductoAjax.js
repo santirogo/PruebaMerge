@@ -3,35 +3,60 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-$(document).ready(function (){
-    $("#boton").click(function (){
+$(document).ready(function () {
+
+    comboBox();
+    $("#boton").click(function () {
         var nombre = $("#nombre").val();
-        var categoria = $("#categoria").val();
+        var categoria = $("#combobox").val();
         var precio = $("#precio").val();
         var cantidad = $("#cantidad").val();
-        var tienda = $('#tienda').val();
-        
+        var imagen = $('#imagen').val();
+
         $.ajax({
             url: 'AgregarProductoServlet',
             type: 'POST',
-            data: {nombre:nombre, categoria:categoria, precio:precio, cantidad:cantidad,tienda:tienda},
+            data: {nombre: nombre, categoria: categoria, precio: precio, cantidad: cantidad, imagen: imagen},
             dataType: 'json',
-            success: function(data){
+            success: function (data) {
                 if (data.confirmacion === "ACK") {
                     console.log("DATOS CORRECTOS");
-                    document.getElementById("ack").innerHTML = "Se agregó el producto "+nombre+" satisfactoriamente";
-
+                    alert("Se agregó el producto " + nombre + " a tu tienda.");
                 } else {
                     console.log("DATOS INCORRECTOS");
-                    document.getElementById("ack").innerHTML = "Datos incorrecto";
+                    alert("No se pudo agregar este producto a tu tienda.");
                 }
             }
-                
-                
-            
+
+
+
         });
     });
 });
+function comboBox() {
+    $.ajax({
+        url: 'AgregarProductoServlet',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
 
+            for (var i = 0; i < data.categorias.length; i++) {
+                $("#combobox").append(
+                        "<option id='categoria' value=" + data.categorias[i].cat + ">" + data.categorias[i].cat + "</option>"
+
+
+                        );
+
+            }
+
+        }
+
+
+
+    });
+
+
+}
+;
 
 

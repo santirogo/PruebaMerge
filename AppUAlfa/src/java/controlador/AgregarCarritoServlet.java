@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import com.google.gson.Gson;
 import dao.CarritoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import vo.CarritoVO;
 import vo.ProductoVO;
 
@@ -75,20 +77,43 @@ public class AgregarCarritoServlet extends HttpServlet {
             CarritoDAO carritoDAO = new CarritoDAO();
             CarritoVO carritoVO = CarritoVO.getCarrito();
             ProductoVO producto = new ProductoVO();
+//            HttpSession sesion = request.getSession();
+//            ArrayList CarroSesion = (ArrayList) sesion.getAttribute("carrito");
+             //ArrayList<ProductoVO> Carris = new Gson().fromJson(CarroSesion, ArrayList.class);
+            
+
+            
             
             String nombre= request.getParameter("nombre");
-            int tienda= Integer.parseInt(request.getParameter("tienda"));
+            String tienda= request.getParameter("tienda");
+            int cantidad= Integer.parseInt(request.getParameter("cantidad"));
+            String P = "";
+            P=request.getParameter("opcion");
             
-            System.out.println("Nombreeeeee:  "+nombre);
-            System.out.println("Tiendaaaaaa id: "+tienda);
+            if (P.equals("1")){
+            HttpSession sesion = request.getSession();
+            ArrayList CarroSesion = (ArrayList) sesion.getAttribute("carrito");
             
             ArrayList arregloCarro= new ArrayList();
             arregloCarro.add(nombre);
             arregloCarro.add(tienda);
+            arregloCarro.add(cantidad);
             
-            carritoDAO.Agregar(arregloCarro);
+            ArrayList<ProductoVO> Carro= new ArrayList();
+            Carro=carritoDAO.Agregar(arregloCarro, CarroSesion);
+            sesion = request.getSession();
             
-
+                for (int i = 0; i < Carro.size(); i++) {
+                    System.out.println(Carro.get(i).getNombre());
+            System.out.println(Carro.get(i).getID());
+            System.out.println(Carro.get(i).getTienda());
+                }
+            
+            
+            sesion.setAttribute("carrito", Carro);
+            //sesion.setAttribute("carrito", new Gson().toJson(Carro));
+            
+        }
         }
         
     }
