@@ -8,7 +8,6 @@
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
         <title>AppU-Mart</title>
         <style>
-
             #loader{
                 position:absolute;/*agregamos una posición absoluta para que nos permita mover la capa en el espacio del navegador*/
                 top:0%;/*posicionamiento en Y */
@@ -18,9 +17,7 @@
                 width:100%; /* maximo ancho de la pantalla */
                 height:100%; /* maxima altura de la pantalla */
                 display:block; /* mostramos el layer */
-
             }
-
             #boton{
                 margin:auto;
                 margin-top:10px;
@@ -39,15 +36,11 @@
                 -webkit-transition:all 300ms ease;
                 -o-transition:all 300ms ease;
                 transition:all 300ms ease;
-
             }
-
-
             #boton:hover{
                 transition-duration: 0.3s;
                 box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
             }
-
             .avatar{
                 position: absolute;
                 margin:0 auto 15px;
@@ -80,59 +73,9 @@
             }
         </style>
         <script>
-
             jQuery(document).ready(function () {
                 jQuery("#loader").fadeOut("slow");
-                check();
             });
-
-            var btnNotificacion = document.getElementById("buttonN"),
-                    btnPermiso = document.getElementById("buttonP")
-            titulo = "AppU-Mart",
-                    opciones = {
-                        icon: "Pictures/AppuMartLogo.png",
-                        body: "Notificaciones Activas"
-                    };
-
-            function permiso() {
-                Notification.requestPermission();
-                alert("Cheking...");
-                check();
-            }
-            ;
-
-            function mostrarNotificacion() {
-                if (Notification) {
-                    if (Notification.permission == "granted") {
-                        var n = new Notification(titulo, opciones);
-                        setTimeout( function() { n.close() }, 10000)
-                    } else if (Notification.permission == "default") {
-                        alert("Primero da los permisos de notificación");
-                    } else {
-                        alert("Bloqueaste los permisos de notificación");
-                    }
-                }
-            }
-            ;
-
-            function check() {
-                if (Notification.permission == "granted") {
-                    alert("Notificaciones Activas");
-                    mostrarNotificacion();
-                }
-                if (Notification.permission == "default") {
-                    alert("Notificaciones Sin Responder");
-                    permiso();
-                }
-                if (Notification.permission == "denied") {
-                    alert("Notificicaciones Denegadas");
-                }
-            }
-
-
-
-
-
         </script>
     </head>
     <body style="background-color: #F1F3F5;">
@@ -142,19 +85,12 @@
         <!--<div id="boton" style="vertical-align:middle;">Usuario</div>
         <div id="boton">Vendedor</div>    width:487px ; height: 121;  -->
         <div style="position: absolute; left: 10%; top: 12%;"><img src="Pictures/Usuario.png"  width="487px" height="121"></div>
-
+        
         <div style="margin-top: 17%;">
             <a href="http://localhost:8080/AppuMart/loginUsuario.jsp"><div class="avatar" style="left: 15%; vertical-align: middle;"></div></a>
             <a href="http://localhost:8080/AppuMart/loginVendedor.jsp"><div class="avatar2" style="right: 15%; vertical-align: middle;"></div></a>
             <center><div style="position: relative; top: -50px"><img src="Pictures/AppuMartLogo.png"></div></center>
         </div>
         <div style="position: absolute; right: 10%; bottom: 12%"><img src="Pictures/Vendedor.png" width="487px" height="121"></div>
-
-
-        <!--<button id="buttonP" onclick="permiso()">Dar Permisos</button>  
-        <button id="buttonN"  onclick="mostrarNotificacion()()">Lanzar notificación</button>-->  
-
-
-
     </body>
 </html>

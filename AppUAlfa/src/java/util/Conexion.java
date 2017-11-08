@@ -32,6 +32,7 @@ public class Conexion {
             //2. Obtener la conexion
             this.connection =
             DriverManager.getConnection("jdbc:mysql://localhost:3306/AppuAlfa","root","root");
+            System.out.println("CONECTADO");
         } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -15,6 +15,7 @@ public class UsuarioDAO {
     public UsuarioDAO() {
         Conexion db = Conexion.getConexion();
         this.conexion = db.getConnection();
+        System.out.println("CONECTADITO");
     }
     
     public boolean insertar(UsuarioVO usuario) {
@@ -121,6 +122,8 @@ public class UsuarioDAO {
     
     public boolean loggear(UsuarioVO usuario) {
 
+        System.out.println("LOGGEANDO");
+        
         boolean res = false;
         String query = "select * from Usuarios where Correo = ? and Contrasena = ?";
 
