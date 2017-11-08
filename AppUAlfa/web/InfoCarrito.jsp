@@ -16,7 +16,6 @@
                 font-family: 'carrito.ttf';
                 src: url('Pictures/carrito.ttf');
             }
-
             *{
                 font-family: 'carrito.ttf';
             }
@@ -40,7 +39,6 @@
                 transition-duration: 0.4s;
                 cursor: pointer
             }
-
             #InfoCarro:hover {
                 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cb60b3+0,ad1283+50,de47ac+100;Pink+3D */
                 background: rgb(203,96,179); /* Old browsers */
@@ -62,7 +60,6 @@
                 transition-duration: 0.4s;
                 cursor: pointer
             }
-
             #Confirmar:hover {
                 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cb60b3+0,ad1283+50,de47ac+100;Pink+3D */
                 background: rgb(203,96,179); /* Old browsers */
@@ -78,8 +75,8 @@
         
         <style>
             #map {
-                height: 200px;
-                width: 400px;
+             height: 200px;
+             width: 400px;
             }
         </style>
         <script>
@@ -88,62 +85,15 @@
                 var Ancho = screen.width;
                 var Alto = screen.height;
                 //alert(Ancho + " Y " + Alto);
-
-
                 if ((Ancho <= 600)) {
-
                     //alert("Menor a 600");
-
                 }
-
                 if ((Ancho => 600)) {
-
                     //alert("Mayor a 600");
                     $('#llegada2').append('<a href="listarTiendas.jsp"><img src="Pictures/AppuMartTextoBorde.png"></a>');
                     $('#llegada').append('<img src="Pictures/checkout.png">');
                 }
             });
-
-            var btnNotificacion = document.getElementById("buttonN"),
-                    btnPermiso = document.getElementById("buttonP")
-            titulo = "Oder Checkout",
-                    opciones = {
-                        icon: "Pictures/checkout.png",
-                        body: "Se ha envaido un correo al vendedor, con la informacion de tu pedido..."
-                    };
-
-
-            function mostrarNotificacion() {
-                if (Notification) {
-                    if (Notification.permission == "granted") {
-                        var n = new Notification(titulo, opciones);
-                        setTimeout(function () {
-                            n.close()
-                        }, 10000)
-                    } else if (Notification.permission == "default") {
-                        alert("Primero da los permisos de notificación");
-                    } else {
-                        alert("Bloqueaste los permisos de notificación");
-                    }
-                }
-            }
-            ;
-
-            function check() {
-                if (Notification.permission == "granted") {
-                    alert("Notificaciones Activas");
-                    mostrarNotificacion();
-                }
-                if (Notification.permission == "default") {
-                    alert("Notificaciones Sin Responder");
-                    permiso();
-                }
-                if (Notification.permission == "denied") {
-                    alert("Notificicaciones Denegadas");
-                }
-            }
-            ;
-
         </script>
     </head>
     <body>
@@ -160,7 +110,7 @@
             <center>
                 <br><br><br>
                 <input class="submit" type="text" id="opcion" value="1" onclick="form1.submit()"  style="visibility:hidden"/><br>
-
+                
                 <p id="ack"></p>
                 <p id="ackk"></p>
                 <br><br>
@@ -169,15 +119,15 @@
                 <!--<textarea rows="4" cols="50" name="comment" id="comment">Ingresa Los Comentarios Del Pedido Aqui...</textarea><br>
                 <input class="btn" type="submit" id="Confirmar" value="Confirmar"/>-->
             </center>
-
-            <center><div id="carlos"></div></center>
+            
+             <center><div id="carlos"></div></center>
 
         </form>
-
+        
         <form name="form2">
             <center>
-
-                <textarea rows="4" cols="50" name="comment" id="comment" onclick='this.value""'>Ingresa Los Comentarios Del Pedido Aqui...</textarea><br>
+                
+                <textarea rows="4" cols="50" name="comment" id="comment">Ingresa Los Comentarios Del Pedido Aqui...</textarea><br>
                 <!--<input class="submit" type="text" id="opcion1" value="3" onclick="form2.submit()" style="visibility:hidden"/><br>
                 <input class="btn" type="submit" id="Confirmar" value="Confirmar"/>-->
                 <button onclick="mifuncion()">Confirmar</button>
@@ -189,14 +139,13 @@
         <!--<div class="carro"><img src="Pictures/CarroMedio.png"></div>-->
     <center><div id="llegada"></div></center>
     <center><div id="llegada2"></div></center>
-
-
-
-
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB78-OGRg5rcLtUs9caqE4lQVIlw-D7zA4&callback=initMap"></script>
-
-
+        
+        
+        
+        
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB78-OGRg5rcLtUs9caqE4lQVIlw-D7zA4&callback=initMap"></script>
+    
+   
     <!--<img src="Pictures/AppuMartTextoBorde.png">-->
 </body>
 </html>
-

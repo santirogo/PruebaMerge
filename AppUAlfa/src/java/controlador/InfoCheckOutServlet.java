@@ -59,6 +59,8 @@ public class InfoCheckOutServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
+            System.out.println("ENTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+            
             CarritoDAO carrito = new CarritoDAO();
             ProductoVO productos = new ProductoVO();
             ArrayList<ProductoVO> Arreglo = new ArrayList();

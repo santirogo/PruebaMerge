@@ -32,31 +32,6 @@ $(document).ready(function(){
             $('#ack').val("ERROR FATAL");
         }
     });
-
-
-
-    function mifuncion(){
-
-            var opcion1 = "3";
-            var comment =$('#comment').val();
-            var pos = map.getCenter();
-            console.log(pos);
-
-            $.ajax({
-                url:'InfoCheckOutServlet',
-                type:'GET',
-                data:{opcion1:opcion1, comment:comment, pos:pos},
-                dataType: 'json',
-                success: function(data) {
-                    console.log("Info enviada");
-
-                },
-                error: function(){
-                    console.log("Se jodio papá");
-                    $('#ack').val("ERROR FATAL");
-                }
-            });
-    };
     
 });
 
