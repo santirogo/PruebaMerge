@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-    var opcion = "0";
+    var opcion = $('#opcion').val();
 
     $.ajax({
         url: 'MainMenuServlet',
@@ -9,7 +9,7 @@ $(document).ready(function () {
         data: {opcion:opcion},
         dataType: 'json',
         success: function (data) {
-
+            console.log(data.nombre);
             var i = 0;
             for (i = 0; i < data.Productos.length; i++) {
                 console.log(data.Productos[i].nombre);
@@ -58,10 +58,8 @@ $(document).ready(function () {
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
-
+var map;
       function initMap() {
-          var map;
-          
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 4.714666, lng: -74.072115},
           streetViewControl: false,
@@ -98,41 +96,24 @@ $(document).ready(function () {
                               'Error: Tu explorador no soporta la geolocalización.');
       }
       
-      function main(){
-    var opcion = "1";
-    console.log("Entro a funcion main");
-    
-    $.ajax({
-                        url: 'MainMenuServlet',
-                        type: 'GET',
-                        data: {opcion:opcion},
-                        dataType: 'json',
-                        success: function(data){
-                            
-                            var i = 0;
-            for (i = 0; i < data.Productos.length; i++) {
-                console.log(data.Productos[i].nombre);
-                console.log(data.Productos[i].precio);
-                $('#carlos').append(
-                        
-                        
-                        //"<a href = 'seleccionProducto.jsp'><button class='btn' onclick='sendName(" + data.Productos[i].nombre + ")'>\n\"",
-                        "<p>" + data.Productos[i].nombre + "</p><p>" + data.Productos[i].cantidad + "</p><p>" + data.Productos[i].precio + "</p><br>",
-                        "<form>",
-                        "<input type='text' id='opcion' value='2' style='display: none'>",
-                        "<input type='text' id='idprod' value='" + data.Productos[i].ID + "' style='display: none'>",
-                        "<input type='submit'>",
-                        "</form>"
-                        
-                        );
+      function mifuncion(){
 
-            }
-                           // $("#respuesta").append("<b>Se agregó el producto </b>"+data.nombre+" <b>satisfactoriamente</b>");
-                        }
-                    });
-                    
-                    location = 'InfoCarrito.jsp';
-}
-       
-       
-       
+            var opcion1 = "3";
+            var comment =$('#comment').val();
+            var pos = map.getCenter();
+
+            $.ajax({
+                url:'InfoCheckOutServlet',
+                type:'GET',
+                data:{opcion1:opcion1, comment:comment, pos:pos},
+                dataType: 'json',
+                success: function(data) {
+                    console.log("Info enviada");
+
+                },
+                error: function(){
+                    console.log("Se jodio papá");
+                    $('#ack').val("ERROR FATAL");
+                }
+            });
+      }

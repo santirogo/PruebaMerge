@@ -12,10 +12,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.mail.Message;
+import javax.mail.Multipart;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import util.Conexion;
 
 public class EnviarMail {
@@ -73,9 +76,10 @@ public class EnviarMail {
     }
     
     
-    public void sendCheckOut(String toAdd, ArrayList<String> orden, String map){
+    public void sendCheckOut(String toAdd,String map){
     
         try {
+            System.out.println("***********EMPEZANDO A ENVIAR MAIL/INICIO CONFIGURACIONES**********");
             // Propiedades de la conexión
             Properties props = new Properties();
             props.setProperty("mail.smtp.host", "smtp.gmail.com");
@@ -93,13 +97,17 @@ public class EnviarMail {
             message.addRecipient(
                     Message.RecipientType.TO,
                     new InternetAddress(toAdd));
-            message.setSubject("Orden");
-            message.setText("Tu orden: "+orden.get(0)+"\n"+orden.get(1));
-           message.setContent(map,"text/html");
-           
-//            for (int i = 0; i < orden.size(); i++) {
-//                message.setText(orden.get(i));
-//            }
+            message.setSubject("Tienes un nuevo pedido!!");
+            
+            System.out.println("ESTE ES EL HTML DEL PEDIDO!!"+map);
+
+            final MimeBodyPart htmlPart = new MimeBodyPart();
+            htmlPart.setContent(map, "text/html");
+            // Create the Multipart.  Add BodyParts to it.
+            final Multipart mp = new MimeMultipart("alternative");
+            mp.addBodyPart(htmlPart);
+            
+            message.setContent(mp);
 
             // Lo enviamos.
             Transport t = session.getTransport("smtp");
@@ -108,6 +116,7 @@ public class EnviarMail {
 
             // Cierre.
             t.close();
+            System.out.println("++++++++++++++++++CORREO ENVIADO DEL TODO/FINITO++++++++++++++++");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -160,7 +169,6 @@ public class EnviarMail {
     
     
 }
-//=======
 //package dao;
 //
 //import java.util.Properties;
