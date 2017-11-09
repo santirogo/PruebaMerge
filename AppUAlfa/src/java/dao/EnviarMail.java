@@ -167,8 +167,42 @@ public class EnviarMail {
     
     }
     
+    public String NombreComprador(String correo){
+        
+        String query="select nombre from Usuarios where correo='"+correo+"'";
+        //String Correo="";
+        String comprador="";
+        
+        try {
+            
+            Statement st = this.conexion.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            
+            
+            while(rs.next()){
+            comprador=rs.getString(1);
+            System.out.println("comprador"+comprador);
+           
+                 
+            } 
+            return comprador;
+            
+            
+            
+            
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(EnviarMail.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        
+        return null;
     
+    }
+
 }
+
 //package dao;
 //
 //import java.util.Properties;
