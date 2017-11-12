@@ -46,9 +46,7 @@ public class MainMenuServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("application/json");
-        try (PrintWriter out = response.getWriter()) {
-
-        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -63,7 +61,7 @@ public class MainMenuServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
+        PrintWriter out = response.getWriter();
             //processRequest(request, response);
             response.setContentType("application/json");
 
@@ -103,6 +101,7 @@ public class MainMenuServlet extends HttpServlet {
                 } else if (CarroSesion != null) {
                     ProductoVO productos = new ProductoVO();
                         System.out.println("No esta nulo");
+                        String x = "Precio total: "+Mateo.PrecioTotal(CarroSesion);
                     for (int i = 0; i < CarroSesion.size(); i++) {
                         System.out.println(CarroSesion.get(i));
                         JSONObject json = new JSONObject();
@@ -111,18 +110,12 @@ public class MainMenuServlet extends HttpServlet {
                         json.put("nombre", CarroSesion.get(i).getNombre());
                         json.put("cantidad", String.valueOf(CarroSesion.get(i).getCantidad()));
                         json.put("precio", String.valueOf(CarroSesion.get(i).getPrecio()));
+                        json.put("Total", x);
                         System.out.println("PRUEBA JSON NOMBRE: "+json.get("nombre"));
                         array.put(json);
 
                     }
                        
-                    //Envia Precio y cantidad
-//                    String x = Mateo.PrecioTotal(CarroSesion);
-//                    JSONObject total = new JSONObject();
-//
-//                    total.put("Total", x);
-//
-//                    array.put(total);
 
                     JSONObject fin = new JSONObject();
                     fin.put("Productos", array);
@@ -132,16 +125,18 @@ public class MainMenuServlet extends HttpServlet {
             }
 
             if (P.equals("2")) {
+                CarroSesion = (ArrayList) sesion.getAttribute("carrito");
                 ArrayList<ProductoVO> Arreglo = new ArrayList();
 
                 //Arreglo = CarroSesion;
                 String ID = request.getParameter("idprod");
 
-                Mateo.borrar(ID, CarroSesion);
+                Arreglo=Mateo.borrar(ID, CarroSesion);
+                sesion.setAttribute("carrito", Arreglo);
 
             }
 
-        }
+        
     }
 
     /**
@@ -155,10 +150,7 @@ public class MainMenuServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
-            //processRequest(request, response);
-
-        }
+        
     }
 
     /**
