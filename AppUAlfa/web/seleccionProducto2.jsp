@@ -323,7 +323,7 @@
         <div class="social">
             <ul>
                 <li>
-                    <a href="infoCarrito2.jsp" target="_blank" onclick="main()"><img src="Pictures/Carrito.png" style="width: 100px; height: 100px"></a>
+                    <a href="infocarrito2.jsp" target="_blank" onclick="main()"><img src="Pictures/Carrito.png" style="width: 100px; height: 100px"></a>
                 </li>
             </ul>
         </div>

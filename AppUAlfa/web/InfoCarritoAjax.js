@@ -129,5 +129,5 @@ function main() {
         }
     });
 
-    location = 'infoCarrito2.jsp';
+    location = 'infocarrito2.jsp';
 }
