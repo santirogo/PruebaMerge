@@ -106,10 +106,10 @@ public class InfoCheckOutServlet extends HttpServlet {
                         prod.add(Arreglo.get(i));
                     }
                     
-                    String usuario="Cliente: "+user.NombreComprador(correoSesion)+"\n";
-                    String precioTotal ="Precio Total : "+ carrito.PrecioTotal(CarroSesion);
+//                    String usuario="Cliente: "+user.NombreComprador(correoSesion)+"\n";
+//                    String precioTotal ="Precio Total : "+ carrito.PrecioTotal(CarroSesion);
                     
-                    cadena.add(usuario);
+//                    cadena.add(usuario);
                     
                     for (int j = 0; j < prod.size(); j++) {
                         String orden = "| "+"Producto: " + prod.get(j).getNombre() + " | "+"Cantidad: " + Integer.toString(prod.get(j).getCantidad()) + " | "+"Precio: " + Integer.toString(prod.get(j).getPrecio())+ " | ";
@@ -118,11 +118,11 @@ public class InfoCheckOutServlet extends HttpServlet {
                         cadena.add(orden);
                     }
                     
-                    cadena.add(precioTotal);
+//                    cadena.add(precioTotal);
                     cadena.add(comentario);
                     
                     System.out.println("idtienda:"+prod.get(0).getTienda());
-                    correo = tienda.CorreoTienda(prod.get(0).getTienda());
+//                    correo = tienda.CorreoTienda(prod.get(0).getTienda());
                     //correo = mail.CorreoTienda(1);
                     System.out.println("Correo:"+correo);
                     String pedido="";
@@ -134,7 +134,8 @@ public class InfoCheckOutServlet extends HttpServlet {
                     
                     String map = "<p>"+pedido+"</p><img src='https://maps.googleapis.com/maps/api/staticmap?center="+request.getParameter("latitud")+","+request.getParameter("longitud")+"&zoom=15&size=400x400&maptype=roadmap\n" +
 "&markers=color:red%7Clabel:C%7C"+request.getParameter("latitud")+","+request.getParameter("longitud")+"&key=AIzaSyAJOwdex9jqp6DZ-klv-NlBxoAmwaCyKt8'/>";
-                    mail.sendMailCheckout(correo,map);
+                    mail.sendCheckOut(correo,map);
+                    //mail.sendMailCheckout(correo,map);
                     
                     session.setAttribute("carrito", null);
                     System.out.println("-------------CORREO ENVIADO-------------");

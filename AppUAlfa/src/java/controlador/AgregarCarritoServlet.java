@@ -102,13 +102,14 @@ public class AgregarCarritoServlet extends HttpServlet {
             ArrayList<ProductoVO> Carro= new ArrayList();
             Carro=carritoDAO.Agregar(arregloCarro, CarroSesion);
             sesion = request.getSession();
-            
+            System.out.println("AgregarCarritoS");
                 for (int i = 0; i < Carro.size(); i++) {
+                    
                     System.out.println(Carro.get(i).getNombre());
             System.out.println(Carro.get(i).getID());
             System.out.println(Carro.get(i).getTienda());
                 }
-            
+                System.out.println("*************");
             
             sesion.setAttribute("carrito", Carro);
             //sesion.setAttribute("carrito", new Gson().toJson(Carro));

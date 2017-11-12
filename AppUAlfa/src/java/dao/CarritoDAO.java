@@ -5,12 +5,15 @@
  */
 package dao;
 
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import util.Conexion;
 import vo.CarritoVO;
 import vo.ProductoVO;
@@ -33,32 +36,31 @@ public class CarritoDAO {
         boolean b = false;
 
         int x = 0;
-        if(sesion!=null){
-        for (int i = 0; i < sesion.size(); i++) {
-            this.carritoVO.agregarProducto(sesion.get(i));
-        }
+        if (sesion != null) {
+            for (int i = 0; i < sesion.size(); i++) {
+                this.carritoVO.agregarProducto(sesion.get(i));
+            }
         }
         System.out.println(producto.get(1));
-        String query = "select id from Tiendas where nombre='"+producto.get(1)+"'";
-
+        String query = "select id from Tiendas where nombre='" + producto.get(1) + "'";
 
         try {
-            int id=0;
-            
+            int id = 0;
+
             //PreparedStatement preparedStmt = null;
             Statement st = this.conexion.createStatement();
             ResultSet rs = st.executeQuery(query);
 
             ArrayList carro = new ArrayList();
             ProductoVO prod = new ProductoVO();
-            
-            while (rs.next()){
-            id=rs.getInt(1);
+
+            while (rs.next()) {
+                id = rs.getInt(1);
             }
-            
+
             query = "select * from productos where nombre='" + producto.get(0) + "' and tienda=" + id;
-            
-            rs =st.executeQuery(query);
+
+            rs = st.executeQuery(query);
 
             if (rs != null) {
 
@@ -71,14 +73,16 @@ public class CarritoDAO {
                         prod.setPrecio(rs.getInt(4));
                         prod.setCantidad((int) producto.get(2));
                         prod.setTienda(rs.getInt(7));
-                        System.out.println("AIDI:"+rs.getInt(7));
+                        System.out.println("AIDI:" + rs.getInt(7));
 
                     }
                     carritoVO.agregarProducto(prod);
                     b = true;
                     return carritoVO.getProductos();
-                } else {
+
+                } else if (this.carritoVO.getProductos() != null) {
                     int i = 0;
+                    int a = 0;
                     for (i = 0; i < carritoVO.getProductos().size(); i++) {
                         //Aumenta la cantidad del producto ya ingresado
                         if (producto.get(0).equals(carritoVO.getProductos().get(i).getNombre())) {
@@ -86,26 +90,28 @@ public class CarritoDAO {
                             int cant2 = (int) producto.get(2);
                             carritoVO.getProductos().get(i).setCantidad(cant + cant2);
 
+                        } else {
+                            a++;
                         }
 
                     }
 
-                    if (i == carritoVO.getProductos().size()) {
-                        
+                    if (a == carritoVO.getProductos().size()) {
+
                         while (rs.next()) {
 
-                        prod.setID(rs.getString(1));
-                        prod.setNombre(rs.getString(2));
-                        prod.setCategoria(rs.getString(3));
-                        prod.setPrecio(rs.getInt(4));
-                        prod.setCantidad((int) producto.get(2));
-                        prod.setTienda(rs.getInt(7));
+                            prod.setID(rs.getString(1));
+                            prod.setNombre(rs.getString(2));
+                            prod.setCategoria(rs.getString(3));
+                            prod.setPrecio(rs.getInt(4));
+                            prod.setCantidad((int) producto.get(2));
+                            prod.setTienda(rs.getInt(7));
 
-                    }
-                    carritoVO.agregarProducto(prod);
-                    b = true;
-                    return carritoVO.getProductos();
-                        
+                        }
+                        carritoVO.agregarProducto(prod);
+                        b = true;
+                        return carritoVO.getProductos();
+
                     }
 
                 }
@@ -127,6 +133,8 @@ public class CarritoDAO {
         ProductoVO productos = new ProductoVO();
         ArrayList<ProductoVO> productosVO = carritoVO.getProductos();
         int x = 0;
+        
+        
         for (int i = 0; i < productosVO.size(); i++) {
             productos = productosVO.get(i);
             x = productos.getPrecio() + x;
@@ -151,26 +159,27 @@ public class CarritoDAO {
         }
         int x = 0;
         for (int i = 0; i < carritoVO.getProductos().size(); i++) {
-            x = x + carritoVO.getProductos().get(i).getCantidad();
+            x = x + (carritoVO.getProductos().get(i).getCantidad() * carritoVO.getProductos().get(i).getPrecio());
         }
         String xs = Integer.toString(x);
         return xs;
 
     }
 
-    public void borrar(String ID, ArrayList<ProductoVO> CarroSesion) {
+    public ArrayList<ProductoVO> borrar(String ID, ArrayList<ProductoVO> CarroSesion) {
         for (int i = 0; i < CarroSesion.size(); i++) {
             this.carritoVO.agregarProducto(CarroSesion.get(i));
         }
-        
+
         for (int i = 0; i < carritoVO.getProductos().size(); i++) {
-            
-            if(ID.equals(carritoVO.getProductos().get(i).getID())){
+
+            if (ID.equals(carritoVO.getProductos().get(i).getID())) {
                 carritoVO.getProductos().remove(i);
-            
+
             }
-            
+
         }
+        return carritoVO.getProductos();
 
     }
 
