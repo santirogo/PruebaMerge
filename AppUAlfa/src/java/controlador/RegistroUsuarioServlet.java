@@ -63,8 +63,9 @@ public class RegistroUsuarioServlet extends HttpServlet {
             if (partesCorreo[1].equalsIgnoreCase("correo.usa.edu.co")) {
 //                this.numero = (int) (Math.random()*10000)+1;
                 this.correo = new EnviarMail();
-                String cod = this.correo.getCod();
-                EnviarMail.sendMail(toSend,cod);
+                this.correo.sendMail(toSend);
+//                String cod = this.correo.getCod();
+//                EnviarMail.sendMail(toSend,cod);
 
                 json.put("confirmacion", "ok");
 

@@ -8,30 +8,54 @@ $(document).ready(function(){
         data: {opcion:opcion},
         dataType: 'json',
         success: function (data) {
-            console.log(data.nombre);
+//            console.log(data.nombre);
             var i = 0;
-            for (i = 0; i < data.Productos.length; i++) {
-                console.log(data.Productos[i].nombre);
-                console.log(data.Productos[i].precio);
+//            for (i = 0; i < data.Productos.length; i++) {
+//                console.log(data.Productos[i].nombre);
+//                console.log(data.Productos[i].precio);
                 $('#carlos').append(
-                        
                         //"<a href = 'seleccionProducto.jsp'><button class='btn' onclick='sendName(" + data.Productos[i].nombre + ")'>\n\"",
-                        "<p>" + data.Productos[i].nombre + "</p><p>" + data.Productos[i].cantidad + "</p><p>" + data.Productos[i].precio + "</p><br>",
-                        "<form>",
-                        "<input type='text' id='opcion' value='2' style='display: none'>",
-                        "<input type='text' id='idprod' value='" + data.Productos[i].ID + "' style='display: none'>",
-                        "<input type='submit'>",
-                        "</form>"
+//                        "<p>" + data.Productos[i].nombre + "</p><p>" + data.Productos[i].cantidad + "</p><p>" + data.Productos[i].precio + "</p><br>",
+//                        "<form>",
+//                        "<input type='text' id='opcion' value='2' style='display: none'>",
+//                        "<input type='text' id='idprod' value='" + data.Productos[i].ID + "' style='display: none'>",
+//                        "<input type='submit'>",
+//                        "</form>"
                         
                         );
-
-            }
+//
+//            }
 
         },
         error: function () {
             $('#ack').val("ERROR FATAL");
         }
     });
+
+
+
+    function mifuncion(){
+
+            var opcion1 = "3";
+            var comment =$('#comment').val();
+            var pos = map.getCenter();
+            console.log(pos);
+
+            $.ajax({
+                url:'InfoCheckOutServlet',
+                type:'GET',
+                data:{opcion1:opcion1, comment:comment, pos:pos},
+                dataType: 'json',
+                success: function(data) {
+                    console.log("Info enviada");
+
+                },
+                error: function(){
+                    console.log("Se jodio papá");
+                    $('#ack').val("ERROR FATAL");
+                }
+            });
+    };
     
 });
 
@@ -96,4 +120,4 @@ $(document).ready(function(){
                     $('#ack').val("ERROR FATAL");
                 }
             });
-    };
+};

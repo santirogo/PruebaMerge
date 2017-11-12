@@ -147,7 +147,7 @@
 
             <!--<h1 class="sticky" >AppuMart</h1>-->
             <!--<center><div><img src="Pictures/AppuTexto.png"></div></center>-->
-            <center><div><img src="Pictures/AppuMartLogo.png" style="width: 30%; height: 30%;"></div></center>
+            <center><div><img src="Pictures/AppuMartLogo.png" style="width: 30%; height: 30%; margin-top: -45px; margin-bottom: -40px;"></div></center>
             <hr>
 
             <!--<h2>Nuestras Tiendas</h2>-->

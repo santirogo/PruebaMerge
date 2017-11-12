@@ -137,9 +137,10 @@ public class RegistrarVendedorServlet extends HttpServlet {
                 json.put("sergista", "si");
 
                 sender = new EnviarMail();
-                String cod = sender.getCod();
+                sender.sendMail(correo);
+//                String cod = sender.getCod();
                 //session.setAttribute("codigo", cod);
-                EnviarMail.sendMail(correo,cod);
+//                EnviarMail.sendMail(correo,cod);
                 //if (request.getParameter("codigo") != null) {
                 //  System.out.println("I got the coooooode");
 
@@ -152,8 +153,6 @@ public class RegistrarVendedorServlet extends HttpServlet {
             }
             out.print(json);
 
-        } catch (MessagingException ex) {
-            Logger.getLogger(RegistrarVendedorServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(RegistrarVendedorServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

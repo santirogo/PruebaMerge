@@ -5,6 +5,7 @@
  */
 
 $(document).ready(function (){
+    
     $("#boton").click(function (){
         correo = $("#correo").val();
         pass = $("#pass").val();
