@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
     <servlet>
-        <servlet-name>IndexServlet</servlet-name>
-        <servlet-class>controlador.IndexServlet</servlet-class>
+        <servlet-name>MainMenuServlet</servlet-name>
+        <servlet-class>controlador.MainMenuServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SeleccionTiendaServlet</servlet-name>
@@ -32,6 +36,7 @@
         <servlet-name>RegistroUsuarioServlet</servlet-name>
         <servlet-class>controlador.RegistroUsuarioServlet</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>RegistrarVendedorServlet</servlet-name>
         <servlet-class>controlador.RegistrarVendedorServlet</servlet-class>
@@ -40,6 +45,7 @@
         <servlet-name>LoginVendedorServlet</servlet-name>
         <servlet-class>controlador.LoginVendedorServlet</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>MostrarTiendaServlet</servlet-name>
         <servlet-class>controlador.MostrarTiendaServlet</servlet-class>
@@ -95,6 +101,10 @@
     <servlet-mapping>
         <servlet-name>EditarCompradorServlet</servlet-name>
         <url-pattern>/EditarCompradorServlet</url-pattern>
+    </servlet-mapping>   
+    <servlet-mapping>
+        <servlet-name>MainMenuServlet</servlet-name>
+        <url-pattern>/MainMenuServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MostrarTiendaServlet</servlet-name>
@@ -116,17 +126,11 @@
         <servlet-name>CerrarSesionServlet</servlet-name>
         <url-pattern>/CerrarSesionServlet</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CerrarSesionServlet</servlet-name>
-        <url-pattern>/CerrarSesionServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>IndexServlet</servlet-name>
-        <url-pattern>/IndexServlet</url-pattern>
-    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
 </web-app>
+    
+
