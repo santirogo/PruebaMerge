@@ -35,11 +35,13 @@ public class EditarTiendaServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             this.tienda = new TiendaDAO();
             
-            System.out.println("HOLLAAAAA");
+            System.out.println("HOLLAAAAA EDITAR TIENDA SERVLET");
             
             int opcion = Integer.parseInt(request.getParameter("opcion"));
             String celular = request.getParameter("celular");
+            System.out.println("Celular: "+celular);
             int id = this.tienda.obtenerId(celular);
+            System.out.println("Id: "+id);
             
             if (opcion == 1) {
                 String nombre = request.getParameter("nombre");
