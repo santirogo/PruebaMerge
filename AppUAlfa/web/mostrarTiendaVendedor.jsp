@@ -23,7 +23,6 @@
                 /*background-color: #f1f1f1;*/
                 /*font-family: 'carrito.ttf';*/
             }
-            
             .avatar{
                 width:150px;
                 height:150px;
@@ -42,8 +41,6 @@
                 margin-left: -33px;
                 margin-top: -30px;
             }
-
-
             .div-img .img {
                 -webkit-border-radius: 10px;
                 -moz-border-radius: 10px;
@@ -58,15 +55,39 @@
                 -ms-transition: all 500ms ease-in-out;
                 -o-transition: all 500ms ease-in-out;
             }
-            
             #nombre2{
                 font-family: 'carrito.ttf';
             }
-            
+            .sin{
+                border-radius: 3px;
+            }
+            .sin:hover{
+                /*box-shadow: 2px 2px 5px #000000;*/
+                color: #000000;
+            }
+            #menu{
+                color: #999;
+            }
         </style>
+        <script>
+            function cerrarSesion() {
+                $.ajax({
+                    url: 'CerrarSesionServlet',
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log("Cerrando Sesion");
+                        window.location.href = "index.jsp";
+                    },
+                    error: function () {
+                    }
+                });
+            }
+            ;
+        </script>
     </head>
     <body>
-        
+
         <%HttpSession mySession = request.getSession();
             VendedorVO vo = (VendedorVO) mySession.getAttribute("vendedor");
         %>
@@ -75,7 +96,7 @@
         <%if (vo == null) {%>
         <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.jsp">
         <%}%>
-        
+
         <!-- Wrapper -->
         <div id="wrapper" style="padding-bottom: 0px">
 
@@ -90,9 +111,9 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="mostrarProductosBodega.jsp">Ver Mis Productos</a></li>
-                        <li><a href="editarTienda.jsp">Editar Mi Tienda</a></li>
-                        <li><div onclick='cerrarSesion()' style="cursor: pointer" id="out"><a>Cerrar Sesion</a></div></li>
+                        <li style="background-color: #087eac;" class="sin"><a href="mostrarProductosBodega.jsp">Ver Mis Productos</a></li>
+                        <li style="background-color: #fff" class="sin"><a href="editarTienda.jsp" id="menu">Editar Mi Tienda</a></li>
+                        <li style="background-color: #e30020" class="sin"><div onclick='cerrarSesion()' style="cursor: pointer" id="out"><a>Cerrar Sesion</a></div></li>
                     </ul>
                 </nav>
             </header>

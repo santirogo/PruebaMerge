@@ -6,7 +6,6 @@
         <script type="text/javascript" src="seleccionProductoAjax.js"></script>
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
 
-
         <title id="xx"></title>
 
 
@@ -43,35 +42,29 @@
                 box-sizing: border-box;
                 font-family: 'carrito.ttf';
             }
-
             body {
                 background-color: #f1f1f1;
                 padding: 10px;
                 font-family: Arial;
             }
-
             /* Center website */
             .main {
                 max-width: 800px;
                 margin: auto;
             }
-
             h1 {
                 font-size: 50px;
                 word-break: break-all;
                 font-family: 'font.ttf';
             }
-
             .row {
                 margin: 10px -16px;
             }
-
             /* Add padding BETWEEN each column */
             .row,
             .row > .column {
                 padding: 5px;
             }
-
             /* Create three equal columns that floats next to each other */
             .column {
                 float: left;
@@ -79,17 +72,14 @@
                 /*width: 70%;
                 margin: auto;
                 float: none;*/
-
                 /*display: none;*/ /* Hide all elements by default */
             }
-
             /* Clear floats after rows */ 
             .row:after {
                 content: "";
                 display: table;
                 clear: both;
             }
-
             /* Content */
             .content {
                 border-radius: 50px 50px 10px 10px;
@@ -100,7 +90,6 @@
             .content2 {
                 padding: 0 0 0 0;
             }
-
             /* The "show" class is added to the filtered elements */
             .show {
                 display: block;
@@ -108,7 +97,6 @@
             img {
                 border-radius: 50px 50px 0 0;
             }
-
             .footer {
                 position: fixed;
                 left: 0;
@@ -118,7 +106,6 @@
                 color: white;
                 text-align: center;
             }
-
             .vendedor{
                 font-size: 10px
             }
@@ -127,7 +114,6 @@
                 font-size: 30px;
                 margin-top: 5px; /*ESTO*/
                 margin-bottom: 0px; /*ESTO*/
-
             }
             .empresa{
                 font-size: 25px;
@@ -183,7 +169,7 @@
                 float: left;
                 -webkit-transition:all 500ms ease;
                 -o-transition:all 500ms ease;
-                transition:all 500ms ease; /* Establecemos una transiciÃ³n a todas las propiedades */
+                transition:all 500ms ease; /* Establecemos una transición a todas las propiedades */
                 /*position: absolute;
                 top: 5%;*/
             }
@@ -208,7 +194,6 @@
                 text-align: center;
                 /*onclick='this.value""'*/
             } 
-
             /*Move Return Tiendas*/
             .container {
                 /*width: 200px;
@@ -225,7 +210,6 @@
                 overflow: hidden;
             }
             .div-img .img {
-
                 margin-left: auto;
                 margin-right: auto;
                 width: 100%;
@@ -274,7 +258,6 @@
                 position: relative;
                 display: inline-block;
             }
-
             .tooltip .tooltiptext {
                 visibility: hidden;
                 width: 120px;
@@ -292,7 +275,6 @@
                 transition: opacity 1s;
                 -moz-transition: all 1.5s; -webkit-transition: all 1.5s; transition: all 1.5s; 
             }
-
             .tooltip .tooltiptext::after {
                 content: "";
                 position: absolute;
@@ -303,7 +285,6 @@
                 border-style: solid;
                 border-color: #555 transparent transparent transparent;
             }
-
             .tooltip:hover .tooltiptext {
                 visibility: visible;
                 opacity: 1;
@@ -311,13 +292,13 @@
             /*Mensaje*/
             /*Carrito*/
             .social {
-                position: fixed; /* Hacemos que la posiciÃ³n en pantalla sea fija para que siempre se muestre en pantalla*/
+                position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
                 right: 40px; /* Establecemos la barra en la izquierda */
                 top: 40%; /* Bajamos la barra 200px de arriba a abajo */
                 /*left: 95%;*/
                 transform: translate(40%, 40%); 
                 -webkit-transform: translate(40%, 40%);
-                z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algÃºn otro elemento como sliders, galerÃ­as, etc */
+                z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
             }
             .social ul {
                 list-style: none;
@@ -331,7 +312,7 @@
                 text-decoration: none;
                 -webkit-transition:all 500ms ease;
                 -o-transition:all 500ms ease;
-                transition:all 500ms ease; /* Establecemos una transiciÃ³n a todas las propiedades */
+                transition:all 500ms ease; /* Establecemos una transición a todas las propiedades */
             }
             .social ul li .icon-carrito {
                 background:#3b5998;  
@@ -367,7 +348,7 @@
         <div class="social">
             <ul>
                 <li>
-                    <a href="infocarrito2.jsp" target="_blank"><img src="Pictures/Carrito.png" style="width: 100px; height: 100px"></a>
+                    <a href="infocarrito2.jsp"><img src="Pictures/Carrito.png" style="width: 100px; height: 100px"></a>
                 </li>
             </ul>
         </div>
@@ -384,8 +365,9 @@
             <div class="row" id="div">
                 <!-- END GRID -->
             </div>
-            <p id="na" style="text-align: center;"><i class="fa fa-exclamation-circle"></i> No hay mas productos por mostrar <i class="fa fa-exclamation-circle"></i></p>
-
+            <!--<p id="na" style="text-align: center;"><i class="fa fa-exclamation-circle"></i> No hay mas productos por mostrar <i class="fa fa-exclamation-circle"></i></p>
+            -->
+            
             <hr style="margin-top: 20px">
 
             <div class="footer">
@@ -395,9 +377,8 @@
                     <span class="tooltiptext">Volver Al Menu Principal</span>
                 </div>
             </div>
-
+            
         </div>
         <!--WebSite Fin -->
     </body>
 </html>
-
