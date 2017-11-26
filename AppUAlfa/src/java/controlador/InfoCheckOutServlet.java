@@ -8,6 +8,7 @@ package controlador;
 import com.google.gson.Gson;
 import dao.CarritoDAO;
 import dao.EnviarMail;
+import dao.PedidosDAO;
 import dao.ProductoDAO;
 import dao.TiendaDAO;
 import dao.UsuarioDAO;
@@ -24,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import vo.PedidosVO;
 import vo.ProductoVO;
 
 /**
@@ -64,6 +66,8 @@ public class InfoCheckOutServlet extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
 
             CarritoDAO carrito = new CarritoDAO();
+            PedidosVO pedidoVO= new PedidosVO();
+            PedidosDAO pedidoDAO=new PedidosDAO();
             ProductoVO productos = new ProductoVO();
             ArrayList<ProductoVO> Arreglo = new ArrayList();
             UsuarioDAO user = new UsuarioDAO();
@@ -111,8 +115,12 @@ public class InfoCheckOutServlet extends HttpServlet {
                     
 //                    cadena.add(usuario);
                     
+                    String orden="";
+                    String ordenped="";
+
                     for (int j = 0; j < prod.size(); j++) {
-                        String orden = "| "+"Producto: " + prod.get(j).getNombre() + " | "+"Cantidad: " + Integer.toString(prod.get(j).getCantidad()) + " | "+"Precio: " + Integer.toString(prod.get(j).getPrecio())+ " | ";
+                        orden = "| "+"Producto: " + prod.get(j).getNombre() + " | "+"Cantidad: " + Integer.toString(prod.get(j).getCantidad()) + " | "+"Precio: " + Integer.toString(prod.get(j).getPrecio())+ " | ";
+                        ordenped="| "+"Producto: " + prod.get(j).getNombre() + " | "+"Cantidad: " + Integer.toString(prod.get(j).getCantidad()) + " | "+"Precio: " + Integer.toString(prod.get(j).getPrecio())+ "\n";
                         //String orden = "" + "Papitas" + "" + "2" + "" + "100";
                         System.out.println("PRODUCTO "+j+": "+orden);
                         cadena.add(orden);
@@ -123,7 +131,7 @@ public class InfoCheckOutServlet extends HttpServlet {
                     
                     System.out.println("idtienda:"+prod.get(0).getTienda());
 //                    correo = tienda.CorreoTienda(prod.get(0).getTienda());
-                    //correo = mail.CorreoTienda(1);
+                    correo = mail.CorreoTienda(1);
                     System.out.println("Correo:"+correo);
                     String pedido="";
                     for (int j = 0; j < cadena.size(); j++) {
@@ -140,6 +148,15 @@ public class InfoCheckOutServlet extends HttpServlet {
                     session.setAttribute("carrito", null);
                     System.out.println("-------------CORREO ENVIADO-------------");
                 
+                    
+                    pedidoVO.setID(correo + (pedidoDAO.count(correo)+1));
+                        pedidoVO.setVendedor(correo);
+                        pedidoVO.setComprador(correoSesion);
+                        pedidoVO.setProductos(ordenped);
+                        pedidoVO.setComentario(comentario);
+                        pedidoVO.setChecker(false);
+                        
+                    pedidoDAO.insert(pedidoVO);
             }
 
         } catch (Exception ex) {
