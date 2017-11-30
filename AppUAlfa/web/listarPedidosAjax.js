@@ -22,7 +22,7 @@ $(document).ready(function () {
                     console.log(data.pedidos[i].checker);
 
                     if (data.pedidos[i].checker === "true") {
-
+                        
                         $('#ped').append(
                                 "<div class='column nature' style='cursor:pointer' onclick='sendID('" + data.pedidos[i].id + "')' id='res'>" + data.pedidos[i].comprador + "</div>",
                                 );
@@ -36,9 +36,9 @@ $(document).ready(function () {
                     console.log(data.pedidos[i].checker);
                     
                     if (data.pedidos[i].checker === "false") {
-
+                        console.log("Entro el if");
                         $('#ped').append(
-                                "<div><button onclick=sendID('" + data.pedidos[i].id + "')>" + data.pedidos[i].comprador + "</button></div>",
+                                "<div><button style='background-color: #087eac;' onclick=sendID('" + data.pedidos[i].id + "')>" + data.pedidos[i].comprador + "</button></div>",
                                 );
                     }
                 }

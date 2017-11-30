@@ -56,7 +56,6 @@ public class EnviarMail {
                     new InternetAddress(toAdd));
             message.setSubject("Verificación de cuenta");
             message.setText("Tu código: "+this.cod);
-
             // Lo enviamos.
             Transport t = session.getTransport("smtp");
             t.connect("appumartsw@gmail.com", "dondetusicompras");

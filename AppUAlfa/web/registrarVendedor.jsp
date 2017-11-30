@@ -91,7 +91,7 @@
                     <p>Ingresa el c�digo que enviamos a tu correo: </p><input type='text' class="btn" id ='codigo'>
                     <input type='button' id ='confirmar' value ='confirmar'></div><br>
                 <div id="oculto2">
-                    <a href="http://localhost:8080/AppuMart/loginVendedor.jsp"><button><p>�Registrarme!</p></button></a>
+                    <a href="CreacionTienda.jsp"><button><p>�Registrarme!</p></button></a>
                 </div>
 
 </html>
